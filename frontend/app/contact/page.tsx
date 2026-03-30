@@ -10,7 +10,6 @@ const cooper = localFont({
 });
 
 export default function ContactPage() {
-  // Main form state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,61 +17,85 @@ export default function ContactPage() {
     message: ''
   });
 
-  // Modal and Outcome state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState({
-    timeline: '',
-    wantsChat: ''
+    q1: '', 
+    q2: ''  
   });
   const [outcome, setOutcome] = useState<null | 'calendar' | 'email' | 'nothing'>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Update main form state
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Update modal state
   const handleModalChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setModalData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Triggered when clicking "Send Message" on the main page
   const handleInitialSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsModalOpen(true); // Open the popup instead of submitting immediately
+    setIsModalOpen(true); 
   };
 
-  // Triggered when submitting the modal
-  const handleFinalSubmit = (e: React.FormEvent) => {
+  const handleFinalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // ----------------------------------------------------
-    // LOGIC TO DETERMINE OUTCOME
-    // ----------------------------------------------------
     let finalOutcome: 'calendar' | 'email' | 'nothing' = 'email';
 
-    if (modalData.timeline === 'just_browsing' || modalData.wantsChat === 'no') {
-      finalOutcome = 'nothing'; // e.g., We just capture their info silently or send a generic auto-reply
-    } else if (modalData.timeline === 'immediately' && modalData.wantsChat === 'yes') {
-      finalOutcome = 'calendar'; // Hot lead! Route to calendar
-    } else {
-      finalOutcome = 'email'; // Standard follow-up
+    if (formData.role === 'recruiter') {
+      if (modalData.q1 === 'browsing' || modalData.q2 === 'no') {
+        finalOutcome = 'nothing'; 
+      } else if (modalData.q1 === 'active' && modalData.q2 === 'yes') {
+        finalOutcome = 'calendar'; 
+      } else {
+        finalOutcome = 'email'; 
+      }
+    } 
+    else if (formData.role === 'agency') {
+      if (modalData.q1 === 'pipeline' || modalData.q2 === 'no') {
+        finalOutcome = 'nothing'; 
+      } else if (modalData.q1 === 'immediate' && modalData.q2 === 'yes') {
+        finalOutcome = 'calendar'; 
+      } else {
+        finalOutcome = 'email'; 
+      }
     }
 
-    setOutcome(finalOutcome);
+    const payload = {
+      ...formData,
+      ...modalData,
+      outcome: finalOutcome
+    };
 
-    // TODO: Send data to your API/Backend here
-    console.log('Final Submission Data:', { ...formData, ...modalData, outcome: finalOutcome });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setOutcome(finalOutcome);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  // Close modal and reset form
   const handleCloseAndReset = () => {
     setIsModalOpen(false);
     setOutcome(null);
     setFormData({ name: '', email: '', role: '', message: '' });
-    setModalData({ timeline: '', wantsChat: '' });
+    setModalData({ q1: '', q2: '' });
   };
 
   return (
@@ -83,10 +106,8 @@ export default function ContactPage() {
             Reach <span className="italic text-white">Out!</span>
           </h1>
 
-          {/* Heavy Border Container matching the Candidates style */}
           <div className="flex flex-col md:flex-row gap-12 bg-white p-8 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             
-            {/* --- Left Column: Contact Information --- */}
             <div className="w-full md:w-1/2 flex flex-col justify-start space-y-8">
               <div>
                 <h2 className={`${cooper.className} text-5xl text-black mb-4`}>Say Hello👋</h2>
@@ -103,10 +124,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* --- Right Column: Contact Form --- */}
             <div className="w-full md:w-1/2">
               <form onSubmit={handleInitialSubmit} className="space-y-6">
-                {/* Full Name */}
                 <div>
                   <label htmlFor="name" className="block text-lg font-bold text-black mb-2">Full Name</label>
                   <input
@@ -117,11 +136,9 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                    placeholder="John Doe"
                   />
                 </div>
 
-                {/* Email Address */}
                 <div>
                   <label htmlFor="email" className="block text-lg font-bold text-black mb-2">Email Address</label>
                   <input
@@ -132,11 +149,9 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                    placeholder="john@example.com"
                   />
                 </div>
 
-                {/* Role Selector */}
                 <div>
                   <label htmlFor="role" className="block text-lg font-bold text-black mb-2">I am a...</label>
                   <select
@@ -153,7 +168,6 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-lg font-bold text-black mb-2">Your Message</label>
                   <textarea
@@ -164,7 +178,6 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all resize-none placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                    placeholder="How can we help you?"
                   />
                 </div>
 
@@ -176,7 +189,6 @@ export default function ContactPage() {
                 </button>
               </form>
             </div>
-            
           </div>
         </div>
       </section>
@@ -186,60 +198,67 @@ export default function ContactPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white border-4 border-black p-8 max-w-lg w-full shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] animate-in fade-in zoom-in duration-200">
             
-            {/* If outcome is not decided yet, show the questions */}
             {!outcome ? (
               <form onSubmit={handleFinalSubmit} className="space-y-6">
                 <h3 className={`${cooper.className} text-3xl text-black mb-2`}>Just a few more details...</h3>
                 <p className="text-black/80 font-medium mb-6">This helps us point you in the right direction.</p>
 
-                {/* Question 1: Urgency */}
-                <div>
-                  <label htmlFor="timeline" className="block text-lg font-bold text-black mb-2">What is your timeline?</label>
-                  <select
-                    name="timeline"
-                    value={modalData.timeline}
-                    onChange={handleModalChange}
-                    required
-                    className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer
-                      ${modalData.timeline === "" ? "text-gray-400" : "text-black"}`}
-                  >
-                    <option value="" disabled className="text-gray-400">Select timeline</option>
-                    <option value="immediately" className="text-black">Immediately (Active)</option>
-                    <option value="1_to_3_months" className="text-black">1 - 3 Months (Passive)</option>
-                    <option value="just_browsing" className="text-black">Just browsing</option>
-                  </select>
-                </div>
+                {/* --- RECRUITER QUESTIONS --- */}
+                {formData.role === 'recruiter' && (
+                  <>
+                    <div>
+                      <label htmlFor="q1" className="block text-lg font-bold text-black mb-2">What is your current situation?</label>
+                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
+                        <option value="" disabled className="text-gray-400">Select status</option>
+                        <option value="active" className="text-black">Actively looking to move</option>
+                        <option value="passive" className="text-black">Passively open to offers</option>
+                        <option value="browsing" className="text-black">Just browsing</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="q2" className="block text-lg font-bold text-black mb-2">Would you like a confidential chat?</label>
+                      <select name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                        <option value="" disabled className="text-gray-400">Select preference</option>
+                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="no" className="text-black">No, just email me</option>
+                      </select>
+                    </div>
+                  </>
+                )}
 
-                {/* Question 2: Chat preference */}
-                <div>
-                  <label htmlFor="wantsChat" className="block text-lg font-bold text-black mb-2">Would you like to schedule a quick call?</label>
-                  <select
-                    name="wantsChat"
-                    value={modalData.wantsChat}
-                    onChange={handleModalChange}
-                    required
-                    className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer
-                      ${modalData.wantsChat === "" ? "text-gray-400" : "text-black"}`}
-                  >
-                    <option value="" disabled className="text-gray-400">Select preference</option>
-                    <option value="yes" className="text-black">Yes, let's talk</option>
-                    <option value="no" className="text-black">No, just email me</option>
-                  </select>
-                </div>
+                {/* --- AGENCY QUESTIONS --- */}
+                {formData.role === 'agency' && (
+                  <>
+                    <div>
+                      <label htmlFor="q1" className="block text-lg font-bold text-black mb-2">When are you looking to hire?</label>
+                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
+                        <option value="" disabled className="text-gray-400">Select timeline</option>
+                        <option value="immediate" className="text-black">Immediately</option>
+                        <option value="next_quarter" className="text-black">Within the next quarter</option>
+                        <option value="pipeline" className="text-black">Just building a pipeline</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="q2" className="block text-lg font-bold text-black mb-2">Would you like to schedule a discovery call?</label>
+                      <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                        <option value="" disabled className="text-gray-400">Select preference</option>
+                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="no" className="text-black">No, just email me</option>
+                      </select>
+                    </div>
+                  </>
+                )}
 
                 <div className="flex gap-4 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="w-1/3 bg-white text-black font-bold py-3 px-4 border-4 border-black hover:bg-gray-100 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                  >
+                  <button type="button" onClick={() => setIsModalOpen(false)} className="w-1/3 bg-white text-black font-bold py-3 px-4 border-4 border-black hover:bg-gray-100 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     Cancel
                   </button>
-                  <button
-                    type="submit"
-                    className={`w-2/3 bg-black text-white ${cooper.className} text-lg py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all`}
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className={`w-2/3 bg-black text-white ${cooper.className} text-lg py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed transition-all`}
                   >
-                    Submit
+                    {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>
                 </div>
               </form>
@@ -251,10 +270,7 @@ export default function ContactPage() {
                 {outcome === 'calendar' && (
                   <>
                     <h3 className={`${cooper.className} text-4xl text-black`}>Let's Chat! 📅</h3>
-                    <p className="text-lg font-medium text-black/80">
-                      We'd love to speak with you right away. Pick a time on our calendar below.
-                    </p>
-                    {/* Add your Calendly or booking link here */}
+                    <p className="text-lg font-medium text-black/80">We'd love to speak with you right away. Pick a time on our calendar below.</p>
                     <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-xl py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
                       Book a Time
                     </a>
@@ -264,25 +280,18 @@ export default function ContactPage() {
                 {outcome === 'email' && (
                   <>
                     <h3 className={`${cooper.className} text-4xl text-black`}>Got it! 📧</h3>
-                    <p className="text-lg font-medium text-black/80">
-                      Thanks for reaching out. We've received your info and will send you an email shortly!
-                    </p>
+                    <p className="text-lg font-medium text-black/80">Thanks for reaching out. We've received your info and will send you an email shortly!</p>
                   </>
                 )}
 
                 {outcome === 'nothing' && (
                   <>
                     <h3 className={`${cooper.className} text-4xl text-black`}>Thanks! 🙌</h3>
-                    <p className="text-lg font-medium text-black/80">
-                      We appreciate you dropping by. We'll be in touch soon!
-                    </p>
+                    <p className="text-lg font-medium text-black/80">We appreciate you dropping by. We'll be in touch soon!</p>
                   </>
                 )}
 
-                <button
-                  onClick={handleCloseAndReset}
-                  className="mt-6 font-bold text-black underline decoration-2 underline-offset-4 hover:text-[#ffa4bb]"
-                >
+                <button onClick={handleCloseAndReset} className="mt-6 font-bold text-black underline decoration-2 underline-offset-4 hover:text-[#ffa4bb]">
                   Close Window
                 </button>
               </div>
