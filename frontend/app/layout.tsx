@@ -48,7 +48,7 @@ export default function RootLayout({
         <HeroStageProvider>
           <NavMobile />
           <Nav />
-          {children}
+          <div className="pt-16 md:pt-14">{children}</div>
           <Footer />
         </HeroStageProvider>
       </body>

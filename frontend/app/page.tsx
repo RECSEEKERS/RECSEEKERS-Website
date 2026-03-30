@@ -48,10 +48,9 @@ const NetworkIcon = () => (
 
 export default async function HomePage() {
   return (
-    <main className="relative w-full bg-white">
+    <main className="relative -mt-16 md:-mt-16 w-full bg-white">
       {/* --- HERO SECTION --- */}
-      {/* CHANGED: Replaced min-h-screen with h-[120vh] to provide scroll depth */}
-      <div className="relative h-[120vh]">
+      <div className="relative h-[112dvh] md:h-[120vh]">
         <HeroSection />
       </div>
       
