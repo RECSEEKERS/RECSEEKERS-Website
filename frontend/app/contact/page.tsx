@@ -122,6 +122,20 @@ export default function ContactPage() {
                   <span>+61 0437769683</span>
                 </div>
               </div>
+
+              {/* NEW: Terms & Privacy Disclaimer */}
+              <div className="pt-8 md:pt-16 mt-auto">
+                <p className="text-sm text-black/60 font-medium leading-relaxed max-w-sm">
+                  By submitting this contact form, you're agreeing to the{' '}
+                  <a href="/terms" className="underline hover:text-[#ffa4bb] transition-colors">
+                    Terms & Conditions
+                  </a>
+                  {' '}and{' '}
+                  <a href="/privacy" className="underline hover:text-[#ffa4bb] transition-colors">
+                    Privacy Policy
+                  </a>.
+                </p>
+              </div>
             </div>
 
             <div className="w-full md:w-1/2">
