@@ -100,7 +100,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
         name="speech-bubble"
         size={84}
         delay={0.2}
-        className="absolute top-16 right-2 md:right-10 hidden md:block pointer-events-none"
+        className="absolute top-7 right-1 md:top-16 md:right-10 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
       />
       <DoodleFloat
         name="apple"

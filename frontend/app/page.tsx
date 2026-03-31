@@ -62,7 +62,7 @@ export default async function HomePage() {
           name="paper-plane"
           size={140}
           delay={0.1}
-          className="absolute -top-4 right-2 lg:top-2 lg:right-8 hidden md:block pointer-events-none"
+          className="absolute top-3 right-1 md:-top-4 md:right-2 lg:top-2 lg:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
         <DoodleFloat
           name="pencil-1"
@@ -106,6 +106,12 @@ export default async function HomePage() {
 
       {/* --- Why RecSeekers (Top 5% Positioning) --- */}
       <section className="relative z-20 bg-primary py-18 md:py-22 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+        <DoodleFloat
+          name="speech-bubble"
+          size={90}
+          delay={0.22}
+          className="absolute top-6 right-1 md:top-12 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>
@@ -177,7 +183,7 @@ export default async function HomePage() {
           name="gradcap-2"
           size={96}
           delay={0.38}
-          className="absolute top-16 right-2 lg:right-10 hidden md:block pointer-events-none"
+          className="absolute top-8 right-1 md:top-16 md:right-2 lg:right-10 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
         <DoodleFloat
           name="open-book"
@@ -243,7 +249,7 @@ export default async function HomePage() {
           name="pie-chart"
           size={95}
           delay={0.35}
-          className="absolute top-18 right-2 lg:right-12 hidden md:block pointer-events-none"
+          className="absolute top-6 right-1 md:top-18 md:right-2 lg:right-12 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
 
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -299,6 +305,12 @@ export default async function HomePage() {
       
       {/* --- Contact Section ---*/}
       <section className="relative z-20 bg-white border-t-4 border-black py-16 md:py-28 px-6 md:px-10 flex flex-col items-center">
+        <DoodleFloat
+          name="paper-plane"
+          size={94}
+          delay={0.18}
+          className="absolute top-7 right-1 md:top-10 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="max-w-7xl w-full">
           <h2 className={`text-4xl md:text-5xl mb-10 md:mb-16 text-black ${cooper.className}`}>
             Contact Us
