@@ -47,7 +47,7 @@ export default function AboutPage() {
             name="pencil-2"
             size={92}
             delay={0.12}
-            className="absolute top-1 right-0 md:hidden z-0 pointer-events-none opacity-55"
+            className="absolute -top-2 right-0 md:hidden z-0 pointer-events-none opacity-55"
           />
 
           {/* Secondary desktop accents */}
