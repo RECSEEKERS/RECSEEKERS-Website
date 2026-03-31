@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { FeatureCards } from "@/components/employers/FeatureCards";
 import { BottomCTA } from "@/components/employers/BottomCTA";
 import { TestimonialsSection } from "@/components/employers/TestimonialsSection";
+import { DoodleFloat } from "@/components/ui/DoodleFloat"; // Make sure this path matches your project structure
 
 export default function EmployersPage() {
   return (
@@ -18,9 +19,20 @@ export default function EmployersPage() {
         <div className="absolute bottom-0 left-0 w-100 h-100 rounded-full bg-primary-dark/10 blur-2xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto w-full px-8 pt-24 pb-14 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
+          {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
+          {/* Top Left */}
+          <div className="absolute top-16 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"compass"} size={96} delay={0.1} />
+          </div>
+
+          {/* Bottom Right */}
+          <div className="absolute bottom-12 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"backpack-1"} size={124} delay={1.2} />
+          </div>
 
           {/* ── LEFT: Copy + CTA ── */}
-          <div className="flex flex-col gap-6">
+          <div className="relative z-10 flex flex-col gap-6">
             {/* <p className="text-sm font-semibold tracking-widest uppercase text-primary-dark/70">
               For Hiring Teams
             </p> */}
@@ -39,7 +51,7 @@ export default function EmployersPage() {
               growth targets.
             </p>
 
-            <div className="mt-2 flex justify-center">
+            <div className="mt-2 flex justify-start">
               <Link href="/contact">
                 <Button variant="primary" size="lg">
                   Let&apos;s Talk Hiring
@@ -49,7 +61,7 @@ export default function EmployersPage() {
           </div>
 
           {/* ── RIGHT: Image ── */}
-          <div className="flex justify-center">
+          <div className="relative z-10 flex justify-center">
             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
               {/* Offset border for neo-brutalist feel */}
               <div className="absolute inset-0 rounded-3xl border-4 border-primary-dark translate-x-3 translate-y-3" />
@@ -67,17 +79,28 @@ export default function EmployersPage() {
       </section>
 
       {/* ── WHY WORK WITH US ── */}
-      <section className="min-h-screen flex flex-col justify-center bg-white px-8">
-        <div className="max-w-6xl mx-auto w-full">
+      <section className="relative min-h-screen flex flex-col justify-center border-t-4 border-black bg-white px-8 overflow-hidden">
+        <div className="relative max-w-6xl mx-auto w-full">
+
+          {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
+          {/* Top Right */}
+          <div className="absolute -top-10 -right-14 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"lightbulb"} size={96} delay={0.2} />
+          </div>
+
+          {/* Bottom Left */}
+          <div className="absolute -bottom-10 -left-12 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"atom"} size={124} delay={1.4} />
+          </div>
 
           {/* Section title */}
-          <h2 className={`text-4xl lg:text-5xl text-neutral-900 mb-16 ${cooper.className}`}>
+          <h2 className={`relative z-10 text-4xl lg:text-5xl text-neutral-900 mb-16 ${cooper.className}`}>
             Why work with{" "}
             <span className="text-primary italic">RecSeekers?</span>
           </h2>
 
           {/* Two-column layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
             {/* LEFT: Image */}
             <div className="flex justify-center">

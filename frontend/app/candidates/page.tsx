@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { TestimonialsSection } from "@/components/Candidates/TestimonialsSection";
 import { BottomCTA } from "@/components/Candidates/BottomCTA";
+import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
 // Assuming you have the same profile placeholder and font setup
 const placeHolderProfile = '/profile.png';
@@ -20,38 +21,53 @@ export default function Candidates() {
     <main className="relative w-full bg-white overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
-      <section className="snap-start relative z-20 min-h-[80vh] bg-[#ffa4bb] py-24 px-8 flex flex-col justify-center items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)]">
-      <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* Left Text: Changed to w-1/2 to pull the image in closer */}
-        <div className="w-full md:w-1/2 flex flex-col items-start gap-6">
-          <h1 className={`${cooper.className} text-6xl lg:text-7xl text-black mb-6 leading-tight`}>
-            Find your next role <span className="italic text-white block">with Us!</span>
-          </h1>
+      <section className="snap-start relative z-20 min-h-[80vh] bg-[#ffa4bb] py-24 px-8 flex flex-col justify-center items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)] overflow-hidden">
+      
+        {/* ADDED 'relative' to this container. Moved doodles INSIDE it. */}
+        <div className="relative max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           
-          {/* Removed <br/> and used a cleaner max-width */}
-          <p className="text-lg text-primary-dark/80 max-w-lg leading-relaxed">
-            On the hunt for the perfect agency recruitment job? We believe in helping 
-            talented recruiters fulfill their potential by getting them into the 
-            right industry, company, and role for them.
-            <br /><br />
-            RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
-            with top-tier agencies.
-          </p>
-        </div>
-
-        {/* Right Image: Occupies the other half */}
-        <div className="w-full md:w-1/2 flex justify-end">
-          <div className="relative w-full max-w-md">
-            <Image
-              src="/Illustrations/HelpingPartner2.svg"
-              alt="Career support illustration"
-              width={500}
-              height={500}
-              priority
-            />
+          {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
+          {/* Top Left */}
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"flask-2"} size={96} delay={0.1} />
           </div>
+
+          {/* Bottom Right */}
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"books-3"} size={124} delay={1.2} />
+          </div>
+          
+          {/* Left Text: Changed to w-1/2 to pull the image in closer */}
+          <div className="relative z-10 w-full md:w-1/2 flex flex-col items-start gap-6">
+            <h1 className={`${cooper.className} text-6xl lg:text-7xl text-black mb-6 leading-tight`}>
+              Find your next role <span className="italic text-white block">with Us!</span>
+            </h1>
+            
+            {/* Removed <br/> and used a cleaner max-width */}
+            <p className="text-lg text-primary-dark/80 max-w-lg leading-relaxed">
+              On the hunt for the perfect agency recruitment job? We believe in helping 
+              talented recruiters fulfill their potential by getting them into the 
+              right industry, company, and role for them.
+              <br /><br />
+              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
+              with top-tier agencies.
+            </p>
+          </div>
+
+          {/* Right Image: Occupies the other half */}
+          <div className="relative z-10 w-full md:w-1/2 flex justify-end">
+            <div className="relative w-full max-w-md">
+              <Image
+                src="/Illustrations/HelpingPartner2.svg"
+                alt="Career support illustration"
+                width={500}
+                height={500}
+                priority
+              />
+            </div>
+          </div>
+          
         </div>
-      </div>
       </section>
 
       {/* --- WHAT SETS US APART SECTION --- */}

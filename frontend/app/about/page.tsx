@@ -51,10 +51,10 @@ export default function AboutPage() {
           />
 
           {/* Secondary desktop accents */}
-          <div className="absolute top-2 -left-12 lg:-left-30 xl:-left-36 hidden md:block z-0 pointer-events-none">
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"gradcap-2"} size={96} delay={0.1} />
           </div>
-          <div className="absolute bottom-3 -right-12 lg:-right-28 xl:-right-36 hidden md:block z-0 pointer-events-none">
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"globe"} size={124} delay={1.2} />
           </div>
 
