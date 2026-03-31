@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { BlobField } from "@/components/Blob/Blob";
 import { useHeroStage } from "@/context/HeroStageContext";
 import { cooper } from "@/lib/fonts";
@@ -15,7 +15,6 @@ const BLOB_BLUR_STAGE1  = "0px";      // blur on stage 1 (none — blobs are sha
 const BLOB_BLUR_STAGE2  = "80px";     // blur on stage 2 (settled)
 const BLOB_BLUR_PEAK    = "120px";    // blur at the height of the transition
 const SCROLL_THRESHOLD = 60;
-const MOBILE_SCROLL_THRESHOLD = 90;
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function HeroSection() {
@@ -25,84 +24,144 @@ export function HeroSection() {
   const [blobSize, setBlobSize]       = useState(BLOB_SIZE_STAGE1);
   const { setIsHeroStage1 }           = useHeroStage();
 
-  const stageRef = useRef<1 | 2>(1);
-  const transitioningRef = useRef(false);
+  const hasTransitioned = useRef(false);
+  const accumulated = useRef(0);
+  const touchStartY = useRef<number | null>(null);
+  const scrollLockSnapshot = useRef<{
+    scrollY: number;
+    htmlOverflow: string;
+    htmlHeight: string;
+    htmlOverscrollBehavior: string;
+    bodyOverflow: string;
+    bodyHeight: string;
+    bodyPosition: string;
+    bodyTop: string;
+    bodyWidth: string;
+    bodyOverscrollBehavior: string;
+  } | null>(null);
 
-  const setStageSynced = (nextStage: 1 | 2) => {
-    setStage(nextStage);
-    stageRef.current = nextStage;
+  const lockScroll = () => {
+    if (scrollLockSnapshot.current) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+    const scrollY = window.scrollY;
+
+    scrollLockSnapshot.current = {
+      scrollY,
+      htmlOverflow: html.style.overflow,
+      htmlHeight: html.style.height,
+      htmlOverscrollBehavior: html.style.overscrollBehavior,
+      bodyOverflow: body.style.overflow,
+      bodyHeight: body.style.height,
+      bodyPosition: body.style.position,
+      bodyTop: body.style.top,
+      bodyWidth: body.style.width,
+      bodyOverscrollBehavior: body.style.overscrollBehavior,
+    };
+
+    html.style.overflow = "hidden";
+    html.style.height = "100%";
+    html.style.overscrollBehavior = "none";
+
+    body.style.overflow = "hidden";
+    body.style.height = "100%";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overscrollBehavior = "none";
   };
 
-  const setTransitioningSynced = (nextTransitioning: boolean) => {
-    setTransitioning(nextTransitioning);
-    transitioningRef.current = nextTransitioning;
+  const unlockScroll = () => {
+    const snapshot = scrollLockSnapshot.current;
+    if (!snapshot) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+
+    html.style.overflow = snapshot.htmlOverflow;
+    html.style.height = snapshot.htmlHeight;
+    html.style.overscrollBehavior = snapshot.htmlOverscrollBehavior;
+
+    body.style.overflow = snapshot.bodyOverflow;
+    body.style.height = snapshot.bodyHeight;
+    body.style.position = snapshot.bodyPosition;
+    body.style.top = snapshot.bodyTop;
+    body.style.width = snapshot.bodyWidth;
+    body.style.overscrollBehavior = snapshot.bodyOverscrollBehavior;
+
+    window.scrollTo(0, snapshot.scrollY);
+    scrollLockSnapshot.current = null;
   };
+
+  useLayoutEffect(() => {
+    // Lock before first paint to avoid initial touch/scroll slipping through.
+    window.scrollTo(0, 0);
+    lockScroll();
+
+    return () => {
+      unlockScroll();
+    };
+  }, []);
 
   useEffect(() => {
+    // Keep users in Stage 1 until they intentionally scroll/swipe to transition.
+    lockScroll();
+
     let t1: ReturnType<typeof setTimeout>;
     let t2: ReturnType<typeof setTimeout>;
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const threshold = isMobile ? MOBILE_SCROLL_THRESHOLD : SCROLL_THRESHOLD;
+    function triggerTransition() {
+      if (hasTransitioned.current) return;
+      hasTransitioned.current = true;
 
-    function syncInitialState() {
-      if (window.scrollY > threshold) {
-        setStageSynced(2);
-        setIsHeroStage1(false);
+      setTransitioning(true);
+      setIsHeroStage1(false);
+      setBlobBlur(BLOB_BLUR_PEAK);
+
+      t1 = setTimeout(() => {
+        setStage(2);
         setBlobBlur(BLOB_BLUR_STAGE2);
         setBlobSize(BLOB_SIZE_STAGE2);
-        setTransitioningSynced(false);
-      } else {
-        setStageSynced(1);
-        setIsHeroStage1(true);
-        setBlobBlur(BLOB_BLUR_STAGE1);
-        setBlobSize(BLOB_SIZE_STAGE1);
-        setTransitioningSynced(false);
+      }, 350);
+
+      t2 = setTimeout(() => {
+        setTransitioning(false);
+        unlockScroll();
+      }, 750);
+    }
+
+    function onWheel(e: WheelEvent) {
+      if (hasTransitioned.current) return;
+      if (e.deltaY > 0) {
+        accumulated.current += e.deltaY;
+        if (accumulated.current >= SCROLL_THRESHOLD) {
+          triggerTransition();
+        }
       }
     }
 
-    syncInitialState();
-
-    function onScroll() {
-      const scrollY = window.scrollY;
-
-      if (scrollY > threshold && stageRef.current === 1 && !transitioningRef.current) {
-        setTransitioningSynced(true);
-        setIsHeroStage1(false);
-        setBlobBlur(BLOB_BLUR_PEAK);
-
-        t1 = setTimeout(() => {
-          setStageSynced(2);
-          setBlobBlur(BLOB_BLUR_STAGE2);
-          setBlobSize(BLOB_SIZE_STAGE2);
-        }, 350);
-
-        t2 = setTimeout(() => {
-          setTransitioningSynced(false);
-        }, 750);
-      } else if (scrollY <= threshold && stageRef.current === 2 && !transitioningRef.current) {
-        setTransitioningSynced(true);
-        setIsHeroStage1(true);
-        setBlobBlur(BLOB_BLUR_PEAK);
-
-        t1 = setTimeout(() => {
-          setStageSynced(1);
-          setBlobBlur(BLOB_BLUR_STAGE1);
-          setBlobSize(BLOB_SIZE_STAGE1);
-        }, 350);
-
-        t2 = setTimeout(() => {
-          setTransitioningSynced(false);
-        }, 750);
-      }
+    function onTouchStart(e: TouchEvent) {
+      touchStartY.current = e.touches[0].clientY;
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    function onTouchMove(e: TouchEvent) {
+      if (hasTransitioned.current || touchStartY.current === null) return;
+      const delta = touchStartY.current - e.touches[0].clientY;
+      if (delta > 30) triggerTransition();
+    }
+
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
 
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      unlockScroll();
     };
   }, [setIsHeroStage1]);
 
@@ -170,20 +229,8 @@ export function HeroSection() {
         }}
       >
         {/* Mobile Stage 2: Illustration-first */}
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-sm flex-col items-center justify-start px-6 pt-24 pb-8 md:hidden">
-          <h1 className={`mt-5 text-center text-3xl leading-tight text-black ${cooper.className}`}>
-            We help education agencies hire proven recruiters.
-          </h1>
-
-          <p className="mt-3 text-center text-base leading-relaxed text-black/85 font-medium">
-            Specialist education Rec2Rec connecting top billing consultants, team leaders, and managers across the UK and Australia.
-          </p>
-
-          <p className="mt-2 text-center text-sm leading-relaxed text-black/75 font-semibold">
-            Quality over volume. Built on long-term relationships.
-          </p>
-
-          <div className="mt-4 w-full max-w-56">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-sm flex-col items-center justify-center px-6 pb-6 md:hidden">
+          <div className="w-full max-w-68">
             <div className="relative aspect-square w-full rounded-4xl">
               <Image
                 src="/Illustrations/selection2.svg"
@@ -194,22 +241,30 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="mt-5 grid w-full grid-cols-2 gap-3">
+          <h1 className={`mt-3 text-center text-3xl leading-tight text-black ${cooper.className}`}>
+            We help education agencies hire proven recruiters.
+          </h1>
+
+          <p className="mt-1.5 text-center text-sm leading-relaxed text-black/75 font-semibold">
+            Quality over volume. Built on long-term relationships.
+          </p>
+
+          <div className="mt-4 grid w-full grid-cols-2 gap-3">
             <Link href="/candidates" className="w-full">
-              <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}>
-                For Recruiters
+              <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! shadow-[0_7px_0_0_rgba(20,22,26,0.24)] hover:-translate-y-0.5 hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}>
+                Find My Next Role
               </Button>
             </Link>
             <Link href="/employers" className="w-full">
-              <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-primary-dark! hover:bg-white! hover:text-primary-dark! hover:border-primary-dark! focus:ring-primary-dark!`}>
-                For Agencies
+              <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-primary-dark! shadow-[0_7px_0_0_rgba(20,22,26,0.22)] hover:-translate-y-0.5 hover:bg-white! hover:text-primary-dark! hover:border-primary-dark! focus:ring-primary-dark!`}>
+                Hire With Confidence
               </Button>
             </Link>
           </div>
         </div>
 
         {/* Desktop Stage 2: Original proportions */}
-        <div className="relative z-10 mx-auto hidden w-full max-w-6xl flex-col items-center gap-12 px-8 pt-24 pb-16 md:flex lg:flex-row lg:gap-20">
+        <div className="relative z-10 mx-auto hidden h-full w-full max-w-6xl flex-col items-center justify-center gap-10 px-8 pt-18 pb-10 md:flex lg:flex-row lg:gap-16">
           {/* Left: Headline + subtext + CTA */}
           <div className="flex-1 flex flex-col items-start">
             <h1 className={`text-6xl md:text-5xl text-black mb-4 leading-tight ${cooper.className}`}>
@@ -239,10 +294,10 @@ export function HeroSection() {
           </div>
 
           {/* Right: Illustration */}
-          <div className="flex-1 w-full max-w-xl lg:max-w-2xl">
+          <div className="flex-1 w-full max-w-2xl lg:max-w-3xl">
             <div className="relative w-full aspect-square rounded-4xl">
               <Image
-                src="/Illustrations/selection1.svg"
+                src="/Illustrations/selection2.svg"
                 alt="Illustration"
                 fill
                 className="object-contain"
