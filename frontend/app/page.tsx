@@ -196,7 +196,7 @@ export default async function HomePage() {
           {/* Left: Copy */}
           <div className="w-full order-2 lg:order-1">
             <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For recruiters planning their next move
+              For candidates planning their next move
             </h2>
 
             <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
