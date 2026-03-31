@@ -42,9 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${cooper.variable} ${poppins.variable} ${quicksand.variable} ${rubik.variable} antialiased`}
-      >
+      <body className={`${cooper.variable} ${poppins.variable} ${quicksand.variable} ${rubik.variable} antialiased`}>
         <HeroStageProvider>
           <NavMobile />
           <Nav />

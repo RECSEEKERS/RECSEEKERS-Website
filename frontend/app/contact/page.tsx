@@ -155,6 +155,7 @@ export default function ContactPage() {
                 <div>
                   <label htmlFor="role" className="block text-lg font-bold text-black mb-2">I am a...</label>
                   <select
+                    title="Select your role"
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
