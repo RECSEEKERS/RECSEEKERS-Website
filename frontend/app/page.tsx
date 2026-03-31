@@ -48,10 +48,9 @@ const NetworkIcon = () => (
 
 export default async function HomePage() {
   return (
-    <main className="relative w-full bg-white">
+    <main className="relative -mt-16 md:-mt-16 w-full bg-white">
       {/* --- HERO SECTION --- */}
-      {/* CHANGED: Replaced min-h-screen with h-[120vh] to provide scroll depth */}
-      <div className="relative h-[120vh]">
+      <div className="relative h-[112dvh] md:h-[120vh]">
         <HeroSection />
       </div>
       
@@ -63,7 +62,7 @@ export default async function HomePage() {
           name="paper-plane"
           size={140}
           delay={0.1}
-          className="absolute -top-4 right-2 lg:top-2 lg:right-8 hidden md:block pointer-events-none"
+          className="absolute top-3 right-1 md:-top-4 md:right-2 lg:top-2 lg:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
         <DoodleFloat
           name="pencil-1"
@@ -107,6 +106,12 @@ export default async function HomePage() {
 
       {/* --- Why RecSeekers (Top 5% Positioning) --- */}
       <section className="relative z-20 bg-primary py-18 md:py-22 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+        <DoodleFloat
+          name="speech-bubble"
+          size={90}
+          delay={0.22}
+          className="absolute top-6 right-1 md:top-12 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>
@@ -178,7 +183,7 @@ export default async function HomePage() {
           name="gradcap-2"
           size={96}
           delay={0.38}
-          className="absolute top-16 right-2 lg:right-10 hidden md:block pointer-events-none"
+          className="absolute top-8 right-1 md:top-16 md:right-2 lg:right-10 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
         <DoodleFloat
           name="open-book"
@@ -244,7 +249,7 @@ export default async function HomePage() {
           name="pie-chart"
           size={95}
           delay={0.35}
-          className="absolute top-18 right-2 lg:right-12 hidden md:block pointer-events-none"
+          className="absolute top-6 right-1 md:top-18 md:right-2 lg:right-12 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
 
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -299,13 +304,19 @@ export default async function HomePage() {
 
       
       {/* --- Contact Section ---*/}
-      <section className="relative z-20 min-h-screen bg-white border-t-4 border-black py-24 md:py-28 px-6 md:px-10 flex flex-col items-center">
+      <section className="relative z-20 bg-white border-t-4 border-black py-16 md:py-28 px-6 md:px-10 flex flex-col items-center">
+        <DoodleFloat
+          name="paper-plane"
+          size={94}
+          delay={0.18}
+          className="absolute top-7 right-1 md:top-10 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="max-w-7xl w-full">
-          <h2 className={`text-5xl mb-16 text-black ${cooper.className}`}>
+          <h2 className={`text-4xl md:text-5xl mb-10 md:mb-16 text-black ${cooper.className}`}>
             Contact Us
           </h2>
         </div>
-        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-16 lg:gap-20">  
+        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-10 md:gap-16 lg:gap-20">  
           {/* Left Side: Image */}
           <div className="w-full lg:w-1/2">
             <div className="relative h-full w-full max-w-130 group">
@@ -325,25 +336,36 @@ export default async function HomePage() {
 
           {/* Right Side: Text & Button */}
           <div className="w-full lg:w-1/2 flex flex-col items-start">
-            <h2 className={`text-4xl md:text-5xl text-black mb-8 leading-tight ${cooper.className}`}>
-              Bold strategies to unlock elite recruiter discovery for your growing business.
+            <h2 className={`text-3xl md:text-5xl text-black mb-5 md:mb-8 leading-tight ${cooper.className}`}>
+              Let&apos;s map your next hire or your next move.
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-12 text-black leading-relaxed font-medium">
-              <p className="flex-1">
-                We are advancing a pipeline of novel talent acquisition strategies by unraveling complex hiring needs. Built on pioneering recruitment science and powered by a world-class team of innovators.
-              </p>
-              <p className="flex-1">
-                Today, our mission targets the best recruiters in the industry, while our ultimate ambition is far bolder: to fundamentally rewrite the standard of hiring.
-              </p>
-            </div>
+            <p className="text-black/85 text-base md:text-lg leading-relaxed font-medium max-w-xl">
+              Whether you are scaling a team or planning a confidential career step, we&apos;ll help you make the right move with clarity and speed.
+            </p>
+
+            <ul className="mt-5 hidden space-y-2 text-black/80 text-sm md:block md:text-base leading-relaxed font-medium">
+              <li>Confidential conversations</li>
+              <li>Specialist education Rec2Rec insight</li>
+              <li>UK and Australia market coverage</li>
+            </ul>
             
-            {/* Split Button Container */}
-            <Link href="/contact">
-              <Button variant="primary" size="xl" className={cooper.className}>
-                Get In Touch!
-              </Button>
-            </Link>
+            <div className="mt-7 grid w-full max-w-xl grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <Link href="/employers" className="w-full">
+                <Button variant="primary" size="lg" className={`w-full ${cooper.className}`}>
+                  I&apos;m Hiring Recruiters
+                </Button>
+              </Link>
+              <Link href="/candidates" className="w-full">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}
+                >
+                  I&apos;m Exploring Roles
+                </Button>
+              </Link>
+            </div>
           </div>          
         </div>
       </section>

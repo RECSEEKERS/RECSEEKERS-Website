@@ -46,7 +46,7 @@ export default function RootLayout({
         <HeroStageProvider>
           <NavMobile />
           <Nav />
-          {children}
+          <div>{children}</div>
           <Footer />
         </HeroStageProvider>
       </body>
