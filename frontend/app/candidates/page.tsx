@@ -43,7 +43,7 @@ export default function Candidates() {
         <div className="w-full md:w-1/2 flex justify-end">
           <div className="relative w-full max-w-md">
             <Image
-              src="illustrations/HelpingPartner2.svg"
+              src="/Illustrations/HelpingPartner2.svg"
               alt="Career support illustration"
               width={500}
               height={500}

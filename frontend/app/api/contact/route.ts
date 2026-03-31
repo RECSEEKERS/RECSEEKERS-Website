@@ -1,12 +1,32 @@
 // app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-console.log('Resend API Key:', process.env.RESEND_API_KEY); // Debugging line to check if the API key is loaded
-const resend = new Resend(process.env.RESEND_API_KEY);
-const receiverEmailAddress = process.env.SAM_EMAIL;
+
+function getContactEnv() {
+  const apiKey = process.env.RESEND_API_KEY;
+  const receiverEmailAddress = process.env.SAM_EMAIL;
+
+  if (!apiKey || !receiverEmailAddress) {
+    return null;
+  }
+
+  return {
+    resend: new Resend(apiKey),
+    receiverEmailAddress,
+  };
+}
 
 export async function POST(request: Request) {
   try {
+    const contactEnv = getContactEnv();
+    if (!contactEnv) {
+      console.error('Contact API misconfigured: missing RESEND_API_KEY or SAM_EMAIL');
+      return NextResponse.json(
+        { error: 'Email service is not configured.' },
+        { status: 500 }
+      );
+    }
+
     const data = await request.json();
     const { name, email, role, message, q1, q2, outcome } = data;
 
@@ -74,17 +94,17 @@ export async function POST(request: Request) {
 
     // --- 2. SEND THE EMAILS ---
     // 1. Send the notification to Sam (You)
-    await resend.emails.send({
+    await contactEnv.resend.emails.send({
       // Use Resend's required testing address while in development
       from: 'onboarding@resend.dev', 
-      to: receiverEmailAddress,
+      to: contactEnv.receiverEmailAddress,
       replyTo: email, 
       subject: receiverSubject,
       text: receiverBody,
     });
 
     // 2. Send the confirmation to the User
-    await resend.emails.send({
+    await contactEnv.resend.emails.send({
       // Use Resend's required testing address while in development
       from: 'onboarding@resend.dev', 
       // Replace the hardcoded email with the dynamic variable from the form
