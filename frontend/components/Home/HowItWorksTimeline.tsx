@@ -96,7 +96,7 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16 md:mb-16"
         >
           <h2 className={`text-5xl lg:text-6xl leading-tight text-black ${cooperClassName}`}>
             How It Works
@@ -111,7 +111,7 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
-          className="absolute left-1/2 -translate-x-1/2 top-28 md:top-36 bottom-8 w-1 bg-black z-0 origin-top"
+          className="absolute left-1/2 -translate-x-1/2 top-56 md:top-36 bottom-8 w-1 bg-black z-0 origin-top"
         />
 
         <div className="relative z-10 flex flex-col items-center gap-12 md:gap-16">
