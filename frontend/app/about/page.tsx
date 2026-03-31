@@ -7,7 +7,7 @@ import { ClientsSection } from '@/components/About/ClientsSection';
 import { WhereWeWorkSection } from '@/components/About/WhereWeWorkSection';
 import { BottomCTA } from '@/components/employers/BottomCTA';
 import DoodleFloat from '@/components/ui/DoodleFloat';
-import GetLinkedInFeed from '@/components/About/GetLinkedInFeed';
+import ElfsightLinkedInFeed from '@/components/About/ElfsightLinkedInFeed';
 
 const statCards = [
   {
@@ -160,8 +160,7 @@ export default function AboutPage() {
             {/* FREE Method with RSS and Make.com (doesnt work) <GetLinkedInFeed /> */}
           
             {/* PAID/bad free tier with Elfsight */}
-          <script src="https://elfsightcdn.com/platform.js" async></script>
-          <div className="elfsight-app-c7a855cb-2263-4d63-a89f-bf213e5f5623" data-elfsight-app-lazy></div>
+            <ElfsightLinkedInFeed />
           
             {/* MANUAL WAY */}
             {/* <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7438882540100354048" height="496" width="504" frameBorder="0" allowFullScreen title="Embedded post"></iframe>
