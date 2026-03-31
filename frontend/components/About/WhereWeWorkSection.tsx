@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import { cooper } from '@/lib/fonts';
 import DoodleFloat from '@/components/ui/DoodleFloat'; 
 
@@ -21,11 +24,21 @@ const countries = [
 ];
 
 export function WhereWeWorkSection() {
+  const [activeCountry, setActiveCountry] = useState(0);
+
   return (
-    <section className="relative w-full overflow-hidden bg-white border-t-4 border-black py-24 px-8">
+    <section className="relative w-full overflow-hidden bg-white border-t-4 border-black py-14 md:py-24 px-5 md:px-8">
       
       {/* We center the doodles on THIS container, adding w-full to ensure it sizes correctly */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
+
+        {/* Primary mobile accent */}
+        <DoodleFloat
+          name={"globe"}
+          size={60}
+          delay={0.2}
+          className="absolute -top-5 -right-1 md:hidden z-0 pointer-events-none opacity-55"
+        />
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
         {/* Top Left */}
@@ -46,13 +59,70 @@ export function WhereWeWorkSection() {
 
         {/* Main Content */}
         <div className="relative z-10">
-          <div className="mb-16 text-center md:text-left">
-            <h2 className={`${cooper.className} text-6xl md:text-7xl text-black`}>
+          <div className="mb-8 md:mb-16 text-left">
+            <h2 className={`${cooper.className} text-4xl sm:text-5xl md:text-7xl text-black`}>
               Where We Work
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Mobile switcher */}
+          <div className="md:hidden">
+            <div className="mb-5 grid grid-cols-2 gap-2">
+              {countries.map((country, index) => {
+                const isActive = activeCountry === index;
+
+                return (
+                  <button
+                    key={country.name}
+                    type="button"
+                    onClick={() => setActiveCountry(index)}
+                    className={`flex items-center justify-center gap-2 border-4 px-3 py-2.5 text-base transition-all duration-150 ${
+                      isActive
+                        ? 'bg-[#da8da0] border-[#da8da0] text-black translate-x-0.5 translate-y-0.5 shadow-none'
+                        : 'bg-white border-black text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                    }`}
+                    aria-pressed={isActive}
+                  >
+                    <span>{country.flag}</span>
+                    <span className={cooper.className}>{country.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-col items-center p-5 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <div className="flex items-center justify-center w-full h-40 mb-5 relative">
+                <svg
+                  viewBox={countries[activeCountry].viewBox}
+                  className="w-full h-full relative z-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <path
+                    d={countries[activeCountry].path}
+                    className="fill-primary"
+                    stroke="black"
+                    strokeWidth="3"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div className="w-full border-t-4 border-black mb-4" />
+
+              <div className="text-center">
+                <h3 className={`${cooper.className} text-2xl text-black mb-2.5`}>
+                  {countries[activeCountry].flag} {countries[activeCountry].name}
+                </h3>
+                <p className="text-base text-black/75 leading-relaxed">
+                  {countries[activeCountry].description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop cards */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-10">
             {countries.map((country) => (
               <div
                 key={country.name}

@@ -53,10 +53,24 @@ export function TeamSection() {
 
   return (
     // Added overflow-hidden to prevent horizontal scrolling when doodles push past the edge
-    <section className="relative w-full overflow-hidden bg-[#da8da0] border-t-4 border-black pt-16 pb-28 px-8 z-10">
+    <section className="relative w-full overflow-hidden bg-[#da8da0] border-t-4 border-black pt-14 md:pt-16 pb-20 md:pb-28 px-5 md:px-8 z-10">
       
       {/* Centered container for both doodles and content. Added w-full so absolute positioning works correctly */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
+
+        {/* Primary mobile accents */}
+        <DoodleFloat
+          name={"speech-bubble"}
+          size={88}
+          delay={0.15}
+          className="absolute top-4 right-0 md:hidden z-0 pointer-events-none opacity-55"
+        />
+        <DoodleFloat
+          name={"lightbulb"}
+          size={86}
+          delay={0.35}
+          className="absolute bottom-12 right-0 md:hidden z-0 pointer-events-none opacity-55"
+        />
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
         {/* Top Left */}
@@ -88,7 +102,7 @@ export function TeamSection() {
         {/* Main Content */}
         <div className="relative z-10">
           <div className="mb-14 flex flex-col gap-2 text-center md:text-left">
-            <h2 className={`${cooper.className} text-6xl md:text-7xl text-black`}>
+            <h2 className={`${cooper.className} text-4xl sm:text-5xl md:text-7xl text-black`}>
               Meet the Team
             </h2>
           </div>

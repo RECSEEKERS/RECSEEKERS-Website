@@ -40,89 +40,80 @@ export default function AboutPage() {
   return (
     <main className="relative w-full overflow-hidden">
       {/* --- Hero / Heading Section --- */}
-      <section className="relative min-h-[50vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-8 pt-24 pb-12 overflow-hidden">
-        
-        {/* We moved the 'relative' container here. 
-            All doodles are now positioned relative to THIS central text block, not the screen. */}
+      <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-5 md:px-8 pt-20 md:pt-24 pb-10 md:pb-12 overflow-hidden">
         <div className="relative max-w-6xl w-full z-20">
-          
-          {/* --- Background Doodles (Pushed strictly to the OUTSIDE of the content) --- */}
-          {/* Left Side */}
-          <div className="absolute top-0 -left-12 lg:-left-32 xl:-left-40 hidden md:block z-0 pointer-events-none">
-            <DoodleFloat name={"gradcap-2"} size={100} delay={0.1} />
+          {/* Primary mobile accent */}
+          <DoodleFloat
+            name="pencil-2"
+            size={92}
+            delay={0.12}
+            className="absolute -top-2 right-0 md:hidden z-0 pointer-events-none opacity-55"
+          />
+
+          {/* Secondary desktop accents */}
+          <div className="absolute top-2 -left-12 lg:-left-30 xl:-left-36 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"gradcap-2"} size={96} delay={0.1} />
           </div>
-          {/* This is the book that was overlapping the button */}
-          <div className="absolute bottom-15 -left-10 lg:-left-28 xl:-left-36 hidden md:block z-0 pointer-events-none">
-            <DoodleFloat name={"open-book"} size={140} delay={1.5} />
+          <div className="absolute bottom-3 -right-12 lg:-right-28 xl:-right-36 hidden md:block z-0 pointer-events-none">
+            <DoodleFloat name={"globe"} size={124} delay={1.2} />
           </div>
 
-          {/* Right Side */}
-          <div className="absolute top-8 -right-12 lg:-right-32 xl:-right-40 hidden md:block z-0 pointer-events-none">
-            <DoodleFloat name={"pencil-2"} size={110} delay={0.1} />
-          </div>
-          
-          <div className="absolute bottom-4 -right-12 lg:-right-28 xl:-right-40 hidden md:block z-0 pointer-events-none">
-            <DoodleFloat name={"globe"} size={130} delay={1.5} />
-          </div>
-
-          {/* --- Content --- */}
           <div className="relative z-10">
-            <h1 className={`${cooper.className} text-7xl md:text-8xl text-black mb-12 leading-tight`}>
+            <h1 className={`${cooper.className} text-5xl sm:text-6xl md:text-8xl text-black mb-7 md:mb-12 leading-tight text-left`}>
               Who are we?
             </h1>
 
-            {/* Two-column layout */}
-            <div className="flex flex-col lg:flex-row gap-24 items-start">
-
-              {/* Left: subtext (2/3) */}
-              <div className="w-full lg:w-2/3 flex flex-col gap-8">
-                <div className="relative pl-7">
-                  {/* Animated rounded accent bar */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 items-start">
+              <div className="w-full lg:col-span-2 flex flex-col gap-6 md:gap-8">
+                <div className="relative md:pl-7">
                   <div
-                    className="accent-bar absolute left-0 top-0 w-[7px] rounded-full bg-white"
+                    className="accent-bar absolute left-0 top-0 w-[7px] rounded-full bg-white hidden md:block"
                     style={{ height: 0 }}
                   />
-                  <p className="text-xl md:text-2xl text-black leading-relaxed">
+
+                  <p className="md:hidden text-base text-black/90 leading-relaxed">
+                    RecSeekers is a specialist education Rec2Rec partner. We support top recruiters and growth-focused agencies with confidential, relationship-led moves across the UK and Australia.
+                  </p>
+
+                  <p className="hidden md:block text-xl md:text-2xl text-black leading-relaxed">
                     At RecSeekers, we specialise in connecting top-tier recruitment professionals
                     with the best opportunities in the industry. As a rec2rec agency, we pride
                     ourselves on understanding the unique needs of both candidates and clients,
                     ensuring the perfect match every time. Our expert team leverages deep industry
                     insights and a vast network to support the growth and success of recruitment
-                    professionals across various sectors. Partner with RecSeekers and take the
-                    next step in your recruitment career or find the ideal addition to your team.
+                    professionals across various sectors.
                   </p>
                 </div>
 
-                {/* Button & Doodle Container */}
-                <div className="relative self-start mt-4">
-                  <Link href="/contact" className="group inline-block">
-                    <Button className={`${cooper.className} text-black! px-10 py-4 bg-[#1e293b] text-lg tracking-wider rounded-2xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-white! group-hover:shadow-none transition-all`}>
-                      Get In Touch!
-                    </Button>
-                  </Link>
-                </div>
               </div>
 
-              {/* Right: stat cards (1/3) */}
-              <div className="w-full lg:w-1/3 flex flex-col gap-6">
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
                 {statCards.map((card, i) => (
                   <div
                     key={card.title}
-                    className="flex items-center gap-5 p-6 border-4 rounded-4xl bg-white relative z-10"
+                    className="flex items-center gap-4 md:gap-5 p-4 md:p-6 border-4 rounded-3xl md:rounded-4xl bg-white relative z-10"
                     style={{
                       animation: `slideInRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) both`,
                       animationDelay: `${i * 0.15}s`,
                     }}
                   >
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl border-4 border-black bg-primary flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-black">
+                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl border-4 border-black bg-primary flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-black">
                       {card.icon}
                     </div>
-                    <p className={`${cooper.className} text-lg leading-snug text-black`}>
+                    <p className={`${cooper.className} text-base md:text-lg leading-snug text-black`}>
                       {card.title}
                     </p>
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="relative mt-6 md:mt-8 self-stretch sm:self-start">
+              <Link href="/contact" className="group inline-block w-full sm:w-auto">
+                <Button className={`${cooper.className} w-full sm:w-auto text-black! px-8 md:px-10 py-3.5 md:py-4 bg-[#1e293b] text-base md:text-lg tracking-wide rounded-2xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-white! group-hover:shadow-none transition-all`}>
+                  Get In Touch!
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

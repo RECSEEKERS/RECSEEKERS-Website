@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { cooper } from '@/lib/fonts';
-import DoodleFloat from '@/components/ui/DoodleFloat'; // Don't forget to import!
+import DoodleFloat from '@/components/ui/DoodleFloat';
 
 type Value = {
   name: string;
@@ -74,17 +74,24 @@ const values: Value[] = [
 ];
 
 export function ValuesSection() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(0);
 
   return (
     // Section remains overflow-hidden so pushed-out doodles don't cause horizontal scroll
-    <section className="relative w-full overflow-hidden bg-white py-24 px-8">
+    <section className="relative w-full overflow-hidden bg-white py-14 md:py-24 px-5 md:px-8">
       
       {/* We center the doodles on THIS container, and make sure it has w-full */}
       <div className="relative z-10 max-w-6xl mx-auto w-full">
 
-        {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
-        {/* Left Side */}
+        {/* Primary mobile accent */}
+        <DoodleFloat
+          name={"paper-plane"}
+          size={88}
+          delay={0.15}
+          className="absolute -top-3 right-0 md:hidden z-0 pointer-events-none opacity-55"
+        />
+
+        {/* --- Background Doodles (Desktop accents only) --- */}
         <div className="absolute top-20 -left-12 lg:-left-24 xl:-left-36 hidden md:block z-0 pointer-events-none">
           <DoodleFloat name={"books-3"} size={100} delay={0.2} />
         </div>
@@ -98,10 +105,6 @@ export function ValuesSection() {
           <DoodleFloat name={"proctator"} size={90} delay={0.2} />
         </div>
 
-        <div className="absolute top-1/2 -translate-y-1/2 -right-16 lg:-right-32 xl:-right-44 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"paper-plane"} size={110} delay={0.6} />
-        </div>
-
         <div className="absolute bottom-10 -right-12 lg:-right-24 xl:-right-36 hidden md:block z-0 pointer-events-none">
           <DoodleFloat name={"molecules-2"} size={130} delay={0.9} />
         </div>
@@ -110,24 +113,28 @@ export function ValuesSection() {
 
         {/* --- Main Content --- */}
         <div className="relative z-10">
-          <h2 className={`${cooper.className} text-6xl md:text-7xl text-black mb-16`}>
+          <h2
+            className={`${cooper.className} text-4xl sm:text-5xl md:text-7xl text-black mb-8 md:mb-16 text-left`}
+            style={{ animation: 'slideInRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) both' }}
+          >
             Our Core Values
           </h2>
 
-          {/* Value tab buttons */}
-          <div className="flex flex-wrap gap-3 mb-10">
+          {/* Value tab buttons (Desktop) */}
+          <div className="hidden md:flex flex-wrap gap-3 mb-10">
             {values.map((value, i) => (
               <button
                 key={value.name}
                 onClick={() => setActive(i)}
                 className={`
-                  flex items-center gap-3 px-4 py-4 border-4 text-lg
+                  flex items-center gap-3 px-4 py-4 border-4 text-base lg:text-lg
                   transition-all duration-150 cursor-pointer
                   ${active === i
                     ? 'bg-[#da8da0] border-[#da8da0] text-black translate-x-1 translate-y-1 shadow-none'
                     : 'bg-transparent border-black text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.6)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.6)]'
                   }
                 `}
+                style={{ animation: `slideInRight 0.45s cubic-bezier(0.22, 1, 0.36, 1) both`, animationDelay: `${i * 0.06}s` }}
               >
                 <span className="shrink-0">{value.icon}</span>
                 <span className={cooper.className}>{value.name}</span>
@@ -135,10 +142,62 @@ export function ValuesSection() {
             ))}
           </div>
 
-          {/* Content panel */}
+          {/* Mobile accordion */}
+          <div className="md:hidden flex flex-col gap-3">
+            {values.map((value, i) => {
+              const isOpen = active === i;
+
+              return (
+                <article key={value.name} className="border-4 border-black rounded-2xl overflow-hidden bg-white">
+                  <button
+                    type="button"
+                    onClick={() => setActive(i)}
+                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 text-left transition-colors duration-150 ${
+                      isOpen ? 'bg-[#da8da0]' : 'bg-white'
+                    }`}
+                    aria-expanded={isOpen}
+                    aria-controls={`core-value-${i}`}
+                    style={{ animation: `slideInRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) both`, animationDelay: `${i * 0.05}s` }}
+                  >
+                    <span className="flex items-center gap-3 min-w-0">
+                      <span className="shrink-0 w-9 h-9 border-2 border-black bg-white flex items-center justify-center text-black">
+                        {value.icon}
+                      </span>
+                      <span className={`${cooper.className} text-xl text-black leading-tight truncate`}>
+                        {value.name}
+                      </span>
+                    </span>
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`h-5 w-5 shrink-0 text-black transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                      aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+
+                  {isOpen && (
+                    <div id={`core-value-${i}`} className="border-t-4 border-black bg-[#da8da0] px-4 py-4">
+                      <p className="text-base text-black/85 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Content panel (Desktop) */}
           <div
             key={active}
-            className="border-4 border-black p-10 md:p-14 bg-primary relative bg-[#da8da0]" 
+            className="hidden md:block border-4 border-black p-10 md:p-14 bg-primary relative bg-[#da8da0]"
             style={{ animation: 'slideInRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) both' }}
           >
             <div className="flex items-start gap-6 mb-6">
