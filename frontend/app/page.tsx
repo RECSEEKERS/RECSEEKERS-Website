@@ -298,13 +298,13 @@ export default async function HomePage() {
 
       
       {/* --- Contact Section ---*/}
-      <section className="relative z-20 min-h-screen bg-white border-t-4 border-black py-24 md:py-28 px-6 md:px-10 flex flex-col items-center">
+      <section className="relative z-20 bg-white border-t-4 border-black py-16 md:py-28 px-6 md:px-10 flex flex-col items-center">
         <div className="max-w-7xl w-full">
-          <h2 className={`text-5xl mb-16 text-black ${cooper.className}`}>
+          <h2 className={`text-4xl md:text-5xl mb-10 md:mb-16 text-black ${cooper.className}`}>
             Contact Us
           </h2>
         </div>
-        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-16 lg:gap-20">  
+        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-10 md:gap-16 lg:gap-20">  
           {/* Left Side: Image */}
           <div className="w-full lg:w-1/2">
             <div className="relative h-full w-full max-w-130 group">
@@ -324,25 +324,36 @@ export default async function HomePage() {
 
           {/* Right Side: Text & Button */}
           <div className="w-full lg:w-1/2 flex flex-col items-start">
-            <h2 className={`text-4xl md:text-5xl text-black mb-8 leading-tight ${cooper.className}`}>
-              Bold strategies to unlock elite recruiter discovery for your growing business.
+            <h2 className={`text-3xl md:text-5xl text-black mb-5 md:mb-8 leading-tight ${cooper.className}`}>
+              Let&apos;s map your next hire or your next move.
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-12 text-black leading-relaxed font-medium">
-              <p className="flex-1">
-                We are advancing a pipeline of novel talent acquisition strategies by unraveling complex hiring needs. Built on pioneering recruitment science and powered by a world-class team of innovators.
-              </p>
-              <p className="flex-1">
-                Today, our mission targets the best recruiters in the industry, while our ultimate ambition is far bolder: to fundamentally rewrite the standard of hiring.
-              </p>
-            </div>
+            <p className="text-black/85 text-base md:text-lg leading-relaxed font-medium max-w-xl">
+              Whether you are scaling a team or planning a confidential career step, we&apos;ll help you make the right move with clarity and speed.
+            </p>
+
+            <ul className="mt-5 hidden space-y-2 text-black/80 text-sm md:block md:text-base leading-relaxed font-medium">
+              <li>Confidential conversations</li>
+              <li>Specialist education Rec2Rec insight</li>
+              <li>UK and Australia market coverage</li>
+            </ul>
             
-            {/* Split Button Container */}
-            <Link href="/contact">
-              <Button variant="primary" size="xl" className={cooper.className}>
-                Get In Touch!
-              </Button>
-            </Link>
+            <div className="mt-7 grid w-full max-w-xl grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <Link href="/employers" className="w-full">
+                <Button variant="primary" size="lg" className={`w-full ${cooper.className}`}>
+                  I&apos;m Hiring Recruiters
+                </Button>
+              </Link>
+              <Link href="/candidates" className="w-full">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}
+                >
+                  I&apos;m Exploring Roles
+                </Button>
+              </Link>
+            </div>
           </div>          
         </div>
       </section>
