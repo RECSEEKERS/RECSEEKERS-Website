@@ -10,40 +10,46 @@ import { WhoWeWorkWithCard } from "@/components/Home/WhoWeWorkWithCard";
 import { HowItWorksTimeline } from "@/components/Home/HowItWorksTimeline";
 import { TestimonialsSection } from "@/components/Home/TestimonialsSection";
 
-const iconBase = "h-7 w-7 text-primary-dark";
+const iconBase = "h-9 w-9 text-primary-dark";
 
 const TopFiveIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M6 5h12v3l-2 2-4-2-4 2-2-2V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M12 10v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M8.5 21h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="12" cy="4" r="1.5" fill="currentColor" />
-  </svg>
+  <Image 
+    src="/Illustrations/top5icon.svg" 
+    alt="Top 5% Icon" 
+    width={32} 
+    height={32} 
+    className={iconBase} 
+  />
 );
 
 const EducationIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M4 7.5 12 4l8 3.5L12 11 4 7.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M6 10v6.5c2 1.7 10 1.7 12 0V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M12 11v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/gradcapIcon.svg" 
+    alt="Education Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 const RelationshipIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M7 10c1.4-1.8 3.2-2.7 5-2.7s3.6.9 5 2.7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M4.5 11.5 9 16l3-2.5 3 2.5 4.5-4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M7 19h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/dealIcon.svg" 
+    alt="Relationship Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 const NetworkIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" />
-    <path d="M4 12h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M12 4c2.5 2.2 2.5 13.8 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M12 4c-2.5 2.2-2.5 13.8 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/networkIcon.svg" 
+    alt="Network Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 export default async function HomePage() {
