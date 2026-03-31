@@ -78,7 +78,7 @@ export function Nav() {
         {/* Contact button – far right, outside preview system */}
         <div className="absolute right-10">
           <Link href={CONTACT_ITEM.href}>
-            <Button variant="secondary" size="md">
+            <Button variant="primary" size="md">
               {CONTACT_ITEM.label}
             </Button>
           </Link>

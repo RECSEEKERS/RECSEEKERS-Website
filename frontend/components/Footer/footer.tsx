@@ -24,10 +24,10 @@ const sitemapGroups = [
 ] as const;
 
 const socialLinks = [
-    { label: 'Instagram', href: '#' },
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Email', href: 'mailto:hello@recseekers.com' },
-    { label: 'Phone', href: 'tel:+1234567890' },
+    { label: 'Instagram', href: 'https://www.instagram.com/recseekers' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/recseekers-r2r/' },
+    // { label: 'Email', href: 'mailto:hello@recseekers.com' },
+    // { label: 'Phone', href: 'tel:+1234567890' },
 ] as const;
 
 export default function Footer() {
@@ -65,7 +65,7 @@ export default function Footer() {
 
                 <section>
                     <h3 className={`text-xl ${cooper.className} mb-3`}>Socials</h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-8"> {/* Added mb-8 here to create space for the button */}
                         {socialLinks.map((social) => (
                             <li key={social.label}>
                                 <a
@@ -77,6 +77,14 @@ export default function Footer() {
                             </li>
                         ))}
                     </ul>
+                    
+                    {/* New Contact Us Button */}
+                    <Link 
+                        href="/contact"
+                        className="font-cooper inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-primary-dark"
+                    >
+                        Contact us
+                    </Link>
                 </section>
             </div>
 
