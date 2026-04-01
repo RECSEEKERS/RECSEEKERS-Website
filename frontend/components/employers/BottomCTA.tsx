@@ -51,7 +51,10 @@ export function BottomCTA({ variant = "tertiary" }: BottomCTAProps) {
   return (
     <section className={`${cfg.sectionBg} px-8 pb-24`}>
       <div className="max-w-6xl mx-auto w-full">
-      <h2 className={`${cooper.className} text-6xl md:text-7xl text-black mb-6`}>
+      <h2 className={`${cooper.className} block md:hidden text-4xl md:text-7xl text-black mb-6`}>
+            Like what you see?
+          </h2>
+      <h2 className={`${cooper.className} hidden md:block text-6xl md:text-7xl text-black mb-6`}>
             Like what you see?
           </h2>
         <motion.div
