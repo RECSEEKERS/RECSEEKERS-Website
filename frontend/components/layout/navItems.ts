@@ -15,13 +15,6 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewImage: "/Illustrations/Telecommute1.svg",
   },
   {
-    label: "About",
-    href: "/about",
-    previewTitle: "About RECSEEKERS",
-    previewText: "We specialise in recruiter-to-recruiter hiring-matching top talent in the Education sector",
-    previewImage: "/Illustrations/GroupDiscussion1.svg",
-  },
-  {
     label: "Candidates",
     href: "/candidates",
     previewTitle: "For Recruiter Candidates",
@@ -34,6 +27,20 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewTitle: "For Hiring Teams",
     previewText: "Hire proven recruiters who understand your market, your pipeline, and your growth targets.",
     previewImage: "/Illustrations/PeopleSearch2.svg",
+  },
+  {
+    label: "About",
+    href: "/about",
+    previewTitle: "About RECSEEKERS",
+    previewText: "We specialise in recruiter-to-recruiter hiring-matching top talent in the Education sector",
+    previewImage: "/Illustrations/GroupDiscussion1.svg",
+  },
+  {
+    label: "EdTech",
+    href: "/edtech",
+    previewTitle: "EdTech",
+    previewText: "A dedicated space for education-technology conversations and hiring insights.",
+    previewImage: "/Illustrations/brainstorming.svg",
   },
 ];
 
