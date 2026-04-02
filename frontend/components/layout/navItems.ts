@@ -10,14 +10,14 @@ export const PILL_ITEMS: NavPreviewItem[] = [
   {
     label: "Home",
     href: "/",
-    previewTitle: "Welcome to RecSeekers",
+    previewTitle: "Welcome to RECSEEKERS",
     previewText: "High-impact recruiters matching top talent with their next move.",
     previewImage: "/Illustrations/Telecommute1.svg",
   },
   {
     label: "About",
     href: "/about",
-    previewTitle: "About RecSeekers",
+    previewTitle: "About RECSEEKERS",
     previewText: "We specialise in recruiter-to-recruiter hiring-matching top talent in the Education sector",
     previewImage: "/Illustrations/GroupDiscussion1.svg",
   },

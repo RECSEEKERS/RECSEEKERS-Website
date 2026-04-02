@@ -31,7 +31,7 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "RecSeekers",
+  title: "RECSEEKERS",
   description: "Find your next opportunity",
 };
 

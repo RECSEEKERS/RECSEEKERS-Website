@@ -35,7 +35,7 @@ export function Nav() {
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
             >
               <Link href="/">
-                <img src="/RecLogo.svg" alt="RecSeekers" className="h-8 w-auto" />
+                <img src="/RecLogo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
               </Link>
             </motion.div>
           )}

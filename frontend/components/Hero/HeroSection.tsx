@@ -186,10 +186,10 @@ export function HeroSection() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/RecLogo.svg"
-          alt="RecSeekers"
+          alt="RECSEEKERS"
           className="my-2.5 w-auto max-w-[82vw] sm:max-w-136 md:max-w-2xl"
         />
-        <h2 className={`-mt-1 text-3xl font-bold text-black sm:text-5xl md:-mt-4 md:text-6xl ${cooper.className}`}>
+        <h2 className={`-mt-1 text-3xl font-bold text-black sm:text-5xl italic md:-mt-4 md:text-6xl ${cooper.className}`}>
           &ldquo;Have a nice day&rdquo;
         </h2>
       </div>
@@ -242,7 +242,7 @@ export function HeroSection() {
           </div>
 
           <h1 className={`mt-3 text-center text-3xl leading-tight text-black ${cooper.className}`}>
-            We help education agencies hire proven recruiters.
+            We Help Education Agencies Hire Proven Recruiters.
           </h1>
 
           <p className="mt-1.5 text-center text-sm leading-relaxed text-black/75 font-semibold">
@@ -268,25 +268,24 @@ export function HeroSection() {
           {/* Left: Headline + subtext + CTA */}
           <div className="flex-1 flex flex-col items-start">
             <h1 className={`text-6xl md:text-5xl text-black mb-4 leading-tight ${cooper.className}`}>
-              We help education agencies hire proven recruiters.
+            We Help Education Agencies Hire Proven Recruiters
             </h1>
             <p className="text-xl text-black/80 mb-10 leading-relaxed max-w-md font-medium">
-              Specialist education Rec2Rec connecting top billing consultants,
-              team leaders and managers with agencies across the UK and
+              Specialist <span className="font-bold">Education</span> and <span className="font-bold">EdTech</span> Rec2Rec with a network of <span className="font-bold">25,000</span> education professionals across the UK and Australia.
               Australia.
             </p>
             <p className="text-base text-black/75 mb-8 leading-relaxed max-w-lg font-semibold">
-              Quality over volume. Built on long-term relationships.
+              Get connected with <span className="font-bold">Top 5%</span> of Clients and Candidates in the UK and Australia education space👇
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Link href="/candidates">
-                <Button variant="secondary" size="xl" className={`${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}>
+                <Button variant="secondary" size="xl" className={`${cooper.className} bg-white! text-black! border-2 border-black! hover:bg-black! hover:text-white! focus:ring-black!`}>
                   For Candidates
                 </Button>
               </Link>
               <Link href="/employers">
-                <Button variant="secondary" size="xl" className={`${cooper.className} bg-primary-dark! hover:bg-white! hover:text-primary-dark! hover:border-primary-dark! focus:ring-primary-dark!`}>
+                <Button variant="secondary" size="xl" className={`${cooper.className} bg-black! hover:bg-white! hover:text-black! hover:border-black! focus:ring-black!`}>
                   For Agencies
                 </Button>
               </Link>

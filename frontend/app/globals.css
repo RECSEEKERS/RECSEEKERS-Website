@@ -10,7 +10,7 @@
   --primary-logo: #ffb2dc;
   --secondary: #d940c0;
   --tertiary: #ffa4bb;
-  --primary-dark: #250821;
+  --primary-dark: #000000; /* changed "brown" to black -sorry */
   --neutral-50: #f9fafb;
   --neutral-900: #111827;
 }

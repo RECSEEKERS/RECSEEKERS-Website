@@ -115,7 +115,7 @@ export default function EmployersPage() {
           {/* Section title */}
           <h2 className={`relative z-10 text-4xl lg:text-5xl text-neutral-900 mb-16 ${cooper.className}`}>
             Why work with{" "}
-            <span className="text-primary italic">RecSeekers?</span>
+            <span className="text-primary italic">RECSEEKERS?</span>
           </h2>
 
           {/* Two-column layout */}
@@ -128,7 +128,7 @@ export default function EmployersPage() {
                 <div className="relative h-full w-full rounded-3xl border-4 border-neutral-900 overflow-hidden bg-neutral-100">
                   <img
                     src="/Illustrations/BusinessDeal1.svg"
-                    alt="Why work with RecSeekers"
+                    alt="Why work with RECSEEKERS"
                     className="h-full w-full object-cover"
                   />
                 </div>
