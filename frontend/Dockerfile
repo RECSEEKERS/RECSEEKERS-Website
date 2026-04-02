@@ -17,12 +17,20 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-RUN groupadd --system --gid 1001 nodejs && useradd --system --uid 1001 nextjs
+# Create non‑root user
+RUN groupadd --system --gid 1001 nodejs \
+  && useradd --system --uid 1001 nextjs
 
+# Copy build output
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Ensure nextjs can read/write what it needs
+RUN mkdir -p /app/.next/cache \
+  && chown -R nextjs:nodejs /app
+
 USER nextjs
+
 EXPOSE 3000
 CMD ["node", "server.js"]
