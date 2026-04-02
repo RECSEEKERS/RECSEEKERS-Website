@@ -8,6 +8,26 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Test-only config override for image optimization behavior during Docker builds.
+RUN rm -f next.config.ts next.config.js next.config.mjs \
+  && cat > next.config.mjs <<'EOF'
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "standalone",
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/images/**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+EOF
 RUN npm run build
 
 FROM node:22.13.1-bookworm-slim AS runner
