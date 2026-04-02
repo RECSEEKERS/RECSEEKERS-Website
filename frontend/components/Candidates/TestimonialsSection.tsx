@@ -104,7 +104,7 @@ interface TestimonialsSectionProps {
 
 export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProps) {
   return (
-    <section className="relative z-20 bg-[#fff8f1] py-24 pb-8 px-6 md:px-12 border-t-4 border-black overflow-hidden">
+    <section className="relative z-20 bg-[#fff8f1] pt-10 pb-8 px-6 md:px-12 border-t-4 border-black overflow-hidden">
       <DoodleFloat
         name="speech-bubble"
         size={84}
@@ -112,10 +112,22 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
         className="absolute top-16 right-2 md:right-10 hidden md:block pointer-events-none"
       />
       <DoodleFloat
+        name="speech-bubble"
+        size={84}
+        delay={0.2}
+        className="absolute top-16 right-2 md:right-10 block md:hidden pointer-events-none"
+      />
+      <DoodleFloat
         name="apple"
         size={70}
         delay={0.35}
         className="absolute bottom-15 left-2 md:left-12 hidden md:block pointer-events-none"
+      />
+      <DoodleFloat
+        name="apple"
+        size={70}
+        delay={0.35}
+        className="absolute bottom-15 left-2 md:left-12 block md:hidden pointer-events-none"
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -188,8 +200,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
         </div>
         {/* <GoogleRating /> */}
       </div>
-
-        <span className="hidden md:flex items-center justify-center gap-2 text-black font-bold text-lg [-webkit-text-stroke:0.5px_black]">
+        <span className="flex w-full md:flex items-center justify-center gap-2 text-black font-bold text-lg [-webkit-text-stroke:0.5px_black] mt-8 md:mt-0">
             <a href="https://www.linkedin.com/in/sam-lawless/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener noreferrer">
               See more &rarr;
             </a> 

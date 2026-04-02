@@ -100,32 +100,43 @@ export default function ContactPage() {
 
   return (
     <main className="relative w-full bg-white overflow-x-hidden">
-      <section className="snap-start relative z-20 min-h-screen bg-[#ffa4bb] py-24 px-8 flex flex-col justify-center items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)]">
-        <div className="max-w-6xl w-full mx-auto">
-          <h1 className={`${cooper.className} text-6xl lg:text-7xl text-black mb-12 leading-tight text-center`}>
+      {/* SPACING FIX: Changed to justify-start and added large top padding (pt-32 md:pt-48) */}
+      <section className="snap-start relative z-20 min-h-screen bg-[#ffa4bb] pt-24 pb-16 px-4 md:pt-24 md:pb-24 md:px-8 flex flex-col justify-start items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)]">
+        
+        {/* SPACING FIX: Added mt-4 md:mt-8 for an extra nudge downwards */}
+        <div className="max-w-6xl w-full mx-auto mt-4 md:mt-8">
+          <h1 className={`${cooper.className} text-5xl md:text-6xl lg:text-7xl text-black mb-8 md:mb-12 leading-tight text-center`}>
             Reach <span className="italic text-white">Out!</span>
           </h1>
 
-          <div className="flex flex-col md:flex-row gap-12 bg-white p-8 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+          {/* ZOOM OUT FIX: Reduced mobile padding inside the white box */}
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 bg-white p-6 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             
-            <div className="w-full md:w-1/2 flex flex-col justify-start space-y-8">
+            <div className="w-full md:w-1/2 flex flex-col justify-start space-y-6 md:space-y-8">
               <div>
-                <h2 className={`${cooper.className} text-5xl text-black mb-4`}>Say Hello👋</h2>
-                <p className="text-xl text-black/80 font-medium leading-relaxed max-w-md">
+                {/* ZOOM OUT FIX: Reduced mobile header size */}
+                <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Say Hello👋</h2>
+                {/* ZOOM OUT FIX: Reduced mobile paragraph text size */}
+                <p>
+                  <span className="block md:hidden text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
+                  We focus on relationships and long term conversations rather than high volume outreach.<br /><br />If you run an education recruitment agency looking to hire strong consultants, or you’re an experienced recruiter thinking about your next move, feel free to reach out.
+                  </span>
+
+                  <span className="hidden md:block text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
                   Most of the people we work with are established billers who care about getting their next move right.<br /><br /> We focus on relationships and long term conversations rather than high volume outreach.<br /><br />If you run an education recruitment agency looking to hire strong consultants, or you’re an experienced recruiter thinking about your next move, feel free to reach out.
+                  </span>
                 </p>
               </div>
               
-              <div className="space-y-6 text-lg font-medium text-black">
+              <div className="space-y-4 md:space-y-6 text-base md:text-lg font-medium text-black">
                 <div className="flex items-center">
-                  <span className={`${cooper.className} text-xl w-24`}>Phone:</span>
+                  <span className={`${cooper.className} text-lg md:text-xl w-20 md:w-24`}>Phone:</span>
                   <span>+61 0437769683</span>
                 </div>
               </div>
 
-              {/* NEW: Terms & Privacy Disclaimer */}
-              <div className="pt-8 md:pt-16 mt-auto">
-                <p className="text-sm text-black/60 font-medium leading-relaxed max-w-sm">
+              <div className="pt-2 md:pt-6 mt-auto">
+                <p className="text-xs md:text-sm text-black/60 font-medium leading-relaxed max-w-sm">
                   By submitting this contact form, you're agreeing to the{' '}
                   <a href="/terms" className="underline hover:text-[#ffa4bb] transition-colors">
                     Terms & Conditions
@@ -139,9 +150,9 @@ export default function ContactPage() {
             </div>
 
             <div className="w-full md:w-1/2">
-              <form onSubmit={handleInitialSubmit} className="space-y-6">
+              <form onSubmit={handleInitialSubmit} className="space-y-4 md:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-lg font-bold text-black mb-2">Full Name</label>
+                  <label htmlFor="name" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Full Name</label>
                   <input
                     type="text"
                     id="name"
@@ -149,12 +160,12 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-lg font-bold text-black mb-2">Email Address</label>
+                  <label htmlFor="email" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -162,19 +173,19 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="role" className="block text-lg font-bold text-black mb-2">I am a...</label>
+                  <label htmlFor="role" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">I am a...</label>
                   <select
                     title="Select your role"
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer
+                    className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer
                       ${formData.role === "" ? "text-gray-400" : "text-black"}`}
                   >
                     <option value="" disabled className="text-gray-400">Select your role</option>
@@ -184,7 +195,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-lg font-bold text-black mb-2">Your Message</label>
+                  <label htmlFor="message" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Your Message</label>
                   <textarea
                     id="message"
                     name="message"
@@ -192,13 +203,13 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all resize-none placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all resize-none placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className={`w-full bg-black text-white ${cooper.className} text-xl py-4 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 mt-4`}
+                  className={`w-full bg-black text-white ${cooper.className} text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 mt-2 md:mt-4`}
                 >
                   Next Step 👉
                 </button>
@@ -211,19 +222,19 @@ export default function ContactPage() {
       {/* --- POPUP MODAL --- */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white border-4 border-black p-8 max-w-lg w-full shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] animate-in fade-in zoom-in duration-200">
+          <div className="bg-white border-4 border-black p-6 md:p-8 max-w-lg w-full shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] animate-in fade-in zoom-in duration-200">
             
             {!outcome ? (
-              <form onSubmit={handleFinalSubmit} className="space-y-6">
-                <h3 className={`${cooper.className} text-3xl text-black mb-2`}>Just a few more details...</h3>
-                <p className="text-black/80 font-medium mb-6">This helps us point you in the right direction.</p>
+              <form onSubmit={handleFinalSubmit} className="space-y-4 md:space-y-6">
+                <h3 className={`${cooper.className} text-2xl md:text-3xl text-black mb-2`}>Just a few more details...</h3>
+                <p className="text-sm md:text-base text-black/80 font-medium mb-4 md:mb-6">This helps us point you in the right direction.</p>
 
                 {/* --- RECRUITER QUESTIONS --- */}
                 {formData.role === 'recruiter' && (
                   <>
                     <div>
-                      <label htmlFor="q1" className="block text-lg font-bold text-black mb-2">What is your current situation?</label>
-                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
+                      <label htmlFor="q1" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">What is your current situation?</label>
+                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select status</option>
                         <option value="active" className="text-black">Actively looking to move</option>
                         <option value="passive" className="text-black">Passively open to offers</option>
@@ -231,8 +242,8 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="q2" className="block text-lg font-bold text-black mb-2">Would you like a confidential chat?</label>
-                      <select name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                      <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like a confidential chat?</label>
+                      <select name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
                         <option value="yes" className="text-black">Yes, let's talk</option>
                         <option value="no" className="text-black">No, just email me</option>
@@ -245,8 +256,8 @@ export default function ContactPage() {
                 {formData.role === 'agency' && (
                   <>
                     <div>
-                      <label htmlFor="q1" className="block text-lg font-bold text-black mb-2">When are you looking to hire?</label>
-                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
+                      <label htmlFor="q1" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">When are you looking to hire?</label>
+                      <select title="Q1" name="q1" value={modalData.q1} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q1 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select timeline</option>
                         <option value="immediate" className="text-black">Immediately</option>
                         <option value="next_quarter" className="text-black">Within the next quarter</option>
@@ -254,8 +265,8 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="q2" className="block text-lg font-bold text-black mb-2">Would you like to schedule a discovery call?</label>
-                      <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-4 py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                      <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like to schedule a discovery call?</label>
+                      <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
                         <option value="yes" className="text-black">Yes, let's talk</option>
                         <option value="no" className="text-black">No, just email me</option>
@@ -264,14 +275,14 @@ export default function ContactPage() {
                   </>
                 )}
 
-                <div className="flex gap-4 pt-4">
-                  <button type="button" onClick={() => setIsModalOpen(false)} className="w-1/3 bg-white text-black font-bold py-3 px-4 border-4 border-black hover:bg-gray-100 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex flex-col-reverse md:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
+                  <button type="button" onClick={() => setIsModalOpen(false)} className="w-full md:w-1/3 bg-white text-black font-bold py-2 md:py-3 px-4 border-4 border-black hover:bg-gray-100 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     Cancel
                   </button>
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className={`w-2/3 bg-black text-white ${cooper.className} text-lg py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed transition-all`}
+                    className={`w-full md:w-2/3 bg-black text-white ${cooper.className} text-base md:text-lg py-2 md:py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed transition-all`}
                   >
                     {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>
@@ -280,13 +291,13 @@ export default function ContactPage() {
             ) : (
               
               /* --- OUTCOME VIEWS --- */
-              <div className="text-center py-6 space-y-6">
+              <div className="text-center py-4 md:py-6 space-y-4 md:space-y-6">
                 
                 {outcome === 'calendar' && (
                   <>
-                    <h3 className={`${cooper.className} text-4xl text-black`}>Let's Chat! 📅</h3>
-                    <p className="text-lg font-medium text-black/80">We'd love to speak with you right away. Pick a time on our calendar below.</p>
-                    <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-xl py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
+                    <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Let's Chat! 📅</h3>
+                    <p className="text-base md:text-lg font-medium text-black/80">We'd love to speak with you right away. Pick a time on our calendar below.</p>
+                    <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
                       Book a Time
                     </a>
                   </>
@@ -294,19 +305,19 @@ export default function ContactPage() {
 
                 {outcome === 'email' && (
                   <>
-                    <h3 className={`${cooper.className} text-4xl text-black`}>Got it! 📧</h3>
-                    <p className="text-lg font-medium text-black/80">Thanks for reaching out. We've received your info and will send you an email shortly!</p>
+                    <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Got it! 📧</h3>
+                    <p className="text-base md:text-lg font-medium text-black/80">Thanks for reaching out. We've received your info and will send you an email shortly!</p>
                   </>
                 )}
 
                 {outcome === 'nothing' && (
                   <>
-                    <h3 className={`${cooper.className} text-4xl text-black`}>Thanks! 🙌</h3>
-                    <p className="text-lg font-medium text-black/80">We appreciate you dropping by. We'll be in touch soon!</p>
+                    <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Thanks! 🙌</h3>
+                    <p className="text-base md:text-lg font-medium text-black/80">We appreciate you dropping by. We'll be in touch soon!</p>
                   </>
                 )}
 
-                <button onClick={handleCloseAndReset} className="mt-6 font-bold text-black underline decoration-2 underline-offset-4 hover:text-[#ffa4bb]">
+                <button onClick={handleCloseAndReset} className="mt-4 md:mt-6 font-bold text-black underline decoration-2 underline-offset-4 hover:text-[#ffa4bb]">
                   Close Window
                 </button>
               </div>

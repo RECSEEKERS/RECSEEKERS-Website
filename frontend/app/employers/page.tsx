@@ -18,33 +18,43 @@ export default function EmployersPage() {
         <div className="absolute -top-32 -right-32 w-150 h-150 rounded-full bg-secondary/20 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-100 h-100 rounded-full bg-primary-dark/10 blur-2xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto w-full px-8 pt-24 pb-14 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Reduced top padding (pt-28) for mobile, falls back to pt-24 on desktop */}
+        <div className="relative z-10 max-w-6xl mx-auto w-full px-8 pt-28 pb-14 md:pt-24 md:pb-14 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
-          {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
-          {/* Top Left */}
+          {/* --- Background Doodles --- */}
+          {/* Desktop Top Left (Compass - Hidden on mobile) */}
           <div className="absolute top-16 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"compass"} size={96} delay={0.1} />
           </div>
 
-          {/* Bottom Right */}
+          {/* Desktop Bottom Right (Backpack - Hidden on mobile) */}
           <div className="absolute bottom-12 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"backpack-1"} size={124} delay={1.2} />
           </div>
 
           {/* ── LEFT: Copy + CTA ── */}
           <div className="relative z-10 flex flex-col gap-6">
-            {/* <p className="text-sm font-semibold tracking-widest uppercase text-primary-dark/70">
-              For Hiring Teams
-            </p> */}
-
             <h1
-              className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}
+              className={`block md:hidden text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}
             >
               Find recruiters who{" "}
               <span className="italic text-white">already get it.</span>
             </h1>
 
-            <p className="text-lg text-primary-dark/80 max-w-md leading-relaxed">
+            <h1
+              className={`hidden md:block text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}
+            >
+              Find recruiters who{" "}
+              <span className="italic text-white">already get it.</span>
+            </h1>
+
+            <p className="block md:hidden text-lg text-primary-dark/80 max-w-md leading-relaxed">
+              We place niche-specific recruitment professionals who hit the ground
+              running-already fluent in your market, your roles, and your
+              growth targets.
+            </p>
+
+            <p className="hidden md:block text-lg text-primary-dark/80 max-w-md leading-relaxed">
               Stop onboarding recruiters who need six months to ramp. We place
               niche-specific recruitment professionals who hit the ground
               running-already fluent in your market, your roles, and your
@@ -61,7 +71,7 @@ export default function EmployersPage() {
           </div>
 
           {/* ── RIGHT: Image ── */}
-          <div className="relative z-10 flex justify-center">
+          <div className="relative z-10 flex justify-center mt-8 md:mt-0">
             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
               {/* Offset border for neo-brutalist feel */}
               <div className="absolute inset-0 rounded-3xl border-4 border-primary-dark translate-x-3 translate-y-3" />
@@ -79,18 +89,27 @@ export default function EmployersPage() {
       </section>
 
       {/* ── WHY WORK WITH US ── */}
-      <section className="relative min-h-screen flex flex-col justify-center border-t-4 border-black bg-white px-8 overflow-hidden">
+      {/* Reduced padding (pt-12 pb-12) for mobile spacing, resets to py-0 on md screens */}
+      <section className="relative min-h-screen flex flex-col justify-center border-t-4 border-black bg-white px-8 pt-12 pb-12 md:py-0 overflow-hidden">
         <div className="relative max-w-6xl mx-auto w-full">
 
-          {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
-          {/* Top Right */}
+          {/* --- Background Doodles --- */}
+          {/* Desktop Top Right */}
           <div className="absolute -top-10 -right-14 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"lightbulb"} size={96} delay={0.2} />
           </div>
+          {/* Mobile Top Right */}
+          <div className="absolute top-0 -right-4 block md:hidden z-0 pointer-events-none opacity-60">
+            <DoodleFloat name={"lightbulb"} size={48} delay={0.2} />
+          </div>
 
-          {/* Bottom Left */}
+          {/* Desktop Bottom Left */}
           <div className="absolute -bottom-10 -left-12 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
             <DoodleFloat name={"atom"} size={124} delay={1.4} />
+          </div>
+          {/* Mobile Bottom Left */}
+          <div className="absolute bottom-0 -left-6 hidden md:block  z-0 pointer-events-none opacity-60">
+            <DoodleFloat name={"atom"} size={64} delay={1.4} />
           </div>
 
           {/* Section title */}
@@ -125,7 +144,14 @@ export default function EmployersPage() {
       {/* <TestimonialsSection cooperClassName={cooper.className} /> */}
 
        {/* ── BOTTOM CTA ── */}
-      <BottomCTA />
+       {/* Reduced top margin (mt-12) for mobile */}
+      <div className="block md:hidden mt-1 md:mt-0">
+        <BottomCTA />
+      </div>
+
+      <div className="hidden md:block mt-12 md:mt-0">
+        <BottomCTA />
+      </div>
     </main>
   );
 }
