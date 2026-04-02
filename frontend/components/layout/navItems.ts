@@ -42,6 +42,13 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewText: "A dedicated space for education-technology conversations and hiring insights.",
     previewImage: "/Illustrations/brainstorming.svg",
   },
+  {
+    label: "Subscription",
+    href: "/subscription",
+    previewTitle: "Subscription",
+    previewText: "Get useful updates, insights, and opportunities delivered simply.",
+    previewImage: "/Illustrations/detailsIcon.svg",
+  },
 ];
 
 export const CONTACT_ITEM = {
