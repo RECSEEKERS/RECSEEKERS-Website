@@ -43,7 +43,7 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewImage: "/Illustrations/brainstorming.svg",
   },
   {
-    label: "Subscription",
+    label: "Our Subscription",
     href: "/subscription",
     previewTitle: "Subscription",
     previewText: "Get useful updates, insights, and opportunities delivered simply.",
