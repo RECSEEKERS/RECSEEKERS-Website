@@ -52,7 +52,7 @@ export function DoodleFloat({
 	return (
 		<div
 			ref={ref}
-			className={`z-80 opacity-0 translate-y-8 ${isVisible ? "animate-float-in" : ""} ${className} z-80`}
+			className={`opacity-0 translate-y-8 ${isVisible ? "animate-float-in" : ""} ${className}`}
 			style={style}
 		>
 			<div

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 export default function SearchPage() {
   return (
     <main className="relative w-full overflow-hidden bg-white">
-      <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-6 md:px-10 pt-24 md:pt-28 pb-12">
+      <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-6 md:px-10 pt-24 md:pt-28 pb-12 overflow-hidden">
         <div className="relative max-w-6xl w-full">
           <h1
             className={`${cooper.className} text-5xl sm:text-6xl md:text-8xl text-black mb-6 leading-tight`}
