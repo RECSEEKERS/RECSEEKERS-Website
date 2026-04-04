@@ -8,6 +8,13 @@ export interface NavPreviewItem {
 
 export const PILL_ITEMS: NavPreviewItem[] = [
   {
+    label: "🔎",
+    href: "/search",
+    previewTitle: "Search",
+    previewText: "Find roles, insights, and key pages faster.",
+    previewImage: "/Illustrations/PeopleSearch3.svg",
+  },
+  {
     label: "Home",
     href: "/",
     previewTitle: "Welcome to RECSEEKERS",
@@ -47,7 +54,7 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     href: "/subscription",
     previewTitle: "Subscription",
     previewText: "Get useful updates, insights, and opportunities delivered simply.",
-    previewImage: "/Illustrations/detailsIcon.svg",
+    previewImage: "/Illustrations/communicator.svg",
   },
 ];
 
