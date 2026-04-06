@@ -72,11 +72,11 @@ export default function AboutPage() {
                   />
 
                   <p className="md:hidden text-base text-black/90 leading-relaxed">
-                    RecSeekers is a specialist education Rec2Rec partner. We support top recruiters and growth-focused agencies with confidential, relationship-led moves across the UK and Australia.
+                    RECSEEKERS is a specialist education Rec2Rec partner. We support top recruiters and growth-focused agencies with confidential, relationship-led moves across the UK and Australia.
                   </p>
 
                   <p className="hidden md:block text-xl md:text-2xl text-black leading-relaxed">
-                    At RecSeekers, we specialise in connecting top-tier recruitment professionals
+                    At RECSEEKERS, we specialise in connecting top-tier recruitment professionals
                     with the best opportunities in the industry. As a rec2rec agency, we pride
                     ourselves on understanding the unique needs of both candidates and clients,
                     ensuring the perfect match every time. Our expert team leverages deep industry

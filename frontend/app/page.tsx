@@ -110,7 +110,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* --- Why RecSeekers (Top 5% Positioning) --- */}
+      {/* --- Why RECSEEKERS (Top 5% Positioning) --- */}
       <section className="relative z-20 bg-primary py-18 md:py-22 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
         <DoodleFloat
           name="speech-bubble"
@@ -121,7 +121,7 @@ export default async function HomePage() {
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>
-              Why RecSeekers
+              Why RECSEEKERS?
             </h2>
             <p className="text-base md:text-lg text-primary-dark/80 max-w-3xl leading-relaxed">
               Built for quality over volume, with a specialist model designed around elite education recruitment operators.
@@ -202,7 +202,7 @@ export default async function HomePage() {
           {/* Left: Copy */}
           <div className="w-full order-2 lg:order-1">
             <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For candidates planning their next move
+              For Candidates Planning Their Next Move
             </h2>
 
             <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
@@ -274,7 +274,7 @@ export default async function HomePage() {
           {/* Right: Copy */}
           <div className="w-full">
             <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For agencies hiring proven performers
+              For Agencies Hiring Proven Performers
             </h2>
 
             <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">

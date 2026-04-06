@@ -51,8 +51,8 @@ export function NavMobile() {
   const showLogo = pathname !== "/" || !isHeroStage1;
 
   const getPreviewTitle = (href: string) => {
-    if (href === CONTACT_ITEM.href) return "Talk to RecSeekers";
-    return PILL_ITEMS.find((item) => item.href === href)?.previewTitle ?? "RecSeekers";
+    if (href === CONTACT_ITEM.href) return "Talk to RECSEEKERS";
+    return PILL_ITEMS.find((item) => item.href === href)?.previewTitle ?? "RECSEEKERS";
   };
 
   const getPreviewText = (href: string) => {
@@ -74,8 +74,8 @@ export function NavMobile() {
                 exit={{ opacity: 0, x: -10 }}
                 transition={{ type: "spring", stiffness: 280, damping: 24 }}
               >
-                <Link href="/" aria-label="RecSeekers home">
-                  <img src="/RecLogo.svg" alt="RecSeekers" className="h-8 w-auto" />
+                <Link href="/" aria-label="RECSEEKERS home">
+                  <img src="/RecLogo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
                 </Link>
               </motion.div>
             )}
@@ -215,8 +215,8 @@ export function NavMobile() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.35, delay: 0.2 }}
                 >
-                  <Link href="/" onClick={() => setIsOpen(false)} aria-label="RecSeekers home">
-                    <img src="/RecLogo.svg" alt="RecSeekers" className="h-8 w-auto" />
+                  <Link href="/" onClick={() => setIsOpen(false)} aria-label="RECSEEKERS home">
+                    <img src="/RecLogo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
                   </Link>
                   <p className="mt-1 text-xs font-medium text-black/70">Have a nice day</p>
                 </motion.div>

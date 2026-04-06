@@ -38,7 +38,7 @@ export default function Footer() {
             {/* --- DESKTOP VIEW (Hidden on Mobile) --- */}
             <div className="mx-auto hidden w-full max-w-7xl md:grid grid-cols-[1.2fr_1.8fr_1fr] gap-10">
                 <section className="flex flex-col items-start">
-                    <img src="/logo-white.svg" alt="RecSeekers" className="h-10 w-auto" />
+                    <img src="/logo-white.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
                         "Have a nice day"
                     </p>
@@ -81,7 +81,7 @@ export default function Footer() {
             {/* --- MOBILE VIEW (Hidden on Desktop) --- */}
             <div className="mx-auto flex w-full flex-col gap-10 md:hidden">
                 <section className="flex flex-col items-start">
-                    <img src="/logo-white.svg" alt="RecSeekers" className="h-10 w-auto" />
+                    <img src="/logo-white.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
                         "Have a nice day"
                     </p>
@@ -138,7 +138,7 @@ export default function Footer() {
 
             {/* --- Copyright / Credits (Shared) --- */}
             <div className="mx-auto mt-8 flex w-full max-w-7xl flex-col gap-3 border-t border-white/25 pt-5 text-sm text-white/85 md:flex-row md:items-center md:justify-between">
-                <p>RecSeekers © {currentYear}</p>
+                <p>RECSEEKERS © {currentYear}</p>
                 <a href="https://storyset.com/" target="_blank" rel="noopener noreferrer" className={`transition-all duration-200 hover:opacity-100 opacity-90 ${cooper.className}`}>
                     Illustrations by Storyset
                 </a>

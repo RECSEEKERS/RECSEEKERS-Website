@@ -59,7 +59,7 @@ const values: Value[] = [
       </svg>
     ),
     description:
-      'Proven track record of overcoming challenges and thriving where others have struggled. The recruitment world moves fast and demands adaptability - qualities that are embedded in everything we do at RecSeekers. We push through adversity with energy and optimism, emerging stronger every time.',
+      'Proven track record of overcoming challenges and thriving where others have struggled. The recruitment world moves fast and demands adaptability - qualities that are embedded in everything we do at RECSEEKERS. We push through adversity with energy and optimism, emerging stronger every time.',
   },
   {
     name: 'Rapport',
@@ -69,7 +69,7 @@ const values: Value[] = [
       </svg>
     ),
     description:
-      'Long-term relationships are at the heart of what we do. Building trust and deep understanding over time means our candidates and clients return to us again and again - not because they have to, but because they want to. At RecSeekers, every interaction is the start of something lasting.',
+      'Long-term relationships are at the heart of what we do. Building trust and deep understanding over time means our candidates and clients return to us again and again - not because they have to, but because they want to. At RECSEEKERS, every interaction is the start of something lasting.',
   },
 ];
 

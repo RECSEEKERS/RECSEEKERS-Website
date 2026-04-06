@@ -172,7 +172,7 @@ Edit `app/globals.css`:
   --background: #ffffff;
   --foreground: #171717;
   --primary: #0ea5e9;
-  --primary-dark: #0284c7;
+  --primary-dark: #000000; /*chnage "brown" to black*/
   --neutral-50: #f9fafb;
   --neutral-900: #111827;
 }
