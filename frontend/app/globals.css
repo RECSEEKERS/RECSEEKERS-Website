@@ -35,9 +35,9 @@
   /* Body */
   --font-body: var(--font-poppins);
   /* Headings */
-  --font-heading: var(--font-quicksand);
+  --font-heading: var(--font-body);
   /* Display */
-  --font-display: var(--font-rubik);
+  --font-display: var(--font-body);
 
 }
 

@@ -185,7 +185,7 @@ export function HeroSection() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/RecLogo.svg"
+          src="/rec-logo.svg"
           alt="RECSEEKERS"
           className="my-2.5 w-auto max-w-[82vw] sm:max-w-136 md:max-w-2xl"
         />
