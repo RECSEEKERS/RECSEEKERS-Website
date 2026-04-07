@@ -75,7 +75,7 @@ export function NavMobile() {
                 transition={{ type: "spring", stiffness: 280, damping: 24 }}
               >
                 <Link href="/" aria-label="RECSEEKERS home">
-                  <img src="/RecLogo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                  <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
                 </Link>
               </motion.div>
             )}
@@ -216,7 +216,7 @@ export function NavMobile() {
                   transition={{ duration: 0.35, delay: 0.2 }}
                 >
                   <Link href="/" onClick={() => setIsOpen(false)} aria-label="RECSEEKERS home">
-                    <img src="/RecLogo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                    <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
                   </Link>
                   <p className="mt-1 text-xs font-medium text-black/70">Have a nice day</p>
                 </motion.div>

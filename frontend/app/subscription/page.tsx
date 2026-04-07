@@ -14,7 +14,7 @@ export default function SubscriptionPage() {
           <h1
             className={`${cooper.className} text-5xl sm:text-6xl md:text-8xl text-black mb-6 leading-tight`}
           >
-            Subscribe to <Image src="/RecLogo.svg" width={500} height={500} alt="RECSEEKERS"/>
+            Subscribe to <Image src="/rec-logo.svg" width={500} height={500} alt="RECSEEKERS"/>
           </h1>
 
           <p className="max-w-3xl text-lg md:text-2xl text-black/90 leading-relaxed">

@@ -38,7 +38,7 @@ export default function Footer() {
             {/* --- DESKTOP VIEW (Hidden on Mobile) --- */}
             <div className="mx-auto hidden w-full max-w-7xl md:grid grid-cols-[1.2fr_1.8fr_1fr] gap-10">
                 <section className="flex flex-col items-start">
-                    <img src="/logo-white.svg" alt="RECSEEKERS" className="h-10 w-auto" />
+                    <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
                         "Have a nice day"
                     </p>
@@ -81,7 +81,7 @@ export default function Footer() {
             {/* --- MOBILE VIEW (Hidden on Desktop) --- */}
             <div className="mx-auto flex w-full flex-col gap-10 md:hidden">
                 <section className="flex flex-col items-start">
-                    <img src="/logo-white.svg" alt="RECSEEKERS" className="h-10 w-auto" />
+                    <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
                         "Have a nice day"
                     </p>
