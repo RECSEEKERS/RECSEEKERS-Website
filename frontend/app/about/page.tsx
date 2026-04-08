@@ -5,6 +5,7 @@ import { ValuesSection } from '@/components/About/ValuesSection';
 import { TeamSection } from '@/components/About/TeamSection';
 import { ClientsSection } from '@/components/About/ClientsSection';
 import { WhereWeWorkSection } from '@/components/About/WhereWeWorkSection';
+import { BookCall } from '@/components/About/BookCall'; 
 import { BottomCTA } from '@/components/employers/BottomCTA';
 import DoodleFloat from '@/components/ui/DoodleFloat';
 import ElfsightLinkedInFeed from '@/components/About/ElfsightLinkedInFeed';
@@ -126,7 +127,7 @@ export default function AboutPage() {
 
       {/* --- Jobs Section --- */}
       {/* Added 'relative' to contain the absolute positioned doodles */}
-      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-64">
+      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-24 md:pb-32">
         
         {/* --- Background Doodles --- */}
         {/* Left Side */}
@@ -168,6 +169,7 @@ export default function AboutPage() {
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7437692741268115456" height="727" width="504" frameBorder="0" allowFullScreen title="Embedded post"></iframe> */}
           </div>
         </div>
+        <BookCall />
         
       </section>
   
