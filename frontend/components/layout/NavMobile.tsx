@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useHeroStage } from "@/context/HeroStageContext";
 import { CONTACT_ITEM, PILL_ITEMS } from "./navItems";
 
-const MENU_ITEMS = [...PILL_ITEMS, CONTACT_ITEM] as const;
+const PRIMARY_ITEMS = PILL_ITEMS;
 
 const overlayVariants = {
   hidden: { opacity: 0 },
@@ -53,13 +53,6 @@ export function NavMobile() {
   const getPreviewTitle = (href: string) => {
     if (href === CONTACT_ITEM.href) return "Talk to RECSEEKERS";
     return PILL_ITEMS.find((item) => item.href === href)?.previewTitle ?? "RECSEEKERS";
-  };
-
-  const getPreviewText = (href: string) => {
-    if (href === CONTACT_ITEM.href) {
-      return "Start a confidential conversation about your next hire or your next role.";
-    }
-    return PILL_ITEMS.find((item) => item.href === href)?.previewText ?? "Explore this page.";
   };
 
   return (
@@ -156,56 +149,52 @@ export function NavMobile() {
                 </button>
 
                 <motion.div
-                  className="mt-8 flex flex-col gap-y-4"
+                  className="mt-8"
                   variants={listVariants}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                 >
-                  {MENU_ITEMS.map((item) => {
+                  <div className="grid grid-cols-2 gap-3">
+                    {PRIMARY_ITEMS.map((item) => {
                     const isActive = item.href === pathname;
-                    const isContact = item.href === CONTACT_ITEM.href;
                     const previewTitle = getPreviewTitle(item.href);
-                    const previewText = getPreviewText(item.href);
 
                     return (
                       <motion.div key={item.href} variants={itemVariants} transition={{ duration: 0.24, ease: "easeOut" }}>
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          aria-label={previewText}
-                          className={`block rounded-3xl border-4 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 ${
-                            isContact
-                              ? "border-black bg-[#1f0c1a] text-white p-4 shadow-[8px_8px_0px_0px_#FF69B4] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#FF69B4]"
-                              : isActive
-                                ? "border-black bg-[#ffeaf5] p-4 translate-x-1 translate-y-1 shadow-[2px_2px_0px_0px_black]"
-                                : "border-black bg-white p-4 shadow-[6px_6px_0px_0px_black] hover:translate-x-px hover:translate-y-px hover:shadow-[7px_7px_0px_0px_#FF69B4]"
+                          aria-label={previewTitle}
+                          className={`block min-h-22 rounded-2xl border-4 p-3 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 ${
+                            isActive
+                              ? "border-black bg-[#ffeaf5] translate-x-0.5 translate-y-0.5 shadow-[2px_2px_0px_0px_black]"
+                              : "border-black bg-white shadow-[5px_5px_0px_0px_black] hover:translate-x-px hover:translate-y-px hover:shadow-[6px_6px_0px_0px_#FF69B4]"
                           }`}
                         >
-                          <div className="flex flex-col gap-1">
-                            <p className={`text-[12px] font-bold uppercase tracking-[0.08em] ${isContact ? "text-pink-200" : "text-black"}`}>
-                              {item.label}
-                            </p>
-                            <p
-                              className={`text-[16px] leading-tight font-heading ${
-                                isContact ? "text-white" : isActive ? "text-pink-700" : "text-black"
-                              }`}
-                            >
+                          <div className="flex h-full flex-col justify-between gap-2">
+                            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-black/65">{item.label}</p>
+                            <p className={`text-[15px] leading-tight font-heading ${isActive ? "text-pink-700" : "text-black"}`}>
                               {previewTitle}
                             </p>
-                            <p className={`line-clamp-2 text-[13px] leading-snug ${isContact ? "text-white/85" : "text-black/80"}`}>
-                              {previewText}
-                            </p>
-                            {isContact && (
-                              <p className="pt-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-pink-200">
-                                Fast reply | Confidential chat
-                              </p>
-                            )}
                           </div>
                         </Link>
                       </motion.div>
                     );
-                  })}
+                    })}
+                  </div>
+
+                  <motion.div className="mt-4" variants={itemVariants} transition={{ duration: 0.24, ease: "easeOut" }}>
+                    <Link
+                      href={CONTACT_ITEM.href}
+                      onClick={() => setIsOpen(false)}
+                      aria-label="Talk to RECSEEKERS"
+                      className="block rounded-2xl border-4 border-black bg-[#1f0c1a] p-4 text-white shadow-[7px_7px_0px_0px_#FF69B4] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#FF69B4]"
+                    >
+                      <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-pink-200">{CONTACT_ITEM.label}</p>
+                      <p className="text-[16px] leading-tight font-heading text-white">Talk to RECSEEKERS</p>
+                    </Link>
+                  </motion.div>
                 </motion.div>
 
                 <motion.div

@@ -22,13 +22,13 @@ export function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 hidden md:block">
-      <div className="relative flex items-center justify-center bg-primary/90 backdrop-blur-3xl hover:bg-primary hover:py-4 hover:shadow-xl shadow-lg border-b border-neutral-50/20 px-6 py-2 rounded-b-lg transition-all duration-300">
+      <div className="relative flex flex-wrap items-center justify-between gap-y-2 bg-primary/90 backdrop-blur-3xl hover:bg-primary hover:py-4 hover:shadow-xl shadow-lg border-b border-neutral-50/20 px-6 py-2 rounded-b-lg transition-all duration-300 xl:justify-center">
 
         {/* Logo – far left, hidden on landing until scrolled */}
         <AnimatePresence>
           {showLogo && (
             <motion.div
-              className="absolute left-10"
+              className="order-1 xl:absolute xl:left-10"
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
@@ -43,7 +43,7 @@ export function Nav() {
 
         {/* Pill + preview – hover system scoped here only */}
         <div
-          className="relative"
+          className="relative order-3 mt-1 basis-full xl:order-2 xl:mt-0 xl:basis-auto"
           onMouseEnter={() => setIsInside(true)}
           onMouseLeave={() => {
             setIsInside(false);
@@ -51,7 +51,7 @@ export function Nav() {
           }}
         >
           {/* Floating navbar pill – centered */}
-          <div className="flex gap-3 px-2 py-1">
+          <div className="flex justify-center gap-3 px-2 py-1">
             {PILL_ITEMS.map((item, index) => (
               <Link
                 key={item.href}
@@ -76,7 +76,7 @@ export function Nav() {
         </div>
 
         {/* Contact button – far right, outside preview system */}
-        <div className="absolute right-10">
+        <div className="order-2 ml-auto xl:absolute xl:right-10 xl:ml-0">
           <Link href={CONTACT_ITEM.href}>
             <Button variant="primary" size="md">
               {CONTACT_ITEM.label}

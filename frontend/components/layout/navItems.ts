@@ -8,18 +8,18 @@ export interface NavPreviewItem {
 
 export const PILL_ITEMS: NavPreviewItem[] = [
   {
-    label: "🔎",
-    href: "/search",
-    previewTitle: "Search",
-    previewText: "Find roles, insights, and key pages faster.",
-    previewImage: "/Illustrations/PeopleSearch3.svg",
-  },
-  {
     label: "Home",
     href: "/",
     previewTitle: "Welcome to RECSEEKERS",
     previewText: "High-impact recruiters matching top talent with their next move.",
     previewImage: "/Illustrations/Telecommute1.svg",
+  },
+  {
+    label: "About",
+    href: "/about",
+    previewTitle: "About RECSEEKERS",
+    previewText: "We specialise in recruiter-to-recruiter hiring-matching top talent in the Education sector",
+    previewImage: "/Illustrations/GroupDiscussion1.svg",
   },
   {
     label: "Candidates",
@@ -36,11 +36,11 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewImage: "/Illustrations/PeopleSearch2.svg",
   },
   {
-    label: "About",
-    href: "/about",
-    previewTitle: "About RECSEEKERS",
-    previewText: "We specialise in recruiter-to-recruiter hiring-matching top talent in the Education sector",
-    previewImage: "/Illustrations/GroupDiscussion1.svg",
+    label: "Search",
+    href: "/search",
+    previewTitle: "Search",
+    previewText: "Find roles, insights, and key pages faster.",
+    previewImage: "/Illustrations/PeopleSearch3.svg",
   },
   {
     label: "EdTech",
