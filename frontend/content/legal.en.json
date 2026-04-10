@@ -1,0 +1,83 @@
+{
+  "locale": "en",
+  "temporaryNotice": {
+    "showNotice": true,
+    "title": "Notice",
+    "message": "This legal content is placeholder boilerplate and should be reviewed by qualified legal counsel before publication."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "April 10, 2026",
+    "intro": "RecSeekers respects your privacy. This page explains what personal data we collect, why we collect it, and how we handle it.",
+    "sections": [
+      {
+        "heading": "Who We Are",
+        "paragraphs": [
+          "RecSeekers is a specialist recruiter-to-recruiter business focused on education recruitment.",
+          "For data protection matters, contact us through the contact details shown on this website."
+        ]
+      },
+      {
+        "heading": "What We Collect",
+        "paragraphs": [
+          "We may collect identity and contact information you submit through forms.",
+          "We may also collect basic usage data to keep the site secure and improve performance."
+        ],
+        "bullets": [
+          "Name and contact details",
+          "Message and role-related information",
+          "Technical and analytics data"
+        ]
+      },
+      {
+        "heading": "How We Use Data",
+        "paragraphs": [
+          "We use personal data to respond to enquiries, assess relevant opportunities, and improve our services.",
+          "We only process data where there is a lawful basis to do so."
+        ]
+      },
+      {
+        "heading": "Your Rights",
+        "paragraphs": [
+          "Depending on your location, you may have rights to access, correct, erase, or restrict use of your personal data.",
+          "To exercise these rights, contact us and we will respond within applicable legal timelines."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "lastUpdated": "April 10, 2026",
+    "intro": "These terms govern use of the RecSeekers website. By using this site, you agree to these terms.",
+    "sections": [
+      {
+        "heading": "Website Use",
+        "paragraphs": [
+          "You agree to use this website lawfully and not to interfere with site operations.",
+          "Content is provided for general information and may change without notice."
+        ]
+      },
+      {
+        "heading": "Intellectual Property",
+        "paragraphs": [
+          "Unless otherwise stated, website content, branding, and design are owned by RecSeekers or licensed to RecSeekers.",
+          "You may not reproduce or distribute site content without written permission."
+        ]
+      },
+      {
+        "heading": "Liability",
+        "paragraphs": [
+          "We aim to keep information accurate and up to date, but we do not guarantee completeness or suitability for every purpose.",
+          "To the extent permitted by law, RecSeekers is not liable for indirect or consequential loss arising from website use."
+        ]
+      },
+      {
+        "heading": "Changes and Contact",
+        "paragraphs": [
+          "We may update these terms from time to time by publishing a revised version on this page.",
+          "Questions about these terms can be sent via the website contact form."
+        ]
+      }
+    ]
+  }
+}
