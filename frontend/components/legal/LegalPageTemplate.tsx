@@ -27,6 +27,7 @@ interface LegalPageTemplateProps {
 
 export function LegalPageTemplate({ section, content }: LegalPageTemplateProps) {
   const [activeSection, setActiveSection] = useState<"privacy" | "terms">(section);
+  const SECTION_SCROLL_GAP = 52;
 
   const scrollToSection = (sectionId: "privacy" | "terms") => {
     const element = document.getElementById(sectionId);
@@ -35,7 +36,7 @@ export function LegalPageTemplate({ section, content }: LegalPageTemplateProps) 
     const navbar = document.querySelector("nav");
     const navbarHeight = navbar instanceof HTMLElement ? navbar.offsetHeight : 80;
     const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - SECTION_SCROLL_GAP;
 
     window.scrollTo({
       top: offsetPosition,
