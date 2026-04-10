@@ -108,22 +108,24 @@ export default function SignUpPage() {
         
         <div className="max-w-6xl w-full mx-auto mt-4 md:mt-8">
           <h1 className={`${cooper.className} text-5xl md:text-6xl lg:text-7xl text-black mb-8 md:mb-12 leading-tight text-center`}>
-            Stay in the <span className="italic text-white">Loop!</span>
+            Sign up and <span className="italic text-white">Grow!</span>
           </h1>
 
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 bg-white p-6 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             
             <div className="w-full md:w-1/2 flex flex-col justify-start space-y-6 md:space-y-8">
               <div>
-                <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Join Us 💌</h2>
+                <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Join Us🌐</h2>
                 <p>
                   <span className="block md:hidden text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
-                  Sign up for our newsletter to get the latest updates, industry insights, and exclusive content delivered straight to your inbox.
+                  
                   </span>
 
                   <span className="hidden md:block text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
-                  We focus on relationships and long-term conversations.<br /><br />Sign up for our newsletter to get the latest updates, industry insights, and exclusive content delivered straight to your inbox. No spam, ever.
+                  Get <span className="font-bold text-primary">first access</span> to roles, expert market insight, PDFs, salary surveys and anything we release <span className="font-bold text-primary">before it goes public</span>!<br /><br />Take part in our monthly competitions, giveaways, care packages and more!
                   </span>
+                  <br></br>
+                  <span className="hidden md:block text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md" >And of course, lots of information with tips and updates!</span>
                 </p>
               </div>
 
