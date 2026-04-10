@@ -24,23 +24,27 @@
           "We may also collect basic usage data to keep the site secure and improve performance."
         ],
         "bullets": [
-          "Name and contact details",
-          "Message and role-related information",
+          "Name and contact details (e.g., email address, phone number)",
+          "Message, role-related information, and hiring timelines",
           "Technical and analytics data"
         ]
       },
       {
         "heading": "How We Use Data",
         "paragraphs": [
-          "We use personal data to respond to enquiries, assess relevant opportunities, and improve our services.",
-          "We only process data where there is a lawful basis to do so."
+          "We use personal data to respond to enquiries, assess relevant opportunities, and improve our services. If you opt-in to our newsletter, we will also use your email address to send you industry updates and relevant content. We only process data where there is a lawful basis to do so."
+        ]
+      },{ 
+        "heading": "Third-Party Services and Marketing",
+        "paragraphs": [
+          "We use HubSpot as our Customer Relationship Management (CRM) and email marketing platform. When you submit a form or sign up for our newsletter, the details you provide are transferred to and stored securely within HubSpot. You can unsubscribe from our marketing communications at any time by clicking the \"Unsubscribe\" link at the bottom of our emails."
         ]
       },
       {
         "heading": "Your Rights",
         "paragraphs": [
           "Depending on your location, you may have rights to access, correct, erase, or restrict use of your personal data.",
-          "To exercise these rights, contact us and we will respond within applicable legal timelines."
+          " To exercise these rights, or to withdraw your consent for marketing communications, contact us and we will respond within applicable legal timelines."
         ]
       }
     ]
