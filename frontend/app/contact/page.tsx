@@ -131,7 +131,8 @@ export default function ContactPage() {
               <div className="space-y-4 md:space-y-6 text-base md:text-lg font-medium text-black">
                 <div className="flex items-center">
                   <span className={`${cooper.className} text-lg md:text-xl w-20 md:w-24`}>Phone:</span>
-                  <span>+61 0437769683</span>
+                  <span>+44 (0) 7552 188 056</span>
+                  <span>+44 (0) 191 743 0418</span>
                 </div>
               </div>
 
