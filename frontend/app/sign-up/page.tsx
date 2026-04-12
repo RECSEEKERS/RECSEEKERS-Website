@@ -194,7 +194,7 @@ export default function SignUpPage() {
               <h3 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4 md:mb-6`}>
                 Welcome to the Community!
                 
-                {/* {isExistingUser ? "You're already in!" : "Welcome to the Community"} */}
+                {/* {isExistingUser ? "You're already in ☑️!" : "Welcome to the Community"} */}
               </h3>
 
               {/* Decorative Image */}
