@@ -490,6 +490,8 @@ You might need to install packages:
 
 ```bash
 npm install @sanity/client @sanity/image-url next-sanity
+npm install canvas-confetti
+npm install -D @types/canvas-confetti
 ```
 
 ### "NEXT_PUBLIC_SANITY_PROJECT_ID is empty"
