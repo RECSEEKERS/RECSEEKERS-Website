@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { TestimonialsSection } from "@/components/Candidates/TestimonialsSection";
 import { BottomCTA } from "@/components/Candidates/BottomCTA";
+import { FitSplitCard } from "@/components/Candidates/FitSplitCard";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
 // Assuming you have the same profile placeholder and font setup
@@ -115,6 +116,42 @@ export default function Candidates() {
           </div>
         </div> */}
       {/* </section>  */}
+
+      {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
+      <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
+        <div className="absolute top-10 left-4 md:left-12 z-0 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
+          <DoodleFloat name={"pencil-2"} size={84} delay={0.1} />
+        </div>
+        <div className="absolute bottom-8 right-10 hidden md:block z-0 pointer-events-none">
+          <DoodleFloat name={"proctator"} size={140} delay={0.5} />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col gap-10">
+          <div className="max-w-3xl">
+            <h2 className={`${cooper.className} text-5xl md:text-6xl text-black mb-5 leading-tight`}>
+              Is this right for you?
+            </h2>
+            <p className="text-lg md:text-xl text-primary-dark/80 leading-relaxed">
+              We work with ambitious education recruiters who want the right next move, not just the next job.
+            </p>
+          </div>
+
+          <FitSplitCard cooperClassName={cooper.className} />
+
+          <div className="mx-auto w-full max-w-3xl rounded-2xl border-2 border-black/20 bg-white/90 px-6 py-7 md:px-10 md:py-9 text-center shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <p className={`${cooper.className} text-3xl md:text-4xl text-black mb-3`}>
+              Our candidate promise
+            </p>
+            <p className="text-lg md:text-xl text-primary-dark leading-relaxed font-semibold">
+              You will never be charged as a candidate. Ever.
+            </p>
+            <p className="mt-3 text-base md:text-lg text-primary-dark/80 leading-relaxed">
+              We are retained by hiring agencies, so your conversations with us stay confidential, advisory,
+              and focused on your best next move.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* --- PREVIOUS CANDIDATES SECTION --- */}
       <TestimonialsSection cooperClassName={cooper.className} />
