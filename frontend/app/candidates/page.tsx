@@ -129,7 +129,7 @@ export default function Candidates() {
         <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col gap-10">
           <div className="max-w-3xl">
             <h2 className={`${cooper.className} text-5xl md:text-6xl text-black mb-5 leading-tight`}>
-              Is this right for you?
+              Ready for your next big move?
             </h2>
             <p className="text-lg md:text-xl text-primary-dark/80 leading-relaxed">
               We work with ambitious education recruiters who want the right next move, not just the next job.
@@ -169,7 +169,11 @@ export default function Candidates() {
             We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
           </p>
 
-          <BottomCTA />
+          <BottomCTA
+            eyebrowText="Ready for your next step?"
+            headingText="Let&apos;s find the role that moves your career forward."
+            buttonText="Start a Confidential Chat"
+          />
           {/* Split Button Container
             <Link href="/contact">
               <Button variant="primary" size="xl" className={cooper.className}>
