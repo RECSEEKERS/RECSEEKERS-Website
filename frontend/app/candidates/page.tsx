@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { TestimonialsSection } from "@/components/Candidates/TestimonialsSection";
-import { BottomCTA } from "@/components/Candidates/BottomCTA";
 import { FitSplitCard } from "@/components/Candidates/FitSplitCard";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
@@ -157,23 +156,32 @@ export default function Candidates() {
       <TestimonialsSection cooperClassName={cooper.className} />
 
       {/* --- CONTACT US SECTION --- */}
-      <section className="relative z-20 min-h-[60vh] bg-white pt-10 pb-24 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
-        <div className="max-w-4xl w-full flex flex-col items-center text-center">
+      <section className="relative z-20 bg-white py-14 md:py-16 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
+        <div className="max-w-6xl w-full flex flex-col items-center text-center">
           <h2 className={`${headingStyle} mb-8`}>
             Ready to find your perfect role?
           </h2>
-          <p className="hidden md:block text-xl text-black font-medium mb-12 max-w-2xl leading-relaxed">
-            Reach out to our team today. We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
-          </p>
-          <p className="block md:hidden text-xl text-black font-medium mb-12 max-w-2xl leading-relaxed">
-            We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
-          </p>
 
-          <BottomCTA
-            eyebrowText="Ready for your next step?"
-            headingText="Let&apos;s find the role that moves your career forward."
-            buttonText="Start a Confidential Chat"
-          />
+          <div className="w-full max-w-5xl">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 text-left">
+              <p className="text-lg md:text-xl text-black font-medium leading-relaxed max-w-3xl">
+                Reach out to our team today. We&apos;ll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
+              </p>
+
+              <div className="shrink-0">
+                <Link href="/contact" className="inline-block w-full md:w-auto">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className={`${cooper.className} w-full md:w-auto whitespace-nowrap`}
+                  >
+                    Start a Confidential Chat
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Split Button Container
             <Link href="/contact">
               <Button variant="primary" size="xl" className={cooper.className}>
