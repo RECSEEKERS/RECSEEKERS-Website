@@ -17,8 +17,8 @@ export default function EdTechPage() {
                 </h1>
             
                 <p className="max-w-3xl text-lg md:text-2xl text-black/90 leading-relaxed">
-                    A dedicated space for education-technology conversations — from market
-                    updates to hiring trends and the people shaping what’s next.
+                    A dedicated space for Education-Technology conversations, from market
+                    updates to hiring trends and the people shaping what's next.
                 </p>
             </div>
             
@@ -50,7 +50,7 @@ export default function EdTechPage() {
             COMING SOON!
           </h2>
           <p className="text-base md:text-lg text-black/80 leading-relaxed max-w-3xl">
-            We're currently developing this space to bring innovation into the EdTech market. If you're interested, why not <a href="/contact" className="text-pink-500 hover:underline">
+            We're currently developing this space to bring innovation into the <span className="font-bold">EdTech</span> market. If you're interested, why not <a href="/contact" className="text-pink-500 hover:underline">
               reach out
             </a>?
           </p>
