@@ -244,7 +244,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like a confidential chat?</label>
-                      <select name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                      <select title="Preferences"name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
                         <option value="yes" className="text-black">Yes, let's talk</option>
                         <option value="no" className="text-black">No, just email me</option>
@@ -298,7 +298,7 @@ export default function ContactPage() {
                   <>
                     <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Let's Chat! 📅</h3>
                     <p className="text-base md:text-lg font-medium text-black/80">We'd love to speak with you right away. Pick a time on our calendar below.</p>
-                    <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
+                    <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
                       Book a Time
                     </a>
                   </>

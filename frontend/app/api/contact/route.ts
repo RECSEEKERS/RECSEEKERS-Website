@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
@@ -18,7 +17,68 @@ function getContactEnv() {
 
 export async function POST(request: Request) {
   try {
+    const data = await request.json();
+    
+    // Extracted variables for BOTH your forms (Contact Form & Community Sign Up)
+    const { name, email, number, role, message, q1, q2, outcome } = data;
+
+    // ==========================================
+    // 1. HUBSPOT INTEGRATION
+    // ==========================================
+    const HUBSPOT_TOKEN = process.env.HUBSPOT_ACCESS_TOKEN;
+
+    if (HUBSPOT_TOKEN && email) {
+      // Check if the contact already exists in HubSpot
+      const checkResponse = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${HUBSPOT_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (checkResponse.status === 200) {
+        // User ALREADY EXISTS in HubSpot.
+        // We only want to return the 409 status if they are using the Community Sign-Up form 
+        // (we assume the Sign-Up form doesn't send a 'message' payload).
+        // If they ARE sending a message, we let the code continue so Sam still gets the email!
+        if (!message) {
+          return NextResponse.json({ message: "User already exists in HubSpot" }, { status: 409 });
+        }
+      } else {
+        // User DOES NOT exist, so we create them in HubSpot
+        await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${HUBSPOT_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            properties: {
+              email: email,
+              firstname: name,
+              phone: number || '', // 'number' comes from your new sign-up form
+            }
+          }),
+        });
+      }
+    } else if (!HUBSPOT_TOKEN) {
+      console.warn("HubSpot Token is missing. Skipping HubSpot integration.");
+    }
+
+    // ==========================================
+    // 2. RESEND EMAIL LOGIC (Your Existing Code)
+    // ==========================================
     const contactEnv = getContactEnv();
+    
+    // If there is no message, it means this was just a Community Sign Up. 
+    // We can stop here and return success without sending emails, 
+    // OR you can let it continue if you want to send them a welcome email via Resend!
+    // For now, I am returning early so we don't send blank contact form emails.
+    if (!message && !role) {
+      return NextResponse.json({ success: true });
+    }
+
     if (!contactEnv) {
       console.error('Contact API misconfigured: missing RESEND_API_KEY or SAM_EMAIL');
       return NextResponse.json(
@@ -27,10 +87,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const data = await request.json();
-    const { name, email, role, message, q1, q2, outcome } = data;
-
-    // --- 1. PREPARE THE EMAIL CONTENT ---
+    // --- PREPARE THE EMAIL CONTENT ---
     let receiverSubject = '';
     let receiverBody = '';
     let userSubject = '';
@@ -92,10 +149,9 @@ export async function POST(request: Request) {
       `;
     }
 
-    // --- 2. SEND THE EMAILS ---
+    // --- SEND THE EMAILS ---
     // 1. Send the notification to Sam (You)
     await contactEnv.resend.emails.send({
-      // Use Resend's required testing address while in development
       from: 'onboarding@resend.dev', 
       to: contactEnv.receiverEmailAddress,
       replyTo: email, 
@@ -105,9 +161,7 @@ export async function POST(request: Request) {
 
     // 2. Send the confirmation to the User
     await contactEnv.resend.emails.send({
-      // Use Resend's required testing address while in development
       from: 'onboarding@resend.dev', 
-      // Replace the hardcoded email with the dynamic variable from the form
       to: email, 
       subject: userSubject,
       text: userBody,
@@ -116,6 +170,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error processing contact form:', error);
-    return NextResponse.json({ error: 'Failed to send emails' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
   }
 }
