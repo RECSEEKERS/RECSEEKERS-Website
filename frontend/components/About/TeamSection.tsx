@@ -63,13 +63,13 @@ export function TeamSection() {
           name={"speech-bubble"}
           size={88}
           delay={0.15}
-          className="absolute top-4 right-0 md:hidden z-0 pointer-events-none opacity-55"
+          className="absolute top-4 right-0 md:hidden z-40 pointer-events-none opacity-55"
         />
         <DoodleFloat
           name={"lightbulb"}
           size={86}
           delay={0.35}
-          className="absolute bottom-12 right-0 md:hidden z-0 pointer-events-none opacity-55"
+          className="absolute bottom-12 right-0 md:hidden z-40 pointer-events-none opacity-55"
         />
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}

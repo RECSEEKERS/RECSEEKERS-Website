@@ -29,16 +29,16 @@ export default function Candidates() {
           
           {/* --- Background Doodles --- */}
           {/* Desktop Top Left */}
-          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"flask-2"} size={96} delay={0.1} />
           </div>
           {/* Mobile Top Left (Smaller, semi-transparent) */}
-          <div className="absolute top-6 -right-4 block md:hidden z-0 pointer-events-none opacity-60">
+          <div className="absolute top-6 -right-4 block md:hidden z-40 pointer-events-none opacity-60">
             <DoodleFloat name={"flask-2"} size={64} delay={0.1} />
           </div>
 
           {/* Desktop Bottom Right */}
-          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"books-3"} size={124} delay={1.2} />
           </div>
 
@@ -118,10 +118,10 @@ export default function Candidates() {
 
       {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
       <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
-        <div className="absolute top-10 left-4 md:left-12 z-0 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
+        <div className="absolute top-10 left-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
           <DoodleFloat name={"pencil-2"} size={84} delay={0.1} />
         </div>
-        <div className="absolute bottom-8 right-10 hidden md:block z-0 pointer-events-none">
+        <div className="absolute bottom-8 right-10 hidden md:block z-40 pointer-events-none">
           <DoodleFloat name={"proctator"} size={140} delay={0.5} />
         </div>
 

@@ -115,7 +115,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
         name="speech-bubble"
         size={84}
         delay={0.2}
-        className="absolute top-16 right-2 md:right-10 block md:hidden pointer-events-none"
+        className="absolute z-40 top-16 right-2 md:right-10 block md:hidden pointer-events-none"
       />
       <DoodleFloat
         name="apple"
@@ -127,7 +127,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
         name="apple"
         size={70}
         delay={0.35}
-        className="absolute bottom-15 left-2 md:left-12 block md:hidden pointer-events-none"
+        className="absolute z-40 bottom-15 left-2 md:left-12 block md:hidden pointer-events-none"
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
