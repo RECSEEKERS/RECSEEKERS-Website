@@ -126,7 +126,7 @@ export default function AboutPage() {
 
       {/* --- Jobs Section --- */}
       {/* Added 'relative' to contain the absolute positioned doodles */}
-      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-24 md:pb-32">
+      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-14 md:pb-20">
         
         {/* --- Background Doodles --- */}
         {/* Left Side */}
