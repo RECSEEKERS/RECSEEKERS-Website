@@ -167,7 +167,7 @@ export function HeroSection() {
 
   const stage1Visible = stage === 1 && !transitioning;
   const stage2Visible = stage === 2;
-  const showChevron   = !transitioning && stage === 1;
+  const showChevron   = !transitioning && (stage === 1 || stage === 2);
 
   return (
     <section className="sticky top-0 z-10 isolate h-dvh w-full overflow-hidden md:h-screen" style={{ background: "#da8da0" }}>

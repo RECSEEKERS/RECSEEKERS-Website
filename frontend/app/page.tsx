@@ -74,7 +74,7 @@ export default async function HomePage() {
           name="pencil-1"
           size={150}
           delay={0.4}
-          className="absolute bottom-10 left-2 lg:bottom-14 lg:left-8 hidden md:block pointer-events-none"
+          className="absolute bottom-10 z-40 left-2 lg:bottom-14 lg:left-8 hidden md:block pointer-events-none"
         />
 
         <div className="relative z-10 max-w-7xl w-full">
