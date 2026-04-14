@@ -17,6 +17,7 @@ const LinkedinIcon = () => (
 
 type TestimonialItem = {
   quote: string;
+  mobileQuote: string;
   role: string;
   agencyType: string;
   initials: string;
@@ -25,18 +26,21 @@ type TestimonialItem = {
 const testimonials: TestimonialItem[] = [
   {
     quote: " I can't recommend Sam enough. I wouldn't pay too much attention to speculative messages on LinkedIn, but his no-fluff approach caught my eye. Within a day he had 2 interviews lined up for me, with companies that would fit my style and personality. If you're looking for a Rec2Rec who actually listens to what you want get in touch with Sam. Outstanding service!",
+    mobileQuote: "No-fluff approach and two perfect-fit interviews lined up within a day.",
     role: "Senior Recruitment Consultant",
     agencyType: "Empowering Learning Manchester",
     initials: "NB",
   },
   {
     quote: "I’ve had the pleasure of working with Sam for a while now and have been consistently impressed by his honesty and genuine approach to finding the right people for our business. He takes the time to really listen and understand our requirements. Also great at providing insights into market trends!",
+    mobileQuote: "Honest, genuine, and consistently delivers candidates that fit our brief.",
     role: "Talent Acquisition Manager",
     agencyType: "The Edwin Group",
     initials: "AA",
   },
   {
     quote: "Highly recommend Sam. Contact was frequent but relaxed enough to not feel pressure-some. He gave the right amount of support and, from now working long-term in a role he secured for me, know that his clients respect him just as much. Thanks Sam!",
+    mobileQuote: "Supportive and low-pressure process that led to a long-term role.",
     role: "Senior SEND Consultant",
     agencyType: "Horizon Teachers",
     initials: "AB",
@@ -169,7 +173,8 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
                   </motion.div>
 
                   <blockquote className="text-lg text-black/80 leading-relaxed italic max-w-[32ch]">
-                    "{item.quote}"
+                    <span className="block md:hidden">"{item.mobileQuote}"</span>
+                    <span className="hidden md:block">"{item.quote}"</span>
                   </blockquote>
                 </div>
 
