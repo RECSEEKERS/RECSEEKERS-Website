@@ -11,6 +11,12 @@ type CTAVariant = "tertiary" | "dark" | "pink";
 
 interface BottomCTAProps {
   variant?: CTAVariant;
+  eyebrowText?: string;
+  headingText?: string;
+  primaryButtonText?: string;
+  primaryHref?: string;
+  secondaryButtonText?: string;
+  secondaryHref?: string;
 }
 
 const variantConfig: Record<CTAVariant, {
@@ -43,7 +49,15 @@ const variantConfig: Record<CTAVariant, {
   },
 };
 
-export function BottomCTA({ variant = "tertiary" }: BottomCTAProps) {
+export function BottomCTA({
+  variant = "tertiary",
+  eyebrowText = "Ready to build your team?",
+  headingText = "Let&apos;s find your next great recruiter.",
+  primaryButtonText = "Get in Touch",
+  primaryHref = "/contact",
+  secondaryButtonText,
+  secondaryHref,
+}: BottomCTAProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const cfg = variantConfig[variant];
@@ -67,19 +81,29 @@ export function BottomCTA({ variant = "tertiary" }: BottomCTAProps) {
           {/* Left: Text */}
           <div className="flex flex-col gap-2">
             <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
-              Ready to build your team?
+              {eyebrowText}
             </p>
             <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
-              Let&apos;s find your next great recruiter.
+              {headingText}
             </h3>
           </div>
           {/* Right: Button */}
-          <div className="shrink-0 flex justify-center">
-            <Link href="/contact">
+          <div className="shrink-0 flex flex-col sm:flex-row justify-center gap-3">
+            <Link href={primaryHref}>
               <Button variant={cfg.buttonVariant} size="lg">
-                Get in Touch
+                {primaryButtonText}
               </Button>
             </Link>
+            {secondaryButtonText && secondaryHref ? (
+              <Link href={secondaryHref}>
+                <Button
+                  variant={cfg.buttonVariant === "secondary" ? "primary" : "secondary"}
+                  size="lg"
+                >
+                  {secondaryButtonText}
+                </Button>
+              </Link>
+            ) : null}
           </div>
           
         </motion.div>

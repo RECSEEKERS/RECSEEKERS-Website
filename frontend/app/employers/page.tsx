@@ -23,12 +23,12 @@ export default function EmployersPage() {
           
           {/* --- Background Doodles --- */}
           {/* Desktop Top Left (Compass - Hidden on mobile) */}
-          <div className="absolute top-16 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute top-16 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"compass"} size={96} delay={0.1} />
           </div>
 
           {/* Desktop Bottom Right (Backpack - Hidden on mobile) */}
-          <div className="absolute bottom-12 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute bottom-12 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"backpack-1"} size={124} delay={1.2} />
           </div>
 
@@ -95,20 +95,20 @@ export default function EmployersPage() {
 
           {/* --- Background Doodles --- */}
           {/* Desktop Top Right */}
-          <div className="absolute -top-10 -right-14 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute -top-10 -right-14 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"lightbulb"} size={96} delay={0.2} />
           </div>
           {/* Mobile Top Right */}
-          <div className="absolute top-0 -right-4 block md:hidden z-0 pointer-events-none opacity-60">
+          <div className="absolute top-0 -right-4 block md:hidden z-40 pointer-events-none opacity-60">
             <DoodleFloat name={"lightbulb"} size={48} delay={0.2} />
           </div>
 
           {/* Desktop Bottom Left */}
-          <div className="absolute -bottom-10 -left-12 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute -bottom-10 -left-12 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"atom"} size={124} delay={1.4} />
           </div>
           {/* Mobile Bottom Left */}
-          <div className="absolute bottom-0 -left-6 hidden md:block  z-0 pointer-events-none opacity-60">
+          <div className="absolute bottom-0 -left-6 hidden md:block  z-40 pointer-events-none opacity-60">
             <DoodleFloat name={"atom"} size={64} delay={1.4} />
           </div>
 

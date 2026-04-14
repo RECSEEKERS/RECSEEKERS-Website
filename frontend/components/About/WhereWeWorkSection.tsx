@@ -37,7 +37,7 @@ export function WhereWeWorkSection() {
           name={"globe"}
           size={60}
           delay={0.2}
-          className="absolute -top-5 -right-1 md:hidden z-0 pointer-events-none opacity-55"
+          className="absolute -top-5 -right-1 md:hidden z-40 pointer-events-none opacity-55"
         />
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}

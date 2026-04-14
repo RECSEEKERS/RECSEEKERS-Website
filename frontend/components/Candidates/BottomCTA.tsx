@@ -10,6 +10,10 @@ type CTAVariant = "tertiary" | "dark" | "pink";
 
 interface BottomCTAProps {
   variant?: CTAVariant;
+  eyebrowText?: string;
+  headingText?: string;
+  buttonText?: string;
+  href?: string;
 }
 
 const variantConfig: Record<CTAVariant, {
@@ -42,7 +46,13 @@ const variantConfig: Record<CTAVariant, {
   },
 };
 
-export function BottomCTA({ variant = "tertiary" }: BottomCTAProps) {
+export function BottomCTA({
+  variant = "tertiary",
+  eyebrowText = "Ready to build your team?",
+  headingText = "Let&apos;s find your next great recruiter.",
+  buttonText = "Get in Touch",
+  href = "/contact",
+}: BottomCTAProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const cfg = variantConfig[variant];
@@ -60,18 +70,18 @@ export function BottomCTA({ variant = "tertiary" }: BottomCTAProps) {
           {/* Left: Text */}
           <div className="flex flex-col gap-2">
             <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
-              Ready to build your team?
+              {eyebrowText}
             </p>
             <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
-              Let&apos;s find your next great recruiter.
+              {headingText}
             </h3>
           </div>
 
           {/* Right: Button */}
           <div className="shrink-0 flex justify-center">
-            <Link href="/contact">
+            <Link href={href}>
               <Button variant={cfg.buttonVariant} size="lg">
-                Get in Touch
+                {buttonText}
               </Button>
             </Link>
           </div>
