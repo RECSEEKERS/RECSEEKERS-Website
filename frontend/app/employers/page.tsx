@@ -142,7 +142,17 @@ export default function EmployersPage() {
       </section>
 
       {/* ── TYPES OF RECRUITMENT ── */}
-      <section className="relative border-t-4 border-black bg-[#fff8f1] px-8 py-14 md:py-18">
+      <section className="relative border-t-4 border-black bg-[#fff8f1] px-8 py-14 md:py-18 overflow-hidden">
+        <DoodleFloat
+          name={"paper-plane"}
+          size={86}
+          delay={0.2}
+          className="absolute top-6 right-2 md:hidden z-40 pointer-events-none opacity-55"
+        />
+        <div className="absolute bottom-8 left-6 hidden md:block z-40 pointer-events-none opacity-80">
+          <DoodleFloat name={"open-book"} size={120} delay={0.45} />
+        </div>
+
         <div className="max-w-6xl mx-auto w-full">
           <h2 className={`text-4xl md:text-5xl text-neutral-900 mb-7 ${cooper.className}`}>
             Types of Recruitment
