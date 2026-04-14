@@ -3,7 +3,6 @@ import { cooper } from "@/lib/fonts";
 import { Button } from "@/components/ui/Button";
 import { FeatureCards } from "@/components/employers/FeatureCards";
 import { BottomCTA } from "@/components/employers/BottomCTA";
-import { TestimonialsSection } from "@/components/employers/TestimonialsSection";
 import { DoodleFloat } from "@/components/ui/DoodleFloat"; // Make sure this path matches your project structure
 
 export default function EmployersPage() {
@@ -141,7 +140,47 @@ export default function EmployersPage() {
           </div>
         </div>
       </section>
-      {/* <TestimonialsSection cooperClassName={cooper.className} /> */}
+
+      {/* ── TYPES OF RECRUITMENT ── */}
+      <section className="relative border-t-4 border-black bg-[#fff8f1] px-8 py-14 md:py-18">
+        <div className="max-w-6xl mx-auto w-full">
+          <h2 className={`text-4xl md:text-5xl text-neutral-900 mb-7 ${cooper.className}`}>
+            Types of Recruitment
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
+            <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
+                Contingent Search
+              </h3>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                Our contingent model is flexible and performance-based, you only pay once we successfully place a candidate.
+              </p>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                We work selectively, sharing high-quality, relevant profiles when we come across individuals we believe would add value. This allows you to engage us alongside your existing hiring efforts, without any upfront commitment.
+              </p>
+              <p className="text-sm md:text-base text-black/70 font-medium leading-relaxed">
+                Best suited if you want access to standout talent as it appears, without a dedicated search process.
+              </p>
+            </article>
+
+            <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
+                Retained Search
+              </h3>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                Retained search is a more committed, partnership-led approach, where RECSEEKERS is exclusively engaged on a specific hire or project.
+              </p>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                This gives you full access to our time, network, and process. We run a structured search, mapping the market, approaching candidates directly, and providing weekly updates and insights throughout.
+              </p>
+              <p className="text-sm md:text-base text-black/70 font-medium leading-relaxed">
+                Best suited for senior or business-critical hires where a focused, high-quality process is key.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
        {/* ── BOTTOM CTA ── */}
        {/* Reduced top margin (mt-12) for mobile */}

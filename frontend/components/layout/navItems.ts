@@ -36,13 +36,6 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewImage: "/Illustrations/PeopleSearch2.svg",
   },
   {
-    label: "Search",
-    href: "/search",
-    previewTitle: "Search",
-    previewText: "Find roles, insights, and key pages faster.",
-    previewImage: "/Illustrations/PeopleSearch3.svg",
-  },
-  {
     label: "EdTech",
     href: "/edtech",
     previewTitle: "EdTech",
