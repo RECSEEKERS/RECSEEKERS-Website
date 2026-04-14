@@ -5,7 +5,6 @@ import { ValuesSection } from '@/components/About/ValuesSection';
 import { TeamSection } from '@/components/About/TeamSection';
 import { ClientsSection } from '@/components/About/ClientsSection';
 import { WhereWeWorkSection } from '@/components/About/WhereWeWorkSection';
-import { BookCall } from '@/components/About/BookCall'; 
 import { BottomCTA } from '@/components/employers/BottomCTA';
 import DoodleFloat from '@/components/ui/DoodleFloat';
 import ElfsightLinkedInFeed from '@/components/About/ElfsightLinkedInFeed';
@@ -169,11 +168,18 @@ export default function AboutPage() {
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7437692741268115456" height="727" width="504" frameBorder="0" allowFullScreen title="Embedded post"></iframe> */}
           </div>
         </div>
-        <BookCall />
         
       </section>
   
-      <BottomCTA variant="dark" />
+      <BottomCTA
+        variant="dark"
+        eyebrowText="Ready to work with RECSEEKERS?"
+        headingText="Let&apos;s map your next career move or your next strategic hire."
+        primaryButtonText="Book a Call"
+        primaryHref="/contact"
+        secondaryButtonText="Get in Touch"
+        secondaryHref="/contact"
+      />
     </main>
   );
 }
