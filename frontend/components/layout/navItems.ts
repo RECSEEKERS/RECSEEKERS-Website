@@ -26,7 +26,7 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     href: "/candidates",
     previewTitle: "For Recruiter Candidates",
     previewText: "Level up your recruiting career with roles that match your niche, targets, and way of working.",
-    previewImage: "/Illustrations/HelpingPartner1.svg",
+    previewImage: "/Illustrations/dealIcon2.svg",
   },
   {
     label: "Employers",
@@ -43,11 +43,11 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewImage: "/Illustrations/brainstorming.svg",
   },
   {
-    label: "Our Subscription",
+    label: "Subscribe",
     href: "/subscription",
     previewTitle: "Subscription",
     previewText: "Get useful updates, insights, and opportunities delivered simply.",
-    previewImage: "/Illustrations/communicator.svg",
+    previewImage: "/Illustrations/goUp.svg",
   },
 ];
 
