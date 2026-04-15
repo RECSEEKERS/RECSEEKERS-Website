@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import localFont from 'next/font/local';
 import confetti from 'canvas-confetti';
 import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Import the exact same font setup used in Candidates
 const cooper = localFont({
@@ -22,12 +23,20 @@ export default function SignUpPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // NEW: State to track if the user is already in the HubSpot database
+  // State to track if the user is already in the HubSpot database
   const [isExistingUser, setIsExistingUser] = useState(false);
+
+  // ReCAPTCHA states and ref
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const onCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
   };
 
   const handleInitialSubmit = async (e: React.FormEvent) => {
@@ -39,11 +48,17 @@ export default function SignUpPage() {
   const handleFinalSubmit = async (e: React.FormEvent) => {
     if (e) e.preventDefault(); 
     if (isSubmitting) return;
+
+    if (!captchaToken) {
+      alert("Please complete the reCAPTCHA to verify you are human.");
+      return;
+    }
     
     setIsSubmitting(true);
     setIsExistingUser(false); // Reset before new submission
 
-    const payload = { ...formData };
+    // Include the captchaToken in the payload for server verification
+    const payload = { ...formData, captchaToken };
 
     try {
       const response = await fetch('/api/contact', {
@@ -52,7 +67,7 @@ export default function SignUpPage() {
         body: JSON.stringify(payload),
       });
 
-      // NEW: Check if the API indicates the user already exists.
+      // Check if the API indicates the user already exists.
       // This assumes your backend returns a 409 Conflict status for duplicates.
       if (response.status === 409) {
         setIsExistingUser(true);
@@ -86,6 +101,12 @@ export default function SignUpPage() {
     setIsSuccess(false);
     setIsExistingUser(false); // Reset existing user state
     setFormData({ name: '', email: '', number: '' });
+    
+    // Reset the captcha
+    setCaptchaToken(null);
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+    }
   };
 
   return (
@@ -168,12 +189,21 @@ export default function SignUpPage() {
                         ${!formData.number ? "text-gray-400" : "text-black"}`}
                     />
                 </div>
+
+                {/* ReCAPTCHA added below Phone Number */}
+                <div className="flex justify-start py-2">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                    onChange={onCaptchaChange}
+                  />
+                </div>
                 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !captchaToken}
                   className={`w-full bg-black text-white ${cooper.className} text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black transition-all duration-200 mt-2 md:mt-4
-                  ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#ffa4bb] hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]'}`}
+                  ${(isSubmitting || !captchaToken) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#ffa4bb] hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]'}`}
                 >
                   {isSubmitting ? 'Submitting...' : 'Join Us!'}
                 </button>
@@ -184,24 +214,19 @@ export default function SignUpPage() {
       </section>
 
       {/* --- POPUP MODAL --- */}
-      {/* --- POPUP MODAL --- */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white border-4 border-black p-6 md:p-8 max-w-lg w-full shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] animate-in fade-in zoom-in duration-200 flex flex-col items-center">
 
             {/* --- MODAL CONTENT --- */}
-            {/* Removed space-y to give finer control over vertical spacing around the image */}
             <div className="text-center py-6 md:py-8 flex flex-col items-center w-full">
               
               {/* Dynamic Header */}
               <h3 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4 md:mb-6`}>
                 Welcome to the Community!
-                
-                {/* {isExistingUser ? "You're already in ☑️!" : "Welcome to the Community"} */}
               </h3>
 
               {/* Decorative Image */}
-              {/* Reduced width/height and added responsive width classes (w-40 mobile, w-48 desktop) with tighter vertical margins (my-2/my-3) */}
               <Image 
                 src="/Illustrations/Signed-up2.svg" 
                 alt="Welcome Illustration" 
@@ -210,7 +235,6 @@ export default function SignUpPage() {
                 className="w-40 md:w-48 h-auto my-2 md:my-3"
               />                
 
-              {/* Increased text size (text-xl for mobile, text-2xl for desktop) */}
               <p className="text-xl md:text-2xl font-bold text-black/80 mt-2 md:mt-3">
                 "Have a nice day!"
               </p>
