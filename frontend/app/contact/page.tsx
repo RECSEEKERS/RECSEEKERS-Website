@@ -267,7 +267,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like a confidential chat?</label>
-                      <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
+                      <select title="Preferences"name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
                         <option value="yes" className="text-black">Yes, let&apos;s talk</option>
                         <option value="no" className="text-black">No, just email me</option>
