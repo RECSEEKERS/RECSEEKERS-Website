@@ -141,16 +141,16 @@ export default function ContactPage() {
               </div>
               
               <div className="space-y-4 md:space-y-6 text-base md:text-lg font-medium text-black">
-                <div className="flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-4">
-                  <span className={`${cooper.className} text-lg md:text-xl md:w-24`}>Phone:</span>
-                  <span className="whitespace-nowrap">+44 (0) 7552 188 056</span>
-                  <span className="whitespace-nowrap">+44 (0) 191 743 0418</span>
-                </div>
+                <span className={`${cooper.className} text-lg md:text-xl md:w-24`}>Contact us by Phone:</span>
+                <div className="flex flex-col">
+                    <span className="whitespace-nowrap">+44 (0) 7552 188 056</span>
+                    <span className="whitespace-nowrap">+44 (0) 191 743 0418</span>
+                  </div>
               </div>
 
               <div className="pt-2 md:pt-6 mt-auto">
                 <p className="text-xs md:text-sm text-black/60 font-medium leading-relaxed max-w-sm">
-                  By submitting this contact form, you&apos;re agreeing to the{' '}
+                <strong>Privacy Note:</strong> We use HubSpot to securely manage our lists . Read our{' '}
                   <a href="/terms" className="underline hover:text-[#ffa4bb] transition-colors">
                     Terms & Conditions
                   </a>
