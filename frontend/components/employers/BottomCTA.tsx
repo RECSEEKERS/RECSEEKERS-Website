@@ -109,9 +109,9 @@ export function BottomCTA({
         </motion.div>
       </div>
       {/* Right Side */}
-          <div className="absolute bottom-35 right-20 hidden 2xl:block">
+          {/* <div className="absolute bottom-35 right-20 hidden 2xl:block">
             <DoodleFloat name={"gradcap-1"} size={180} delay={1.2} />
-          </div>
+          </div> */}
 
     </section>
     
