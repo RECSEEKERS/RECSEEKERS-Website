@@ -149,6 +149,7 @@ export default function SignUpPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -162,6 +163,7 @@ export default function SignUpPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -177,6 +179,7 @@ export default function SignUpPage() {
                         name="number"
                         value={formData.number || ""} 
                         onChange={handleChange}
+                      maxLength={100}
                         required
                         className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
                         ${!formData.number ? "text-gray-400" : "text-black"}`}
@@ -190,6 +193,7 @@ export default function SignUpPage() {
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
+                    maxLength={150}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -235,7 +239,7 @@ export default function SignUpPage() {
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like a confidential chat?</label>
                       <select title="Select preference" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
-                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="yes" className="text-black">Yes, let&apos;s talk</option>
                         <option value="no" className="text-black">No, just email me</option>
                       </select>
                     </div>
@@ -258,7 +262,7 @@ export default function SignUpPage() {
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like to schedule a discovery call?</label>
                       <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
-                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="yes" className="text-black">Yes, let&apos;s talk</option>
                         <option value="no" className="text-black">No, just email me</option>
                       </select>
                     </div>
@@ -283,7 +287,7 @@ export default function SignUpPage() {
               /* --- SUCCESS VIEW --- */
               <div className="text-center py-8 md:py-10 space-y-4 md:space-y-6">
                 <h3 className={`${cooper.className} text-4xl md:text-5xl text-black`}>Time to lead together</h3>
-                <p className="text-lg font-medium text-black/80 mt-4">You're officially on the list.</p>
+                <p className="text-lg font-medium text-black/80 mt-4">You&apos;re officially on the list.</p>
                 <button onClick={handleCloseAndReset} className="mt-8 font-bold text-black border-2 border-black px-6 py-2 hover:bg-[#ffa4bb] transition-colors">
                   Close
                 </button>
