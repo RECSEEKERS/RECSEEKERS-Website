@@ -96,15 +96,7 @@ export function ValuesSection() {
           <DoodleFloat name={"books-3"} size={100} delay={0.2} />
         </div>
         
-        <div className="absolute bottom-20 -left-16 lg:-left-28 xl:-left-40 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"pen"} size={120} delay={0.7} />
-        </div>
-
         {/* Right Side */}
-        <div className="absolute top-0 -right-12 lg:-right-24 xl:-right-32 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"proctator"} size={90} delay={0.2} />
-        </div>
-
         <div className="absolute bottom-10 -right-12 lg:-right-24 xl:-right-36 hidden md:block z-0 pointer-events-none">
           <DoodleFloat name={"molecules-2"} size={130} delay={0.9} />
         </div>
