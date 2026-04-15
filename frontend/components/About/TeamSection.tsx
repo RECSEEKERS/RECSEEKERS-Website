@@ -9,22 +9,40 @@ import DoodleFloat from '@/components/ui/DoodleFloat'; // Imported DoodleFloat
 const teamMembers: TeamMember[] = [
   {
     name: 'Sam Lawless',
-    role: 'Founder',
+    role: 'Co-Founder and Lead Consultant',
     image: '/team/sam.png',
-    bio: "From a young age, my love for sales was clear, starting with selling sweets in school and later managing an online clothing business. After spending 2.5 years traveling across Australia it feels as though all roads were leading me to recruitment. Over the past two years, recruitment has become my primary focus and my greatest success. I am extremely passionate about recruitment and building relationships. Starting RECSEEKERS was a no brainer for me, there's a huge gap in the market for outright quality Rec2Rec's and we're here to make a statement.",
+    bio: `After starting his career in recruitment, Sam quickly built a strong track record and developed a clear view on how the industry should operate.
+    
+RECSEEKERS was co-founded off the back of that, with a focus on doing things properly, less volume, more quality, and a genuine focus on long-term outcomes for both clients and candidates.
+    
+Sam leads the day-to-day running of the business, working closely with agencies and high-performing individuals across the education market, only getting involved where there is a clear upgrade on the table.`,
   },
   {
-    name: 'Jed Corner',
-    role: 'Co-Founder',
-    image: '/team/jed.png',
-    bio: "Having 10+ years experience in the customer facing industry, I've always had an idea of building a successful, ethical business from scratch. RECSEEKERS was born through my own personal experience of seeing the recruiter to client relationship neglected due to the corporate nature of agencies. Building and maintaining this relationship is at the forefront of what RECSEEKERS do, allowing us to provide a personalised service to every client.",
+    name: 'Joe James',
+    role: 'Expert Consultant??',
+    image: '/team/joe.png',
+    bio: `...`
   },
   {
     name: 'Ciaran Turton',
-    role: 'Co-Founder',
+    role: 'Co-Founder, Operations and Finance',
     image: '/team/ciaran.png',
-    bio: "Following university, I took up a recruitment role as a short term fix. However, five years later, it has developed into a passion and a successful career. Having recently left a senior management role at a corporate agency, I am excited to use my skills to make RECSEEKERS a company that both our clients and candidates are proud to be a part of. I believe that the synergy of our core values blended with our competitive nature and our know-how will help us build something special.",
+    bio: `Ciaran started his career in recruitment after university, going on to build and scale a successful agency alongside Jed.
+
+Through that experience, he developed a strong understanding of what it takes to run a high-performing recruitment business, both commercially and operationally.
+    
+At RECSEEKERS, Ciaran focuses on operations and finance, ensuring the business is structured properly and runs smoothly behind the scenes.`,
   },
+  {
+    name: 'Jed Corner',
+    role: 'Co-Founder, Marketing and Growth',
+    image: '/team/jed.png',
+    bio: `Jed brings over 10 years of experience in customer-facing roles and co-founded and scaled a recruitment agency alongside Ciaran.
+
+That journey shaped his view on the importance of strong relationships, brand, and consistency, especially in an industry where these are often overlooked.
+    
+At RECSEEKERS, Jed focuses on marketing, brand, and growth, helping position the business in front of the right people and supporting its continued expansion.`,
+  }  
 ];
 
 export function TeamSection() {
@@ -59,44 +77,44 @@ export function TeamSection() {
       <div className="relative z-10 max-w-7xl mx-auto w-full">
 
         {/* Primary mobile accents */}
-        <DoodleFloat
+        {/* <DoodleFloat
           name={"speech-bubble"}
           size={88}
           delay={0.15}
           className="absolute top-4 right-0 md:hidden z-40 pointer-events-none opacity-55"
-        />
-        <DoodleFloat
+        /> */}
+        {/* <DoodleFloat
           name={"lightbulb"}
           size={86}
           delay={0.35}
           className="absolute bottom-12 right-0 md:hidden z-40 pointer-events-none opacity-55"
-        />
+        /> */}
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
         {/* Top Left */}
-        <div className="absolute top-10 -left-16 lg:-left-24 xl:-left-36 hidden lg:block z-0 pointer-events-none">
+        {/* <div className="absolute top-10 -left-16 lg:-left-24 xl:-left-36 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"speech-bubble"} size={120} delay={0.2} />
-        </div>
+        </div> */}
 
         {/* Middle Left */}
-        <div className="absolute top-1/2 -translate-y-1/2 -left-20 lg:-left-28 xl:-left-44 hidden lg:block z-0 pointer-events-none">
+        {/* <div className="absolute top-1/2 -translate-y-1/2 -left-20 lg:-left-28 xl:-left-44 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"flask-1"} size={130} delay={0.7} />
-        </div>
+        </div> */}
 
         {/* Bottom Left */}
-        <div className="absolute bottom-10 -left-16 lg:-left-24 xl:-left-40 hidden lg:block z-0 pointer-events-none">
+        {/* <div className="absolute bottom-10 -left-16 lg:-left-24 xl:-left-40 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"open-book"} size={170} delay={1.3} />
-        </div>
+        </div> */}
 
         {/* Top Right */}
-        <div className="absolute top-48 -right-16 lg:-right-24 xl:-right-36 hidden lg:block z-0 pointer-events-none">
+        {/* <div className="absolute top-48 -right-16 lg:-right-24 xl:-right-36 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"books-3"} size={140} delay={0.3} />
-        </div>
+        </div> */}
 
         {/* Middle/Bottom Right */}
-        <div className="absolute top-2/3 -translate-y-1/2 -right-20 lg:-right-28 xl:-right-44 hidden lg:block z-0 pointer-events-none">
+        {/* <div className="absolute top-2/3 -translate-y-1/2 -right-20 lg:-right-28 xl:-right-44 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"lightbulb"} size={140} delay={0.7} />
-        </div>
+        </div> */}
         {/* --------------------------- */}
 
         {/* Main Content */}
