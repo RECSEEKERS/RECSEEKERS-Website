@@ -42,19 +42,10 @@ export function WhereWeWorkSection() {
 
         {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
         {/* Top Left */}
-        <div className="absolute top-10 -left-16 lg:-left-32 xl:-left-44 hidden md:block z-0 pointer-events-none">
+        <div className="absolute -top-10 -right-16 lg:-right-32 xl:right-44 hidden md:block z-0 pointer-events-none">
           <DoodleFloat name={"globe"} size={120} delay={0.2} />
         </div>
 
-        {/* Middle Right */}
-        <div className="absolute top-1/3 -right-16 lg:-right-36 xl:-right-48 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"paper-plane"} size={130} delay={0.7} />
-        </div>
-
-        {/* Bottom Left */}
-        <div className="absolute bottom-10 -left-20 lg:-left-40 xl:-left-56 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"open-book"} size={170} delay={1.2} />
-        </div>
         {/* --------------------------- */}
 
         {/* Main Content */}

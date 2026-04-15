@@ -38,14 +38,14 @@ export const PILL_ITEMS: NavPreviewItem[] = [
   {
     label: "EdTech",
     href: "/edtech",
-    previewTitle: "EdTech",
+    previewTitle: "Coming soon!",
     previewText: "A dedicated space for education-technology conversations and hiring insights.",
     previewImage: "/Illustrations/brainstorming.svg",
   },
   {
     label: "Our Subscription",
     href: "/subscription",
-    previewTitle: "Subscription",
+    previewTitle: "Coming soon!",
     previewText: "Get useful updates, insights, and opportunities delivered simply.",
     previewImage: "/Illustrations/communicator.svg",
   },

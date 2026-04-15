@@ -69,32 +69,19 @@ export function TeamSection() {
           name={"lightbulb"}
           size={86}
           delay={0.35}
-          className="absolute bottom-12 right-0 md:hidden z-40 pointer-events-none opacity-55"
+          className="absolute bottom-12 right-0 md:hidden lg:hidden z-40 pointer-events-none opacity-55"
         />
 
-        {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
+        {/* --- Desktop doodles (reduced count, positioned inward, and above content) --- */}
         {/* Top Left */}
-        <div className="absolute top-10 -left-16 lg:-left-24 xl:-left-36 hidden lg:block z-0 pointer-events-none">
-          <DoodleFloat name={"speech-bubble"} size={120} delay={0.2} />
-        </div>
-
-        {/* Middle Left */}
-        <div className="absolute top-1/2 -translate-y-1/2 -left-20 lg:-left-28 xl:-left-44 hidden lg:block z-0 pointer-events-none">
-          <DoodleFloat name={"flask-1"} size={130} delay={0.7} />
-        </div>
-
-        {/* Bottom Left */}
-        <div className="absolute bottom-10 -left-16 lg:-left-24 xl:-left-40 hidden lg:block z-0 pointer-events-none">
-          <DoodleFloat name={"open-book"} size={170} delay={1.3} />
-        </div>
 
         {/* Top Right */}
-        <div className="absolute top-48 -right-16 lg:-right-24 xl:-right-36 hidden lg:block z-0 pointer-events-none">
+        <div className="absolute top-16 right-4 lg:right-8 xl:right-10 hidden lg:block z-30 pointer-events-none">
           <DoodleFloat name={"books-3"} size={140} delay={0.3} />
         </div>
 
-        {/* Middle/Bottom Right */}
-        <div className="absolute top-2/3 -translate-y-1/2 -right-20 lg:-right-28 xl:-right-44 hidden lg:block z-0 pointer-events-none">
+        {/* Bottom Right */}
+        <div className="absolute -bottom-6 right-6 lg:right-10 xl:right-12 hidden lg:block z-30 pointer-events-none">
           <DoodleFloat name={"lightbulb"} size={140} delay={0.7} />
         </div>
         {/* --------------------------- */}
