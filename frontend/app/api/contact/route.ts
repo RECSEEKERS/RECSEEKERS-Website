@@ -168,8 +168,12 @@ export async function POST(request: Request) {
     });
     
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error processing contact form:', error);
-    return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
+    // If Resend rejects the key, it will usually throw an error with a message
+    return NextResponse.json(
+      { error: error.message || 'Failed to send emails' }, 
+      { status: 500 }
+    );
   }
 }

@@ -3,22 +3,29 @@ import Link from "next/link";
 import { cooper } from "@/lib/fonts";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import DoodleFloat from "@/components/ui/DoodleFloat";
 
 export default function EdTechPage() {
   return (
     <main className="relative w-full overflow-hidden bg-white">
       <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-6 md:px-10 pt-24 md:pt-28 pb-12">
-        <div className="relative max-w-6xl w-full flex flex-col md:flex-row items-center gap-10">
+        <div className="relative max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+                  
+              {/* --- Background Doodles --- */}
+              {/* Desktop Top Left */}
+              <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+                <DoodleFloat name={"atom"} size={96} delay={0.1} />
+              </div>
             <div>
                 <h1
                     className={`${cooper.className} text-5xl sm:text-6xl md:text-8xl text-black mb-6 leading-tight`}
                 >
-                    EdTech
+                    EdTech with <Image src="/rec-logo.svg" width={500} height={500} alt="RECSEEKERS"/>
                 </h1>
+                
             
                 <p className="max-w-3xl text-lg md:text-2xl text-black/90 leading-relaxed">
-                    A dedicated space for Education-Technology conversations, from market
-                    updates to hiring trends and the people shaping what's next.
+                    Education Technology it’s growing fast and we’re already working with some of the <span className="font-bold">best emerging startups</span> in the UK!
                 </p>
             </div>
             

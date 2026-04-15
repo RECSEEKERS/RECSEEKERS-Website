@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import localFont from 'next/font/local';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 // Import the exact same font setup used in Candidates
 const cooper = localFont({
@@ -24,6 +25,9 @@ export default function ContactPage() {
   });
   const [outcome, setOutcome] = useState<null | 'calendar' | 'email' | 'nothing'>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // New state for reCAPTCHA validation
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -37,6 +41,13 @@ export default function ContactPage() {
 
   const handleInitialSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prevent modal from opening if captcha isn't checked
+    if (!captchaValue) {
+      alert("Please verify that you are a human!");
+      return;
+    }
+    
     setIsModalOpen(true); 
   };
 
@@ -66,9 +77,14 @@ export default function ContactPage() {
     }
 
     const payload = {
-      ...formData,
-      ...modalData,
-      outcome: finalOutcome
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      role: formData.role.trim(),
+      message: formData.message.trim(),
+      q1: modalData.q1.trim(),
+      q2: modalData.q2.trim(),
+      outcome: finalOutcome,
+      captchaToken: captchaValue, // Pass the token to your backend for verification
     };
 
     try {
@@ -96,27 +112,23 @@ export default function ContactPage() {
     setOutcome(null);
     setFormData({ name: '', email: '', role: '', message: '' });
     setModalData({ q1: '', q2: '' });
+    setCaptchaValue(null); // Reset captcha state
   };
 
   return (
     <main className="relative w-full bg-white overflow-x-hidden">
-      {/* SPACING FIX: Changed to justify-start and added large top padding (pt-32 md:pt-48) */}
       <section className="snap-start relative z-20 min-h-screen bg-[#ffa4bb] pt-24 pb-16 px-4 md:pt-24 md:pb-24 md:px-8 flex flex-col justify-start items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)]">
         
-        {/* SPACING FIX: Added mt-4 md:mt-8 for an extra nudge downwards */}
         <div className="max-w-6xl w-full mx-auto mt-4 md:mt-8">
           <h1 className={`${cooper.className} text-5xl md:text-6xl lg:text-7xl text-black mb-8 md:mb-12 leading-tight text-center`}>
             Reach <span className="italic text-white">Out!</span>
           </h1>
 
-          {/* ZOOM OUT FIX: Reduced mobile padding inside the white box */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 bg-white p-6 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             
             <div className="w-full md:w-1/2 flex flex-col justify-start space-y-6 md:space-y-8">
               <div>
-                {/* ZOOM OUT FIX: Reduced mobile header size */}
                 <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Say Hello👋</h2>
-                {/* ZOOM OUT FIX: Reduced mobile paragraph text size */}
                 <p>
                   <span className="block md:hidden text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
                   We focus on relationships and long term conversations rather than high volume outreach.<br /><br />If you run an education recruitment agency looking to hire strong consultants, or you’re an experienced recruiter thinking about your next move, feel free to reach out.
@@ -129,16 +141,16 @@ export default function ContactPage() {
               </div>
               
               <div className="space-y-4 md:space-y-6 text-base md:text-lg font-medium text-black">
-                <div className="flex items-center">
-                  <span className={`${cooper.className} text-lg md:text-xl w-20 md:w-24`}>Phone:</span>
-                  <span>+44 (0) 7552 188 056</span>
-                  <span>+44 (0) 191 743 0418</span>
+                <div className="flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-4">
+                  <span className={`${cooper.className} text-lg md:text-xl md:w-24`}>Phone:</span>
+                  <span className="whitespace-nowrap">+44 (0) 7552 188 056</span>
+                  <span className="whitespace-nowrap">+44 (0) 191 743 0418</span>
                 </div>
               </div>
 
               <div className="pt-2 md:pt-6 mt-auto">
                 <p className="text-xs md:text-sm text-black/60 font-medium leading-relaxed max-w-sm">
-                  By submitting this contact form, you're agreeing to the{' '}
+                  By submitting this contact form, you&apos;re agreeing to the{' '}
                   <a href="/terms" className="underline hover:text-[#ffa4bb] transition-colors">
                     Terms & Conditions
                   </a>
@@ -160,6 +172,7 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -173,6 +186,7 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -203,8 +217,17 @@ export default function ContactPage() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
+                    maxLength={500}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all resize-none placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  />
+                </div>
+
+                {/* --- NEW reCAPTCHA WIDGET --- */}
+                <div className="flex justify-start">
+                  <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                    onChange={(val) => setCaptchaValue(val)}
                   />
                 </div>
 
@@ -246,7 +269,7 @@ export default function ContactPage() {
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like a confidential chat?</label>
                       <select title="Preferences"name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
-                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="yes" className="text-black">Yes, let&apos;s talk</option>
                         <option value="no" className="text-black">No, just email me</option>
                       </select>
                     </div>
@@ -269,7 +292,7 @@ export default function ContactPage() {
                       <label htmlFor="q2" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Would you like to schedule a discovery call?</label>
                       <select title="Q2" name="q2" value={modalData.q2} onChange={handleModalChange} required className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer ${modalData.q2 === "" ? "text-gray-400" : "text-black"}`}>
                         <option value="" disabled className="text-gray-400">Select preference</option>
-                        <option value="yes" className="text-black">Yes, let's talk</option>
+                        <option value="yes" className="text-black">Yes, let&apos;s talk</option>
                         <option value="no" className="text-black">No, just email me</option>
                       </select>
                     </div>
@@ -296,8 +319,8 @@ export default function ContactPage() {
                 
                 {outcome === 'calendar' && (
                   <>
-                    <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Let's Chat! 📅</h3>
-                    <p className="text-base md:text-lg font-medium text-black/80">We'd love to speak with you right away. Pick a time on our calendar below.</p>
+                    <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Let&apos;s Chat! 📅</h3>
+                    <p className="text-base md:text-lg font-medium text-black/80">We&apos;d love to speak with you right away. Pick a time on our calendar below.</p>
                     <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
                       Book a Time
                     </a>
@@ -307,14 +330,14 @@ export default function ContactPage() {
                 {outcome === 'email' && (
                   <>
                     <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Got it! 📧</h3>
-                    <p className="text-base md:text-lg font-medium text-black/80">Thanks for reaching out. We've received your info and will send you an email shortly!</p>
+                    <p className="text-base md:text-lg font-medium text-black/80">Thanks for reaching out. We&apos;ve received your info and will send you an email shortly!</p>
                   </>
                 )}
 
                 {outcome === 'nothing' && (
                   <>
                     <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Thanks! 🙌</h3>
-                    <p className="text-base md:text-lg font-medium text-black/80">We appreciate you dropping by. We'll be in touch soon!</p>
+                    <p className="text-base md:text-lg font-medium text-black/80">We appreciate you dropping by. We&apos;ll be in touch soon!</p>
                   </>
                 )}
 

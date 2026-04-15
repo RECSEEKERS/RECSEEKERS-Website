@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { TestimonialsSection } from "@/components/Candidates/TestimonialsSection";
-import { BottomCTA } from "@/components/Candidates/BottomCTA";
+import { FitSplitCard } from "@/components/Candidates/FitSplitCard";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
 // Assuming you have the same profile placeholder and font setup
@@ -29,16 +29,16 @@ export default function Candidates() {
           
           {/* --- Background Doodles --- */}
           {/* Desktop Top Left */}
-          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"flask-2"} size={96} delay={0.1} />
           </div>
           {/* Mobile Top Left (Smaller, semi-transparent) */}
-          <div className="absolute top-6 -right-4 block md:hidden z-0 pointer-events-none opacity-60">
+          <div className="absolute top-6 -right-4 block md:hidden z-40 pointer-events-none opacity-60">
             <DoodleFloat name={"flask-2"} size={64} delay={0.1} />
           </div>
 
           {/* Desktop Bottom Right */}
-          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"books-3"} size={124} delay={1.2} />
           </div>
 
@@ -116,23 +116,72 @@ export default function Candidates() {
         </div> */}
       {/* </section>  */}
 
+      {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
+      <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
+        <div className="absolute top-10 left-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
+          <DoodleFloat name={"pencil-2"} size={84} delay={0.1} />
+        </div>
+        <div className="absolute bottom-8 right-10 hidden md:block z-40 pointer-events-none">
+          <DoodleFloat name={"proctator"} size={140} delay={0.5} />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col gap-10">
+          <div className="max-w-3xl">
+            <h2 className={`${cooper.className} text-5xl md:text-6xl text-black mb-5 leading-tight`}>
+              Ready for your next big move?
+            </h2>
+            <p className="text-lg md:text-xl text-primary-dark/80 leading-relaxed">
+              We work with ambitious education recruiters who want the right next move, not just the next job.
+            </p>
+          </div>
+
+          <FitSplitCard cooperClassName={cooper.className} />
+
+          <div className="mx-auto w-full max-w-3xl rounded-2xl border-2 border-black/20 bg-white/90 px-6 py-7 md:px-10 md:py-9 text-center shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <p className={`${cooper.className} text-3xl md:text-4xl text-black mb-3`}>
+              Our candidate promise
+            </p>
+            <p className="text-lg md:text-xl text-primary-dark leading-relaxed font-semibold">
+              You will never be charged as a candidate. Ever.
+            </p>
+            <p className="mt-3 text-base md:text-lg text-primary-dark/80 leading-relaxed">
+              We are retained by hiring agencies, so your conversations with us stay confidential, advisory,
+              and focused on your best next move.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* --- PREVIOUS CANDIDATES SECTION --- */}
       <TestimonialsSection cooperClassName={cooper.className} />
 
       {/* --- CONTACT US SECTION --- */}
-      <section className="relative z-20 min-h-[60vh] bg-white pt-10 pb-24 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
-        <div className="max-w-4xl w-full flex flex-col items-center text-center">
+      <section className="relative z-20 bg-white py-14 md:py-16 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
+        <div className="max-w-6xl w-full flex flex-col items-center text-center">
           <h2 className={`${headingStyle} mb-8`}>
             Ready to find your perfect role?
           </h2>
-          <p className="hidden md:block text-xl text-black font-medium mb-12 max-w-2xl leading-relaxed">
-            Reach out to our team today. We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
-          </p>
-          <p className="block md:hidden text-xl text-black font-medium mb-12 max-w-2xl leading-relaxed">
-            We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
-          </p>
 
-          <BottomCTA />
+          <div className="w-full max-w-5xl">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 text-left">
+              <p className="text-lg md:text-xl text-black font-medium leading-relaxed max-w-3xl">
+                Reach out to our team today. We&apos;ll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
+              </p>
+
+              <div className="shrink-0">
+                <Link href="/contact" className="inline-block w-full md:w-auto">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className={`${cooper.className} w-full md:w-auto whitespace-nowrap`}
+                  >
+                    Start a Confidential Chat
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Split Button Container
             <Link href="/contact">
               <Button variant="primary" size="xl" className={cooper.className}>

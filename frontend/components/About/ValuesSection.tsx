@@ -88,7 +88,7 @@ export function ValuesSection() {
           name={"paper-plane"}
           size={88}
           delay={0.15}
-          className="absolute -top-3 right-0 md:hidden z-0 pointer-events-none opacity-55"
+          className="absolute -top-3 right-0 md:hidden z-40 pointer-events-none opacity-55"
         />
 
         {/* --- Background Doodles (Desktop accents only) --- */}

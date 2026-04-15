@@ -132,6 +132,7 @@ export default function SignUpPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -145,6 +146,7 @@ export default function SignUpPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    maxLength={100}
                     required
                     className="w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all placeholder:text-gray-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                   />
@@ -160,6 +162,7 @@ export default function SignUpPage() {
                         name="number"
                         value={formData.number || ""} 
                         onChange={handleChange}
+                      maxLength={100}
                         required
                         className={`w-full px-3 md:px-4 py-2 md:py-3 border-4 border-black bg-white font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
                         ${!formData.number ? "text-gray-400" : "text-black"}`}

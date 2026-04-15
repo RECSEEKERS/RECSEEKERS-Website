@@ -5,7 +5,6 @@ import { ValuesSection } from '@/components/About/ValuesSection';
 import { TeamSection } from '@/components/About/TeamSection';
 import { ClientsSection } from '@/components/About/ClientsSection';
 import { WhereWeWorkSection } from '@/components/About/WhereWeWorkSection';
-import { BookCall } from '@/components/About/BookCall'; 
 import { BottomCTA } from '@/components/employers/BottomCTA';
 import DoodleFloat from '@/components/ui/DoodleFloat';
 import ElfsightLinkedInFeed from '@/components/About/ElfsightLinkedInFeed';
@@ -48,14 +47,14 @@ export default function AboutPage() {
             name="pencil-2"
             size={92}
             delay={0.12}
-            className="absolute -top-2 right-0 md:hidden z-0 pointer-events-none opacity-55"
+            className="absolute -top-2 right-0 md:hidden z-40 pointer-events-none opacity-55"
           />
 
           {/* Secondary desktop accents */}
-          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"gradcap-2"} size={96} delay={0.1} />
           </div>
-          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-0 pointer-events-none">
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"globe"} size={124} delay={1.2} />
           </div>
 
@@ -127,16 +126,16 @@ export default function AboutPage() {
 
       {/* --- Jobs Section --- */}
       {/* Added 'relative' to contain the absolute positioned doodles */}
-      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-24 md:pb-32">
+      <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-14 md:pb-20">
         
         {/* --- Background Doodles --- */}
         {/* Left Side */}
-        <div className="absolute top-72 left-10 md:left-24 hidden xl:block z-0 pointer-events-none">
+        <div className="absolute top-72 left-10 md:left-24 hidden xl:block z-40 pointer-events-none">
           <DoodleFloat name={"proctator"} size={160} delay={0.2} />
         </div>
 
         {/* Right Side */}
-        <div className="absolute top-22 right-10 md:right-24 hidden xl:block z-0 pointer-events-none">
+        <div className="absolute top-22 right-10 md:right-24 hidden xl:block z-40 pointer-events-none">
           <DoodleFloat name={"lamp-1"} size={200} delay={0.7} />
         </div>
 
@@ -169,11 +168,18 @@ export default function AboutPage() {
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7437692741268115456" height="727" width="504" frameBorder="0" allowFullScreen title="Embedded post"></iframe> */}
           </div>
         </div>
-        <BookCall />
         
       </section>
   
-      <BottomCTA variant="dark" />
+      <BottomCTA
+        variant="dark"
+        eyebrowText="Ready to work with RECSEEKERS?"
+        headingText="Let&apos;s map your next career move or your next strategic hire."
+        primaryButtonText="Book a Call"
+        primaryHref="/contact"
+        secondaryButtonText="Get in Touch"
+        secondaryHref="/contact"
+      />
     </main>
   );
 }
