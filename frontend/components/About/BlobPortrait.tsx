@@ -62,7 +62,7 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
       {/* Decorative quote mark */}
       <span className={`${cooper.className} text-6xl md:text-7xl leading-none text-[#da8da0] select-none -mb-4`}>&ldquo;</span>
 
-      <p className="hidden md:block text-lg text-black leading-relaxed">
+      <p className="hidden md:block text-lg text-black leading-relaxed whitespace-pre-wrap">
         {member.bio}
       </p>
 
@@ -87,7 +87,11 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
   );
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-0 items-stretch h-full">
+    <div
+      className={`grid grid-cols-1 gap-0 items-stretch h-full ${
+        imageSide === 'left' ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'
+      }`}
+    >
       {imageSide === 'left' ? (
         <>
           {imageCol}
@@ -95,8 +99,10 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
         </>
       ) : (
         <>
-          <div className="order-2 lg:order-1 lg:col-span-1">{bioCol}</div>
-          <div className="order-1 lg:order-2 lg:col-span-1">{imageCol}</div>
+          {/* order-1 forces the bio to the left on desktop, dropping it into the 3fr track */}
+          <div className="order-2 lg:order-1">{bioCol}</div>
+          {/* order-2 forces the image to the right on desktop, dropping it into the 2fr track */}
+          <div className="order-1 lg:order-2">{imageCol}</div>
         </>
       )}
     </div>
