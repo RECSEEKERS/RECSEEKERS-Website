@@ -22,7 +22,7 @@ export default function Custom404() {
         
         {/* The Illustration */}
         <Image
-          src="/Illustrations/404.png" /* Make sure this image is saved in your /public folder */
+          src="/Illustrations/404-PageNotFound.png" /* Make sure this image is saved in your /public folder */
           alt="404 Page Not Found - Disconnected Plug"
           width={1063}
           height={1216}
