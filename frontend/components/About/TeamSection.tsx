@@ -90,7 +90,7 @@ export function TeamSection() {
           className="absolute bottom-12 right-0 md:hidden z-40 pointer-events-none opacity-55"
         /> */}
 
-        {/* --- Background Doodles (Pushed strictly to the OUTSIDE) --- */}
+        {/* --- Desktop doodles (reduced count, positioned inward, and above content) --- */}
         {/* Top Left */}
         {/* <div className="absolute top-10 -left-16 lg:-left-24 xl:-left-36 hidden lg:block z-0 pointer-events-none">
           <DoodleFloat name={"speech-bubble"} size={120} delay={0.2} />
