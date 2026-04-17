@@ -271,11 +271,11 @@ export function HeroSection() {
             We Help Education Agencies Hire Proven Recruiters
             </h1>
             <p className="text-xl text-black/80 mb-10 leading-relaxed max-w-md font-medium">
-              Specialist <span className="font-bold">Education</span> and <span className="font-bold">EdTech</span> Rec2Rec with a network of <span className="font-bold">25,000</span> education professionals across the UK and Australia.
+              Specialist Education and EdTech Rec2Rec with a network of 25,000 education professionals across the UK and Australia.
               Australia.
             </p>
             <p className="text-base text-black/75 mb-8 leading-relaxed max-w-lg font-semibold">
-              Get connected with <span className="font-bold">Top 5%</span> of Clients and Candidates in the UK and Australia education space👇
+              Get connected with Top 5% of Clients and Candidates in the UK and Australia education space👇
             </p>
 
             <div className="flex flex-wrap gap-4">

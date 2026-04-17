@@ -45,7 +45,7 @@ export default function SubscriptionPage() {
             COMING SOON!
           </h2>
           <p className="text-base md:text-lg text-black/80 leading-relaxed max-w-3xl">
-            We're launching a brand new subscription service in <span className="font-bold">Q3 2026</span> for priority clients.
+            We're launching a brand new subscription service in Q3 2026 for priority clients.
             {/* <br></br> */}
             If you're interested, why not <a href="/contact" className="text-pink-500 hover:underline">
               reach out

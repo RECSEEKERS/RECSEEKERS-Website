@@ -25,7 +25,7 @@ export default function EdTechPage() {
                 
             
                 <p className="max-w-3xl text-lg md:text-2xl text-black/90 leading-relaxed">
-                    Education Technology it’s growing fast and we’re already working with some of the <span className="font-bold">best emerging startups</span> in the UK!
+                    Education Technology it’s growing fast and we’re already working with some of the best emerging startups in the UK!
                 </p>
             </div>
             
@@ -57,7 +57,7 @@ export default function EdTechPage() {
             COMING SOON!
           </h2>
           <p className="text-base md:text-lg text-black/80 leading-relaxed max-w-3xl">
-            We're currently developing this space to bring innovation into the <span className="font-bold">EdTech</span> market. If you're interested, why not <a href="/contact" className="text-pink-500 hover:underline">
+            We're currently developing this space to bring innovation into the EdTech market. If you're interested, why not <a href="/contact" className="text-pink-500 hover:underline">
               reach out
             </a>?
           </p>

@@ -49,7 +49,7 @@ const variantConfig: Record<CTAVariant, {
 export function BottomCTA({
   variant = "tertiary",
   eyebrowText = "Ready to build your team?",
-  headingText = "Let&apos;s find your next great recruiter.",
+  headingText = "Let's find your next great recruiter.",
   buttonText = "Get in Touch",
   href = "/contact",
 }: BottomCTAProps) {
