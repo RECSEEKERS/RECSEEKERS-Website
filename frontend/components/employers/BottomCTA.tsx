@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { cooper } from "@/lib/fonts";
 import { Button } from "@/components/ui/Button";
-import { DoodleFloat } from "../ui/DoodleFloat";
+import { BookCallModal } from "@/components/About/BookCall";
 
 type CTAVariant = "tertiary" | "dark" | "pink";
 
@@ -15,6 +15,7 @@ interface BottomCTAProps {
   headingText?: string;
   primaryButtonText?: string;
   primaryHref?: string;
+  primaryOpensBookCallModal?: boolean;
   secondaryButtonText?: string;
   secondaryHref?: string;
 }
@@ -55,65 +56,76 @@ export function BottomCTA({
   headingText = "Let's find your next great recruiter.",
   primaryButtonText = "Get in Touch",
   primaryHref = "/contact",
+  primaryOpensBookCallModal = false,
   secondaryButtonText,
   secondaryHref,
 }: BottomCTAProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const cfg = variantConfig[variant];
+  const [isBookCallOpen, setIsBookCallOpen] = useState(false);
 
   return (
-    <section className={`${cfg.sectionBg} px-8 pb-24`}>
-      <div className="max-w-6xl mx-auto w-full">
-      <h2 className={`${cooper.className} block md:hidden text-4xl md:text-7xl text-black mb-6`}>
+    <>
+      <section className={`${cfg.sectionBg} px-8 pb-24`}>
+        <div className="max-w-6xl mx-auto w-full">
+          <h2 className={`${cooper.className} block md:hidden text-4xl md:text-7xl text-black mb-6`}>
             Like what you see?
           </h2>
-      <h2 className={`${cooper.className} hidden md:block text-6xl md:text-7xl text-black mb-6`}>
+          <h2 className={`${cooper.className} hidden md:block text-6xl md:text-7xl text-black mb-6`}>
             Like what you see?
           </h2>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 48 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-          className={`${cfg.bannerBg} rounded-3xl px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-black/10 shadow-lg`}
-        >
-          {/* Left: Text */}
-          <div className="flex flex-col gap-2">
-            <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
-              {eyebrowText}
-            </p>
-            <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
-              {headingText}
-            </h3>
-          </div>
-          {/* Right: Button */}
-          <div className="shrink-0 flex flex-col sm:flex-row justify-center gap-3">
-            <Link href={primaryHref}>
-              <Button variant={cfg.buttonVariant} size="lg">
-                {primaryButtonText}
-              </Button>
-            </Link>
-            {secondaryButtonText && secondaryHref ? (
-              <Link href={secondaryHref}>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 48 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className={`${cfg.bannerBg} rounded-3xl px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-black/10 shadow-lg`}
+          >
+            {/* Left: Text */}
+            <div className="flex flex-col gap-2">
+              <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
+                {eyebrowText}
+              </p>
+              <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
+                {headingText}
+              </h3>
+            </div>
+            {/* Right: Button */}
+            <div className="shrink-0 flex flex-col sm:flex-row justify-center gap-3">
+              {primaryOpensBookCallModal ? (
                 <Button
-                  variant={cfg.buttonVariant === "secondary" ? "primary" : "secondary"}
+                  variant={cfg.buttonVariant}
                   size="lg"
+                  onClick={() => setIsBookCallOpen(true)}
                 >
-                  {secondaryButtonText}
+                  {primaryButtonText}
                 </Button>
-              </Link>
-            ) : null}
-          </div>
-          
-        </motion.div>
-      </div>
-      {/* Right Side */}
-          {/* <div className="absolute bottom-35 right-20 hidden 2xl:block">
-            <DoodleFloat name={"gradcap-1"} size={180} delay={1.2} />
-          </div> */}
+              ) : (
+                <Link href={primaryHref}>
+                  <Button variant={cfg.buttonVariant} size="lg">
+                    {primaryButtonText}
+                  </Button>
+                </Link>
+              )}
+              {secondaryButtonText && secondaryHref ? (
+                <Link href={secondaryHref}>
+                  <Button
+                    variant={cfg.buttonVariant === "secondary" ? "primary" : "secondary"}
+                    size="lg"
+                  >
+                    {secondaryButtonText}
+                  </Button>
+                </Link>
+              ) : null}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-    </section>
-    
+      {primaryOpensBookCallModal ? (
+        <BookCallModal isOpen={isBookCallOpen} onClose={() => setIsBookCallOpen(false)} />
+      ) : null}
+    </>
   );
 }

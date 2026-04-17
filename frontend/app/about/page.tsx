@@ -176,7 +176,7 @@ export default function AboutPage() {
         eyebrowText="Ready to work with RECSEEKERS?"
         headingText="Let&apos;s map your next career move or your next strategic hire."
         primaryButtonText="Book a Call"
-        primaryHref="/contact"
+        primaryOpensBookCallModal
         secondaryButtonText="Get in Touch"
         secondaryHref="/contact"
       />
