@@ -70,13 +70,6 @@ export default async function HomePage() {
           delay={0.1}
           className="absolute z-40 top-3 right-1 md:-top-4 md:right-2 lg:top-2 lg:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
-        <DoodleFloat
-          name="pencil-1"
-          size={150}
-          delay={0.4}
-          className="absolute bottom-10 z-40 left-2 lg:bottom-14 lg:left-8 hidden md:block pointer-events-none"
-        />
-
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>

@@ -42,14 +42,6 @@ export default function AboutPage() {
       {/* --- Hero / Heading Section --- */}
       <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-5 md:px-8 pt-20 md:pt-24 pb-10 md:pb-12 overflow-hidden">
         <div className="relative max-w-6xl w-full z-20">
-          {/* Primary mobile accent */}
-          <DoodleFloat
-            name="pencil-2"
-            size={92}
-            delay={0.12}
-            className="absolute -top-2 right-0 md:hidden z-40 pointer-events-none opacity-55"
-          />
-
           {/* Secondary desktop accents */}
           <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
             <DoodleFloat name={"gradcap-2"} size={96} delay={0.1} />
