@@ -11,7 +11,7 @@ import ElfsightLinkedInFeed from '@/components/About/ElfsightLinkedInFeed';
 
 const statCards = [
   {
-    title: "Recruitment Industry Experts",
+    title: "Recruitment industry experts",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
@@ -19,7 +19,7 @@ const statCards = [
     ),
   },
   {
-    title: "15+ Years Experience",
+    title: "15+ years experience",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -27,7 +27,7 @@ const statCards = [
     ),
   },
   {
-    title: "High Energy Start-up",
+    title: "High energy start-up",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
@@ -72,7 +72,7 @@ export default function AboutPage() {
                   />
 
                   <p className="md:hidden text-base text-black/90 leading-relaxed">
-                    RECSEEKERS is a specialist education Rec2Rec partner. We support top recruiters and growth-focused agencies with confidential, relationship-led moves across the UK and Australia.
+                    RECSEEKERS is a specialist education rec2rec partner. We support top recruiters and growth-focused agencies with confidential, relationship-led moves across the uk and australia.
                   </p>
 
                   <p className="hidden md:block text-xl md:text-2xl text-black leading-relaxed">
@@ -111,7 +111,7 @@ export default function AboutPage() {
             <div className="relative mt-6 md:mt-8 self-stretch sm:self-start">
               <Link href="/contact" className="group inline-block w-full sm:w-auto">
                 <Button className={`${cooper.className} w-full sm:w-auto text-black! px-8 md:px-10 py-3.5 md:py-4 bg-[#1e293b] text-base md:text-lg tracking-wide rounded-2xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-white! group-hover:shadow-none transition-all`}>
-                  Get In Touch!
+                  Get in touch!
                 </Button>
               </Link>
             </div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
             Join the team
           </p> */}
           <h2 className={`${cooper.className} text-center text-6xl md:text-7xl text-black mb-6`}>
-            Check us out in LinkedIn
+            Check us out in linkedin
           </h2>
           {/* <p className="text-xl text-black/60 max-w-2xl leading-relaxed">
             We&apos;re always on the lookout for ambitious, people-first talent to grow with us.
@@ -175,9 +175,9 @@ export default function AboutPage() {
         variant="dark"
         eyebrowText="Ready to work with RECSEEKERS?"
         headingText="Let&apos;s map your next career move or your next strategic hire."
-        primaryButtonText="Book a Call"
+        primaryButtonText="Book a call"
         primaryOpensBookCallModal
-        secondaryButtonText="Get in Touch"
+        secondaryButtonText="Get in touch"
         secondaryHref="/contact"
       />
     </main>
