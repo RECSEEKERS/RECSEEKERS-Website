@@ -59,25 +59,7 @@ export function WhereWeWorkSection() {
     <section className="relative w-full overflow-hidden bg-white border-t-4 border-black py-14 md:py-24 px-5 md:px-8">
       
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-
-        <DoodleFloat
-          name={"globe"}
-          size={60}
-          delay={0.2}
-          className="absolute -top-5 -right-1 md:hidden z-40 pointer-events-none opacity-55"
-        />
-
-        <div className="absolute top-10 -left-16 lg:-left-32 xl:-left-44 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"globe"} size={120} delay={0.2} />
-        </div>
-
-        <div className="absolute top-1/3 -right-16 lg:-right-36 xl:-right-48 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"paper-plane"} size={130} delay={0.7} />
-        </div>
-
-        <div className="absolute bottom-10 -left-20 lg:-left-40 xl:-left-56 hidden md:block z-0 pointer-events-none">
-          <DoodleFloat name={"open-book"} size={170} delay={1.2} />
-        </div>
+        
 
         {/* Main Content */}
         <div className="relative z-10">
