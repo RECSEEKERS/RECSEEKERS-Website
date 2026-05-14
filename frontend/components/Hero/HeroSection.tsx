@@ -190,7 +190,7 @@ export function HeroSection() {
           className="my-2.5 w-auto max-w-[82vw] sm:max-w-136 md:max-w-2xl"
         />
         <h2 className={`-mt-1 text-3xl font-bold text-black sm:text-5xl italic md:-mt-4 md:text-6xl ${cooper.className}`}>
-          &ldquo;Have a nice day&rdquo;
+          Have a nice day
         </h2>
       </div>
 
