@@ -52,7 +52,7 @@ export default function Candidates() {
             <p className="block md:hidden text-lg text-primary-dark/80 max-w-lg leading-relaxed">
               On the hunt for the perfect agency recruitment job? 
               <br />
-              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
               with top-tier agencies.
             </p>
             <p className="hidden md:block text-lg text-primary-dark/80 max-w-lg leading-relaxed">
@@ -60,7 +60,7 @@ export default function Candidates() {
               talented recruiters fulfill their potential by getting them into the 
               right industry, company, and role for them.
               <br /><br />
-              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
               with top-tier agencies.
             </p>
           </div>
