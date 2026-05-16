@@ -33,14 +33,14 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative z-20 w-full border-t-4 border-black bg-primary-dark px-6 py-10 md:px-10 md:py-18 text-white">
+        <footer className="relative z-20 w-full border-t-4 border-black bg-primary px-6 py-10 md:px-10 md:py-18 text-white">
             
             {/* --- DESKTOP VIEW (Hidden on Mobile) --- */}
             <div className="mx-auto hidden w-full max-w-7xl md:grid grid-cols-[1.2fr_1.8fr_1fr] gap-10">
                 <section className="flex flex-col items-start">
                     <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
-                        "Have a nice day"
+                        Have a nice day
                     </p>
                 </section>
 
@@ -72,9 +72,6 @@ export default function Footer() {
                             </li>
                         ))}
                     </ul>
-                    <Link href="/contact" className="font-cooper inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-primary-dark">
-                        Contact us
-                    </Link>
                 </section>
             </div>
 
@@ -83,7 +80,7 @@ export default function Footer() {
                 <section className="flex flex-col items-start">
                     <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
-                        "Have a nice day"
+                        Have a nice day
                     </p>
                 </section>
 

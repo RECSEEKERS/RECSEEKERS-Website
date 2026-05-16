@@ -189,9 +189,6 @@ export function HeroSection() {
           alt="RECSEEKERS"
           className="my-2.5 w-auto max-w-[82vw] sm:max-w-136 md:max-w-2xl"
         />
-        <h2 className={`-mt-1 text-3xl font-bold text-black sm:text-5xl italic md:-mt-4 md:text-6xl ${cooper.className}`}>
-          &ldquo;Have a nice day&rdquo;
-        </h2>
       </div>
 
       {/* ── Bouncing chevron ──────────────────────────────────────────────── */}
@@ -271,11 +268,10 @@ export function HeroSection() {
             We Help Education Agencies Hire Proven Recruiters
             </h1>
             <p className="text-xl text-black/80 mb-10 leading-relaxed max-w-md font-medium">
-              Specialist <span className="font-bold">Education</span> and <span className="font-bold">EdTech</span> Rec2Rec with a network of <span className="font-bold">25,000</span> education professionals across the UK and Australia.
-              Australia.
+              Specialist education and EdTech Rec2Rec with a network of 25,000 education professionals across the UK and Australia.
             </p>
             <p className="text-base text-black/75 mb-8 leading-relaxed max-w-lg font-semibold">
-              Get connected with <span className="font-bold">Top 5%</span> of Clients and Candidates in the UK and Australia education space👇
+              Get connected with the top 5% of clients and candidates in the UK and Australia education space👇
             </p>
 
             <div className="flex flex-wrap gap-4">

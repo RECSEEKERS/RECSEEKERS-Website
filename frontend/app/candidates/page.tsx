@@ -52,7 +52,7 @@ export default function Candidates() {
             <p className="block md:hidden text-lg text-primary-dark/80 max-w-lg leading-relaxed">
               On the hunt for the perfect agency recruitment job? 
               <br />
-              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
               with top-tier agencies.
             </p>
             <p className="hidden md:block text-lg text-primary-dark/80 max-w-lg leading-relaxed">
@@ -60,7 +60,7 @@ export default function Candidates() {
               talented recruiters fulfill their potential by getting them into the 
               right industry, company, and role for them.
               <br /><br />
-              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters 
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
               with top-tier agencies.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function Candidates() {
       {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
       <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
         <div className="absolute top-10 left-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
-          <DoodleFloat name={"pencil-2"} size={84} delay={0.1} />
+          <DoodleFloat name={"lightbulb"} size={84} delay={0.1} />
         </div>
         <div className="absolute bottom-8 right-10 hidden md:block z-40 pointer-events-none">
           <DoodleFloat name={"proctator"} size={140} delay={0.5} />
