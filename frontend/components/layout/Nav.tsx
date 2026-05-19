@@ -8,6 +8,7 @@ import { Button } from "../ui/Button";
 import { NavPreview } from "./NavPreview";
 import { useHeroStage } from "@/context/HeroStageContext";
 import { CONTACT_ITEM, PILL_ITEMS } from "./navItems";
+import { cooper } from "@/lib/fonts";
 
 export function Nav() {
   const pathname = usePathname();
@@ -28,14 +29,17 @@ export function Nav() {
         <AnimatePresence>
           {showLogo && (
             <motion.div
-              className="order-1 xl:absolute xl:left-10"
+              className="order-1 xl:absolute xl:left-10 xl:top-2"
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
             >
-              <Link href="/">
+              <Link href="/" className="flex flex-col items-center">
                 <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                <p className={`${cooper.className} italic mt-0.5 text-center text-[11px] font-bold leading-none tracking-[0.04em] text-black`}>
+                  HAVE A NICE DAY!
+                </p>
               </Link>
             </motion.div>
           )}
