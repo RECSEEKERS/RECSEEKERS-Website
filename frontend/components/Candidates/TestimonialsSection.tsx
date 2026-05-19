@@ -41,7 +41,7 @@ const testimonials: TestimonialItem[] = [
   {
     quote: "Highly recommend Sam. Contact was frequent but relaxed enough to not feel pressure-some. He gave the right amount of support and, from now working long-term in a role he secured for me, know that his clients respect him just as much. Thanks Sam!",
     mobileQuote: "Supportive and low-pressure process that led to a long-term role.",
-    role: "Senior SEND Consultant",
+    role: "Senior SEND consultant",
     agencyType: "Horizon Teachers",
     initials: "AB",
   },

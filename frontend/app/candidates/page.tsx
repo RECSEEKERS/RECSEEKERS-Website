@@ -45,7 +45,7 @@ export default function Candidates() {
           {/* Left Text: Changed to w-1/2 to pull the image in closer */}
           <div className="relative z-10 w-full md:w-1/2 flex flex-col items-start gap-6">
             <h1 className={`${cooper.className} text-6xl lg:text-7xl text-black mb-6 leading-tight`}>
-              Find your next role <span className="italic text-white block">with Us!</span>
+              Find your next role <span className="italic text-white block">with us!</span>
             </h1>
             
             {/* Removed <br/> and used a cleaner max-width */}
@@ -94,7 +94,7 @@ export default function Candidates() {
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-stairs.svg" alt="Market Leading" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>Market Leading<br/>Candidates</h3>
+              <h3 className={`text-2xl ${cooper.className}`}>Market leading<br/>Candidates</h3>
             </div> */}
 
             {/* Box 2 */}
@@ -102,7 +102,7 @@ export default function Candidates() {
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-selection.svg" alt="Wide Selection" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>Wide Selection of<br/>Industries</h3>
+              <h3 className={`text-2xl ${cooper.className}`}>Wide selection of<br/>industries</h3>
             </div> */}
 
             {/* Box 3 */}
@@ -110,7 +110,7 @@ export default function Candidates() {
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-clock.svg" alt="15 Years Experience" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>15 years of Recruitment<br/>Experience</h3>
+              <h3 className={`text-2xl ${cooper.className}`}>15 years of recruitment<br/>experience</h3>
             </div>
           </div>
         </div> */}
@@ -175,7 +175,7 @@ export default function Candidates() {
                     size="lg"
                     className={`${cooper.className} w-full md:w-auto whitespace-nowrap`}
                   >
-                    Start a Confidential Chat
+                    Start a confidential chat
                   </Button>
                 </Link>
               </div>
@@ -185,7 +185,7 @@ export default function Candidates() {
           {/* Split Button Container
             <Link href="/contact">
               <Button variant="primary" size="xl" className={cooper.className}>
-                Get In Touch!
+                Get in touch!
               </Button>
             </Link> */}
         </div>

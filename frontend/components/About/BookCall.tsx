@@ -166,17 +166,17 @@ export function BookCallModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
         {step === 1 && (
           <form onSubmit={handleNextStep} className="space-y-4 md:space-y-5">
             <div className="mb-6">
-              <h3 className={`${cooper.className} text-2xl md:text-3xl text-black mb-2`}>Book Your Call</h3>
+              <h3 className={`${cooper.className} text-2xl md:text-3xl text-black mb-2`}>Book your call</h3>
               <p className="text-sm md:text-base text-black/80 font-medium">{"Let's get some basic details first. (1/2)"}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-bold text-black mb-1">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-bold text-black mb-1">Full name</label>
                 <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-3 py-2 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" />
               </div>
               <div>
-                <label htmlFor="number" className="block text-sm font-bold text-black mb-1">Phone Number</label>
+                <label htmlFor="number" className="block text-sm font-bold text-black mb-1">Phone number</label>
                 <input type="tel" id="number" name="number" value={formData.number} onChange={handleChange} required className="w-full px-3 py-2 border-4 border-black bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-[#ffa4bb]/50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" />
               </div>
             </div>
@@ -207,7 +207,7 @@ export function BookCallModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
                 Cancel
               </button>
               <button type="submit" className={`w-full md:w-2/3 bg-black text-white ${cooper.className} text-base md:text-lg py-2 md:py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all`}>
-                Next Step
+                Next step
               </button>
             </div>
           </form>
@@ -296,7 +296,7 @@ export function BookCallModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
               onClick={() => router.push('/sign-up')}
               className={`w-full bg-black text-white ${cooper.className} text-lg py-3 px-6 border-4 border-black hover:bg-[#ffa4bb] hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all`}
             >
-              Join the Network
+              Join the network
             </button>
 
             <button onClick={onClose} className="mt-4 font-bold text-black/60 hover:text-black transition-colors underline">

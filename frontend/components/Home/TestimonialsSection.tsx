@@ -117,7 +117,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
           transition={{ duration: 0.55, ease: "easeOut" }}
           className={`text-5xl md:text-6xl text-center mb-14 md:mb-17 text-primary-dark ${cooperClassName}`}
         >
-          What Recruiters Say About Us
+          What recruiters say about us
         </motion.h2>
 
         

@@ -145,7 +145,7 @@ export default function AboutPage() {
             Join the team
           </p> */}
           <h2 className={`${cooper.className} text-center text-6xl md:text-7xl text-black mb-6`}>
-            Check us out in linkedin
+            Check us out in LinkedIn
           </h2>
           {/* <p className="text-xl text-black/60 max-w-2xl leading-relaxed">
             We&apos;re always on the lookout for ambitious, people-first talent to grow with us.

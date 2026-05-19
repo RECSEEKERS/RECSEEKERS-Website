@@ -54,7 +54,7 @@ export function BottomCTA({
   variant = "tertiary",
   eyebrowText = "Ready to build your team?",
   headingText = "Let's find your next great recruiter.",
-  primaryButtonText = "Get in Touch",
+  primaryButtonText = "Get in touch",
   primaryHref = "/contact",
   primaryOpensBookCallModal = false,
   secondaryButtonText,

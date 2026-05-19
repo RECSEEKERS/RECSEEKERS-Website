@@ -63,7 +63,7 @@ export default function EmployersPage() {
             <div className="mt-2 flex justify-start">
               <Link href="/contact">
                 <Button variant="primary" size="lg">
-                  Let&apos;s Talk Hiring
+                  Let&apos;s talk hiring
                 </Button>
               </Link>
             </div>
@@ -161,7 +161,7 @@ export default function EmployersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
             <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
-                Contingent Search
+                Contingent search
               </h3>
               <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
                 Our contingent model is flexible and performance-based, you only pay once we successfully place a candidate.
@@ -176,7 +176,7 @@ export default function EmployersPage() {
 
             <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
-                Retained Search
+                Retained search
               </h3>
               <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
                 Retained search is a more committed, partnership-led approach, where RECSEEKERS is exclusively engaged on a specific hire or project.

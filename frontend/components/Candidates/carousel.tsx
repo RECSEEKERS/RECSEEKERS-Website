@@ -1,11 +1,11 @@
 import { cooper } from "@/lib/fonts";
 
 const sectors = [
-    { name: "Education", desc: "Deep domain understanding of education recruitment desks and hiring cycles." },
-    { name: "Sales", desc: "Commercially sharp recruiters with proven billings and relationship depth." },
-    { name: "Leadership", desc: "Team leaders and managers who can scale desks and mentor consultants." },
-    { name: "Growth", desc: "Candidates who can open markets, launch teams, and accelerate agency growth." },
-    { name: "Culture", desc: "Strong cultural fit with long-term mindset, not short-term placement behavior." },
+    { name: "education", desc: "Deep domain understanding of education recruitment desks and hiring cycles." },
+    { name: "sales", desc: "Commercially sharp recruiters with proven billings and relationship depth." },
+    { name: "leadership", desc: "Team leaders and managers who can scale desks and mentor consultants." },
+    { name: "growth", desc: "Candidates who can open markets, launch teams, and accelerate agency growth." },
+    { name: "culture", desc: "Strong cultural fit with long-term mindset, not short-term placement behavior." },
 ];
 
 export default function CandidatesCarousel() {

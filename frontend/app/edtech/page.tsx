@@ -25,7 +25,7 @@ export default function EdTechPage() {
                 
             
                 <p className="max-w-3xl text-lg md:text-2xl text-black/90 leading-relaxed">
-                    Education Technology it’s growing fast and we’re already working with some of the <span className="font-bold">best emerging startups</span> in the UK!
+                    Education technology it's growing fast and we're already working with some of the <span className="font-bold">best emerging startups</span> in the UK!
                 </p>
             </div>
             
@@ -44,7 +44,7 @@ export default function EdTechPage() {
           {/* <div className="mt-8">
             <Link href="/contact">
               <Button variant="primary" size="lg" className={cooper.className}>
-                Talk to us about EdTech
+                Talk to us about edtech
               </Button>
             </Link>
           </div> */}

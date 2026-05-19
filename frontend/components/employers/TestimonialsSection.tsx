@@ -82,7 +82,7 @@ function GoogleRating() {
       <div className="">
         {/* Google Logo & "Rating" */}
         <div className="flex items-center gap-2">
-          <span className="text-gray-600 text-xl font-medium font-sans"><a href="">Google Rating</a></span> {/* add google reviews profile here */}
+          <span className="text-gray-600 text-xl font-medium font-sans"><a href="">Google rating</a></span> {/* add google reviews profile here */}
         </div>
 
         {/* Stars & Reviews */}

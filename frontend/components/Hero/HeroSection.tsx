@@ -239,7 +239,7 @@ export function HeroSection() {
           </div>
 
           <h1 className={`mt-3 text-center text-3xl leading-tight text-black ${cooper.className}`}>
-            We Help Education Agencies Hire Proven Recruiters.
+            We help education agencies hire proven recruiters.
           </h1>
 
           <p className="mt-1.5 text-center text-sm leading-relaxed text-black/75 font-semibold">
@@ -249,12 +249,12 @@ export function HeroSection() {
           <div className="mt-4 grid w-full grid-cols-2 gap-3">
             <Link href="/candidates" className="w-full">
               <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! shadow-[0_7px_0_0_rgba(20,22,26,0.24)] hover:-translate-y-0.5 hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}>
-                Find My Next Role
+                Find my next role
               </Button>
             </Link>
             <Link href="/employers" className="w-full">
               <Button variant="secondary" size="lg" className={`w-full ${cooper.className} bg-primary-dark! shadow-[0_7px_0_0_rgba(20,22,26,0.22)] hover:-translate-y-0.5 hover:bg-white! hover:text-primary-dark! hover:border-primary-dark! focus:ring-primary-dark!`}>
-                Hire With Confidence
+                Hire with confidence
               </Button>
             </Link>
           </div>
@@ -265,7 +265,7 @@ export function HeroSection() {
           {/* Left: Headline + subtext + CTA */}
           <div className="flex-1 flex flex-col items-start">
             <h1 className={`text-6xl md:text-5xl text-black mb-4 leading-tight ${cooper.className}`}>
-            We Help Education Agencies Hire Proven Recruiters
+            We help education agencies hire proven recruiters
             </h1>
             <p className="text-xl text-black/80 mb-10 leading-relaxed max-w-md font-medium">
               Specialist education and EdTech Rec2Rec with a network of 25,000 education professionals across the UK and Australia.

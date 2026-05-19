@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const sitemapGroups = [
     {
-        title: 'Site Map',
+        title: 'Site map',
         links: [
             { label: 'Home', href: '/' },
             { label: 'About', href: '/about' },

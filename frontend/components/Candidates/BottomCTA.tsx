@@ -50,7 +50,7 @@ export function BottomCTA({
   variant = "tertiary",
   eyebrowText = "Ready to build your team?",
   headingText = "Let&apos;s find your next great recruiter.",
-  buttonText = "Get in Touch",
+  buttonText = "Get in touch",
   href = "/contact",
 }: BottomCTAProps) {
   const ref = useRef(null);

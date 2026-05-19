@@ -94,7 +94,7 @@ export default async function HomePage() {
             <WhoWeWorkWithCard
               title="Education recruitment agencies"
               description="We help agency leaders hire proven consultants and team builders who can scale high-performing desks, launch new offices, and accelerate revenue with less hiring risk."
-              ctaLabel="Find Your Next Top Recruiter"
+              ctaLabel="Find your next top recruiter"
               href="/employers"
               cooperClassName={cooper.className}
               illustrationSrc="/Illustrations/office.svg"
@@ -196,7 +196,7 @@ export default async function HomePage() {
           {/* Left: Copy */}
           <div className="w-full order-2 lg:order-1">
             <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For Candidates Planning Their Next Move
+              For candidates planning their next move
             </h2>
 
             <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
@@ -268,7 +268,7 @@ export default async function HomePage() {
           {/* Right: Copy */}
           <div className="w-full">
             <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For Agencies Hiring Proven Performers
+              For agencies hiring proven performers
             </h2>
 
             <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
@@ -313,7 +313,7 @@ export default async function HomePage() {
         />
         <div className="max-w-7xl w-full">
           <h2 className={`text-4xl md:text-5xl mb-10 md:mb-16 text-black ${cooper.className}`}>
-            Contact Us
+            Contact us
           </h2>
         </div>
         <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-10 md:gap-16 lg:gap-20">  
@@ -362,7 +362,7 @@ export default async function HomePage() {
                   size="lg"
                   className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}
                 >
-                  I&apos;m Exploring Roles
+                  I&apos;m exploring roles
                 </Button>
               </Link>
             </div>

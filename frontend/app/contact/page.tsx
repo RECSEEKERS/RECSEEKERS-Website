@@ -165,7 +165,7 @@ export default function ContactPage() {
             <div className="w-full md:w-1/2">
               <form onSubmit={handleInitialSubmit} className="space-y-4 md:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Full Name</label>
+                  <label htmlFor="name" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Full name</label>
                   <input
                     type="text"
                     id="name"
@@ -204,13 +204,13 @@ export default function ContactPage() {
                       ${formData.role === "" ? "text-gray-400" : "text-black"}`}
                   >
                     <option value="" disabled className="text-gray-400">Select your role</option>
-                    <option value="recruiter" className="text-black">Recruiter (Looking for a move)</option>
-                    <option value="agency" className="text-black">Agency (Looking to hire)</option>
+                    <option value="recruiter" className="text-black">Recruiter (looking for a move)</option>
+                    <option value="agency" className="text-black">Agency (looking to hire)</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Your Message</label>
+                  <label htmlFor="message" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Your message</label>
                   <textarea
                     id="message"
                     name="message"
@@ -322,7 +322,7 @@ export default function ContactPage() {
                     <h3 className={`${cooper.className} text-3xl md:text-4xl text-black`}>Let&apos;s Chat! 📅</h3>
                     <p className="text-base md:text-lg font-medium text-black/80">We&apos;d love to speak with you right away. Pick a time on our calendar below.</p>
                     <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className="inline-block w-full bg-[#ffa4bb] text-black font-bold text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#ffa4bb] transition-all">
-                      Book a Time
+                      Book a time
                     </a>
                   </>
                 )}

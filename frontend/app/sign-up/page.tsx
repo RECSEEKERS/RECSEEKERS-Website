@@ -115,17 +115,17 @@ export default function SignUpPage() {
         
         <div className="max-w-6xl w-full mx-auto mt-4 md:mt-8">
           <h1 className={`${cooper.className} text-5xl md:text-6xl lg:text-7xl text-black mb-8 md:mb-12 leading-tight text-center`}>
-            Join Our <span className="italic text-white">Community!</span>
+            Join our <span className="italic text-white">community!</span>
           </h1>
 
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 bg-white p-6 md:p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             
             <div className="w-full md:w-1/2 flex flex-col justify-start space-y-6 md:space-y-8">
               <div>
-                <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Sign up💌</h2>
+                <h2 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4`}>Sign up 💌</h2>
                 <p>
                   <span className="hidden md:block text-base md:text-xl text-black/80 font-medium leading-relaxed max-w-md">
-                  Join a private community across <span className="font-bold text-[#ffa4bb]">Education Recruitment</span> and <span className="font-bold text-[#ffa4bb]">EdTech</span>!
+                  Join a private community across <span className="font-bold text-[#ffa4bb]">education recruitment</span> and <span className="font-bold text-[#ffa4bb]">Edech</span>!
                   <br></br>
                   <br></br>
                   With access to off-market opportunities, regular market updates, salary and commission benchmarks, training resources, and partner discounts across tools, tech, and platforms.
@@ -135,9 +135,9 @@ export default function SignUpPage() {
 
               <div className="pt-2 md:pt-6 mt-auto">
                 <p className="text-xs md:text-sm text-black/60 font-medium leading-relaxed max-w-sm">
-                  <strong>Privacy Note:</strong> By signing up, you agree to receive marketing emails from us. We use HubSpot to securely manage our lists. You can unsubscribe at any time. Read our{' '}
+                  <strong>Privacy note:</strong> By signing up, you agree to receive marketing emails from us. We use HubSpot to securely manage our lists. You can unsubscribe at any time. Read our{' '}
                   <a href="/privacy" className="underline hover:text-[#ffa4bb] transition-colors">
-                    Privacy Policy
+                    privacy policy
                   </a>{' '}for more details.
                 </p>
               </div>
@@ -146,7 +146,7 @@ export default function SignUpPage() {
             <div className="w-full md:w-1/2">
               <form onSubmit={handleInitialSubmit} className="space-y-4 md:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">First Name</label>
+                  <label htmlFor="name" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">First name</label>
                   <input
                     type="text"
                     id="name"
@@ -160,7 +160,7 @@ export default function SignUpPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Email Address</label>
+                  <label htmlFor="email" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Email address</label>
                   <input
                     type="email"
                     id="email"
@@ -174,7 +174,7 @@ export default function SignUpPage() {
                 </div>
 
                 <div>
-                    <label htmlFor="number" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Phone Number</label>
+                    <label htmlFor="number" className="block text-base md:text-lg font-bold text-black mb-1 md:mb-2">Phone number</label>
                     <input
                         title="Your Phone Number"
                         type="tel"
@@ -205,7 +205,7 @@ export default function SignUpPage() {
                   className={`w-full bg-black text-white ${cooper.className} text-lg md:text-xl py-3 md:py-4 px-6 border-4 border-black transition-all duration-200 mt-2 md:mt-4
                   ${(isSubmitting || !captchaToken) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#ffa4bb] hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]'}`}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Join Us!'}
+                  {isSubmitting ? 'Submitting...' : 'Join us!'}
                 </button>
               </form>
             </div>
@@ -223,13 +223,13 @@ export default function SignUpPage() {
               
               {/* Dynamic Header */}
               <h3 className={`${cooper.className} text-4xl md:text-5xl text-black mb-4 md:mb-6`}>
-                Welcome to the Community!
+                Welcome to the community!
               </h3>
 
               {/* Decorative Image */}
               <Image 
                 src="/Illustrations/Signed-up2.svg" 
-                alt="Welcome Illustration" 
+                alt="Welcome illustration" 
                 width={192} 
                 height={192}
                 className="w-40 md:w-48 h-auto my-2 md:my-3"

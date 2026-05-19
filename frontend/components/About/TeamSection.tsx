@@ -19,7 +19,7 @@ Sam leads the day-to-day running of the business, working closely with agencies 
   },
   {
     name: 'Joe James',
-    role: 'Expert Consultant??',
+    role: 'Expert consultant??',
     image: '/team/joe.png',
     bio: `...`
   },

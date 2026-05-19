@@ -18,7 +18,7 @@ export default function NotFound() {
       <div style={{ maxWidth: '500px', width: '100%' }}>
         <Image
           src="/Illustrations/404-PageNotFound.png"
-          alt="404 Page Not Found - Disconnected Plug"
+          alt="404 page not found - disconnected plug"
           width={1063}
           height={1216}
         />

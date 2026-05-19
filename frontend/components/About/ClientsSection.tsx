@@ -12,7 +12,7 @@ export function ClientsSection() {
           Trusted by the industry
         </p>
         <h2 className={`${cooper.className} text-6xl md:text-7xl text-black mb-6`}>
-          Companies We&apos;ve Placed In
+          Companies we've placed in
         </h2>
         <p className="text-lg text-black/70 max-w-xl leading-relaxed">
           From ambitious start-ups to established recruitment powerhouses — we&apos;ve connected
