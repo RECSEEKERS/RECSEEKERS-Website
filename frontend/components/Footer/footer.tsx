@@ -40,7 +40,7 @@ export default function Footer() {
                 <section className="flex flex-col items-start">
                     <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
-                        Have a nice day
+                        {/* Have a nice day */}
                     </p>
                 </section>
 
@@ -80,7 +80,7 @@ export default function Footer() {
                 <section className="flex flex-col items-start">
                     <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-10 w-auto" />
                     <p className={`mt-3 text-xl ${cooper.className} leading-tight opacity-95`}>
-                        Have a nice day
+                        {/* Have a nice day */}
                     </p>
                 </section>
 

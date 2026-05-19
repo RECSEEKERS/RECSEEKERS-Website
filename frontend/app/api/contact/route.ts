@@ -18,7 +18,7 @@ function getContactEnv() {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    
+    const calendlyLink = "";
     // Extracted variables for BOTH your forms (Contact Form & Community Sign Up)
     const { name, email, number, role, message, q1, q2, outcome } = data;
 
@@ -115,9 +115,9 @@ export async function POST(request: Request) {
         Hi ${name},
         Thanks for reaching out! We are thrilled to connect with you.
         
-        If you didn't get a chance to pick a time on the final screen, you can easily book your time with Sam right here: [INSERT CALENDLY LINK]
+        If you didn't get a chance to pick a time on the final screen, you can easily book your time with Sam right here: ${calendlyLink}
         
-        Have a nice day!
+        Kind regards,
         Sam & The Team
       `;
     } else {
@@ -144,7 +144,7 @@ export async function POST(request: Request) {
         
         Sam or one of the team will be reviewing your message and will follow up with you via email shortly.
         
-        Have a nice day!
+        Kind regards,
         Sam & The Team
       `;
     }

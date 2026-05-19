@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useHeroStage } from "@/context/HeroStageContext";
 import { CONTACT_ITEM, PILL_ITEMS } from "./navItems";
+import { cooper } from "@/lib/fonts";
 
 const PRIMARY_ITEMS = PILL_ITEMS;
 
@@ -61,15 +62,19 @@ export function NavMobile() {
         <div className="flex items-center justify-between bg-primary/90 backdrop-blur-3xl shadow-lg border-b border-neutral-50/20 px-4 py-3 rounded-b-lg">
           <AnimatePresence>
             {showLogo && (
-              <motion.div
+                  <motion.div
+                className="-mt-1"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
                 transition={{ type: "spring", stiffness: 280, damping: 24 }}
               >
-                <Link href="/" aria-label="RECSEEKERS home">
-                  <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
-                </Link>
+                  <Link href="/" aria-label="RECSEEKERS home" className="flex flex-col items-center">
+                    <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                    <p className={`${cooper.className} mt-0.5 text-center text-[11px] font-bold leading-none tracking-[0.04em] text-black`}>
+                      HAVE A NICE DAY!
+                    </p>
+                  </Link>
               </motion.div>
             )}
           </AnimatePresence>
@@ -204,10 +209,12 @@ export function NavMobile() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.35, delay: 0.2 }}
                 >
-                  <Link href="/" onClick={() => setIsOpen(false)} aria-label="RECSEEKERS home">
+                  <Link href="/" onClick={() => setIsOpen(false)} aria-label="RECSEEKERS home" className="flex flex-col items-center">
                     <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                    <p className={`${cooper.className} mt-0.5 text-center text-[11px] font-bold leading-none tracking-[0.04em] text-black`}>
+                      HAVE A NICE DAY!
+                    </p>
                   </Link>
-                  <p className="mt-1 text-xs font-medium text-black/70">Have a nice day</p>
                 </motion.div>
               </div>
             </motion.div>

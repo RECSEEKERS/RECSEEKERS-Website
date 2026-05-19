@@ -235,9 +235,9 @@ export default function SignUpPage() {
                 className="w-40 md:w-48 h-auto my-2 md:my-3"
               />                
 
-              <p className="text-xl md:text-2xl font-bold text-black/80 mt-2 md:mt-3">
+              {/* <p className="text-xl md:text-2xl font-bold text-black/80 mt-2 md:mt-3">
                 "Have a nice day!"
-              </p>
+              </p> */}
               
               <button 
                 onClick={handleCloseAndReset} 
