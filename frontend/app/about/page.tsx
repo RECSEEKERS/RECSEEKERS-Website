@@ -124,7 +124,6 @@ export default function AboutPage() {
       <TeamSection />
       {/* <ClientsSection /> */}
 
-      {/* --- Jobs Section --- */}
       {/* Added 'relative' to contain the absolute positioned doodles */}
       <section className="relative bg-white border-t-4 border-black px-8 pt-20 pb-14 md:pb-20">
         
@@ -147,10 +146,7 @@ export default function AboutPage() {
           <h2 className={`${cooper.className} text-center text-6xl md:text-7xl text-black mb-6`}>
             Check us out in linkedin
           </h2>
-          {/* <p className="text-xl text-black/60 max-w-2xl leading-relaxed">
-            We&apos;re always on the lookout for ambitious, people-first talent to grow with us.
-            Take a look at what&apos;s open - and if nothing fits yet, get in touch anyway.
-          </p> */}
+          
 
 
           {/* LinkedIn iframes will go here */}
