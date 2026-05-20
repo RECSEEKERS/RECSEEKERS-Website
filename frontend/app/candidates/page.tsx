@@ -156,7 +156,7 @@ export default function Candidates() {
       <TestimonialsSection cooperClassName={cooper.className} />
 
       {/* --- CONTACT US SECTION --- */}
-      <section className="relative z-20 bg-white py-14 md:py-16 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
+      <section className="relative z-20 bg-white py-14 md:py-16 px-8 flex flex-col items-center snap-start ">
         <div className="max-w-6xl w-full flex flex-col items-center text-center">
           <h2 className={`${headingStyle} mb-8`}>
             Ready to find your perfect role?
