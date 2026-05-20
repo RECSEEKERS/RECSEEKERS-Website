@@ -41,7 +41,7 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewTitle: "Education Technology",
     previewText: "We're working with the best emerging startups in UK EdTech space",
     previewImage: "/Illustrations/brainstorming.svg",
-  },
+  }
 ];
 
 export const CONTACT_ITEM = {
