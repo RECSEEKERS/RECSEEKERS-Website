@@ -235,10 +235,6 @@ export default function SignUpPage() {
                 className="w-40 md:w-48 h-auto my-2 md:my-3"
               />                
 
-              {/* <p className="text-xl md:text-2xl font-bold text-black/80 mt-2 md:mt-3">
-                "Have a nice day!"
-              </p> */}
-              
               <button 
                 onClick={handleCloseAndReset} 
                 className={`${cooper.className} mt-6 md:mt-8 font-bold text-black border-2 border-black px-6 py-2 hover:bg-[#ffa4bb] transition-colors`}
