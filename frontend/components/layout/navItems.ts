@@ -42,13 +42,6 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewText: "We're working with the best emerging startups in UK EdTech space",
     previewImage: "/Illustrations/brainstorming.svg",
   },
-  {
-    label: "Subscribe",
-    href: "/subscription",
-    previewTitle: "Subscribe to RECSEEKERS now!",
-    previewText: "Get the best of the best on your side. Plus many benefits!",
-    previewImage: "/Illustrations/goUp.svg",
-  },
 ];
 
 export const CONTACT_ITEM = {
