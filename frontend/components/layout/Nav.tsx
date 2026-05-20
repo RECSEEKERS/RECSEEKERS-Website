@@ -7,42 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../ui/Button";
 import { NavPreview } from "./NavPreview";
 import { useHeroStage } from "@/context/HeroStageContext";
-
-const PILL_ITEMS = [
-  {
-    label: "Home",
-    href: "/",
-    previewTitle: "Welcome to RecSeekers",
-    previewText: "High-impact recruiters matching top talent with their next move.",
-    previewImage: "/Illustrations/Telecommute1.svg",
-  },
-  {
-    label: "About",
-    href: "/about",
-    previewTitle: "About RecSeekers",
-    previewText: "We specialise in recruiter-to-recruiter hiring—matching top talent with high-performing teams.",
-    previewImage: "/Illustrations/GroupDiscussion1.svg",
-  },
-  {
-    label: "Candidates",
-    href: "/candidates",
-    previewTitle: "For Recruiter Candidates",
-    previewText: "Level up your recruiting career with roles that match your niche, targets, and way of working.",
-    previewImage: "/Illustrations/HelpingPartner1.svg",
-  },
-  {
-    label: "Employers",
-    href: "/employers",
-    previewTitle: "For Hiring Teams",
-    previewText: "Hire proven recruiters who understand your market, your pipeline, and your growth targets.",
-    previewImage: "/Illustrations/PeopleSearch2.svg",
-  },
-];
-
-const CONTACT_ITEM = {
-  label: "Contact us",
-  href: "/contact",
-};
+import { CONTACT_ITEM, PILL_ITEMS } from "./navItems";
+import { cooper } from "@/lib/fonts";
 
 export function Nav() {
   const pathname = usePathname();
@@ -56,21 +22,24 @@ export function Nav() {
   const showLogo = pathname !== "/" || !isHeroStage1;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="relative flex items-center justify-center bg-primary/90 backdrop-blur-3xl hover:bg-primary hover:py-4 hover:shadow-xl shadow-lg border-b border-neutral-50/20 px-6 py-2 rounded-b-lg transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 hidden md:block">
+      <div className="relative flex flex-wrap items-center justify-between gap-y-2 bg-primary/90 backdrop-blur-3xl hover:bg-primary hover:py-4 hover:shadow-xl shadow-lg border-b border-neutral-50/20 px-6 py-2 rounded-b-lg transition-all duration-300 xl:justify-center">
 
         {/* Logo – far left, hidden on landing until scrolled */}
         <AnimatePresence>
           {showLogo && (
             <motion.div
-              className="absolute left-10"
+              className="order-1 xl:absolute xl:left-10 xl:top-2"
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
             >
-              <Link href="/">
-                <img src="/RecLogo.svg" alt="RecSeekers" className="h-8 w-auto" />
+              <Link href="/" className="flex flex-col items-center">
+                <img src="/rec-logo.svg" alt="RECSEEKERS" className="h-8 w-auto" />
+                <p className={`${cooper.className} italic mt-0.5 text-center text-[11px] font-bold leading-none tracking-[0.04em] text-black`}>
+                  HAVE A NICE DAY!
+                </p>
               </Link>
             </motion.div>
           )}
@@ -78,7 +47,7 @@ export function Nav() {
 
         {/* Pill + preview – hover system scoped here only */}
         <div
-          className="relative"
+          className="relative order-3 mt-1 basis-full xl:order-2 xl:mt-0 xl:basis-auto"
           onMouseEnter={() => setIsInside(true)}
           onMouseLeave={() => {
             setIsInside(false);
@@ -86,7 +55,7 @@ export function Nav() {
           }}
         >
           {/* Floating navbar pill – centered */}
-          <div className="flex gap-3 px-2 py-1">
+          <div className="flex justify-center gap-3 px-2 py-1">
             {PILL_ITEMS.map((item, index) => (
               <Link
                 key={item.href}
@@ -111,9 +80,9 @@ export function Nav() {
         </div>
 
         {/* Contact button – far right, outside preview system */}
-        <div className="absolute right-10">
+        <div className="order-2 ml-auto xl:absolute xl:right-10 xl:ml-0">
           <Link href={CONTACT_ITEM.href}>
-            <Button variant="secondary" size="md">
+            <Button variant="primary" size="md">
               {CONTACT_ITEM.label}
             </Button>
           </Link>

@@ -147,10 +147,28 @@ export const schemaTypes = [
 When you **add/change/remove fields or document types**, you need to deploy:
 
 ```bash
-npx sanity schema deploy
+cd cms
+npm run deploy-schema
 ```
 
 This uploads your schemas to Sanity's servers so the Studio UI updates and the frontend can query them.
+
+> Note: `deploy-schema` is an **npm script**, not a Sanity CLI command.
+> - ✅ Correct: `npm run deploy-schema`
+> - ✅ Also works: `npx sanity schema deploy`
+> - ❌ Incorrect: `npx sanity deploy-schema`
+
+### If you get Rollup optional dependency errors on Windows
+
+If you see an error like `Cannot find module @rollup/rollup-win32-x64-msvc`, it's usually the npm optional-deps bug.
+Fix it by reinstalling cleanly inside `cms/`:
+
+```powershell
+cd cms
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Force package-lock.json
+npm install
+```
 
 ---
 

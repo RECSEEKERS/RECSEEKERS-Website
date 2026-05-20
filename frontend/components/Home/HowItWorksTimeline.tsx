@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
@@ -7,38 +8,46 @@ type HowItWorksTimelineProps = {
   cooperClassName: string;
 };
 
-const iconClass = "h-6 w-6 text-black";
+const iconClass = "h-8 w-8 text-black";
 
 const StepChatIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
-    <path d="M5 6.5h14v9H11l-4 3v-3H5v-9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M9 10h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+      src="/Illustrations/gettoknowIcon.svg" 
+      alt="Getting to know you Icon" 
+      width={28} 
+      height={28} 
+      className={iconClass} 
+    />
 );
 
 const StepGraphIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
-    <path d="M4 19h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <rect x="6" y="11" width="2.5" height="8" rx="1" fill="currentColor" />
-    <rect x="10.75" y="8" width="2.5" height="11" rx="1" fill="currentColor" />
-    <rect x="15.5" y="5" width="2.5" height="14" rx="1" fill="currentColor" />
-  </svg>
+  <Image 
+      src="/Illustrations/detailsIcon.svg" 
+      alt="Understanding details Icon" 
+      width={28} 
+      height={28} 
+      className={iconClass} 
+    />
 );
 
 const StepHandshakeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
-    <path d="M5 9.5 8.5 6H12l2.5 2.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M19 9.5 15.5 6H12l-2.5 2.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M8.5 13.5 10 15a2 2 0 0 0 2.8 0L15.5 12.3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M4.5 10.5 8 14M19.5 10.5 16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+      src="/Illustrations/dealIcon.svg" 
+      alt="Deal Icon" 
+      width={28} 
+      height={28} 
+      className={iconClass} 
+    />
 );
 
 const StepCheckIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconClass} aria-hidden="true">
-    <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" />
-    <path d="m8.5 12.5 2.2 2.2 4.8-4.8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+  <Image 
+      src="/Illustrations/successIcon.svg" 
+      alt="Success Icon" 
+      width={28} 
+      height={28} 
+      className={iconClass} 
+    />
 );
 
 const steps = [
@@ -96,7 +105,7 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16 md:mb-16"
         >
           <h2 className={`text-5xl lg:text-6xl leading-tight text-black ${cooperClassName}`}>
             How It Works
@@ -111,7 +120,7 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
-          className="absolute left-1/2 -translate-x-1/2 top-28 md:top-36 bottom-8 w-1 bg-black z-0 origin-top"
+          className="absolute left-1/2 -translate-x-1/2 top-56 md:top-36 bottom-8 w-1 bg-black z-0 origin-top"
         />
 
         <div className="relative z-10 flex flex-col items-center gap-12 md:gap-16">

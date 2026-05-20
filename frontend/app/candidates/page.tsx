@@ -1,175 +1,195 @@
 import { HeroSection } from "@/components/Hero/HeroSection";
-import localFont from 'next/font/local';
+import { cooper } from '@/lib/fonts';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { TestimonialsSection } from "@/components/Candidates/TestimonialsSection";
+import { FitSplitCard } from "@/components/Candidates/FitSplitCard";
+import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
 // Assuming you have the same profile placeholder and font setup
 const placeHolderProfile = '/profile.png';
-
-const cooper = localFont({
-  src: '../fonts/cooper-black-cdnfonts/coopbl.ttf', // Adjust path if necessary
-  display: 'swap',
-});
-
-// --- Mock Data ---
-const sectors = [
-  { name: "IT & Technology", desc: "Software engineering, data science, and infrastructure leadership roles." },
-  { name: "Finance & Banking", desc: "Connecting quantitative analysts, advisors, and executive finance talent." },
-  { name: "Marketing & Sales", desc: "Growth hackers, CMOs, and top-tier sales directors." },
-  { name: "Healthcare", desc: "Specialized medical device sales, clinical researchers, and leadership." },
-  { name: "Engineering", desc: "Civil, mechanical, and electrical engineering professionals." },
-];
-
-const candidates = [
-  { name: "Sarah Jenkins", role: "Senior Tech Recruiter", text: "\"RecSeekers found me a role that perfectly aligned with my ambition. The process was seamless and incredibly supportive.\"" },
-  { name: "David Chen", role: "Finance Headhunter", text: "\"I was looking for a step up in the banking sector. Their team understood exactly what I needed and delivered fast.\"" },
-  { name: "Emily Rogers", role: "Marketing Talent Lead", text: "\"15 years of experience really shows. They placed me at an agency where my skills are truly valued and utilized.\"" },
-  { name: "Marcus Johnson", role: "Executive Search", text: "\"A game-changer for my career. The vetted agencies they work with are top-notch.\"" },
-];
 
 export default function Candidates() {
 
   // Reusable style for the Figma headers (Pink fill, black stroke, drop shadow)
   const headingStyle = `text-5xl mb-16 text-black ${cooper.className}`;
 
-  const headingStyle3D = `text-6xl mb:text-6xl text-[var(--primary-logo)] [-webkit-text-stroke:3.5px_black] drop-shadow-[3px_4px_0_rgba(0,0,0,1)]  ${cooper.className}`;
+  // const headingStyle3D = `drop-shadow-[3px_4px_0_rgb(249,174,215)]  `;- 3D SHADOW EFFECT
 
   return (
     <main className="relative w-full bg-white overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
-      <section className="snap-start relative z-20 min-h-[80vh] bg-white py-24 px-8 flex flex-col justify-center items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)]">
-        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12">
-          {/* Left Text */}
-          <div className="w-full md:w-1/2 flex flex-col items-start gap-6">
-            <h1 className={headingStyle3D}>
-              Find the perfect role with us 
+      {/* Adjusted padding: pt-28 pb-14 for mobile, resets to py-24 for desktop */}
+      <section className="snap-start relative z-20 min-h-[80vh] bg-[#ffa4bb] pt-28 pb-14 px-8 md:py-24 flex flex-col justify-center items-center shadow-[0_16px_40px_0_rgba(0,0,0,0.1)] overflow-hidden">
+      
+        {/* ADDED 'relative' to this container. Moved doodles INSIDE it. */}
+        <div className="relative max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+          
+          {/* --- Background Doodles --- */}
+          {/* Desktop Top Left */}
+          <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
+            <DoodleFloat name={"flask-2"} size={96} delay={0.1} />
+          </div>
+          {/* Mobile Top Left (Smaller, semi-transparent) */}
+          <div className="absolute top-6 -right-4 block md:hidden z-40 pointer-events-none opacity-60">
+            <DoodleFloat name={"flask-2"} size={64} delay={0.1} />
+          </div>
+
+          {/* Desktop Bottom Right */}
+          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
+            <DoodleFloat name={"books-3"} size={124} delay={1.2} />
+          </div>
+
+          {/* Left Text: Changed to w-1/2 to pull the image in closer */}
+          <div className="relative z-10 w-full md:w-1/2 flex flex-col items-start gap-6">
+            <h1 className={`${cooper.className} text-6xl lg:text-7xl text-black mb-6 leading-tight`}>
+              Find your next role <span className="italic text-white block">with us!</span>
             </h1>
-            <p className="text-lg text-black font-medium leading-relaxed">
-              On the hunt for the perfect agency recruitment job? <br/><br/>
-              We believe in helping talented recruiters fulfill their potential by getting them into the right industry, company, and role for them.
+            
+            {/* Removed <br/> and used a cleaner max-width */}
+            <p className="block md:hidden text-lg text-primary-dark/80 max-w-lg leading-relaxed">
+              On the hunt for the perfect agency recruitment job? 
+              <br />
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
+              with top-tier agencies.
             </p>
-            <p className="text-lg text-black font-medium leading-relaxed">
-              RecSeekers specializes in Rec2Rec, connecting exceptional recruiters with top-tier agencies. Let us help you find a role that aligns with your ambitions and expertise.
+            <p className="hidden md:block text-lg text-primary-dark/80 max-w-lg leading-relaxed">
+              On the hunt for the perfect agency recruitment job? We believe in helping 
+              talented recruiters fulfill their potential by getting them into the 
+              right industry, company, and role for them.
+              <br /><br />
+              RECSEEKERS specializes in Rec2Rec, connecting exceptional recruiters 
+              with top-tier agencies.
             </p>
           </div>
-          {/* Right Image (Man on ladder) */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            {/* Replace /ladder-guy.svg with your actual asset */}
-            <div className="relative w-full max-w-md aspect-[4/3]">
-              <Image 
-                src="/ladder-guy.svg" 
-                alt="Find the perfect role"
-                fill
-                className="object-contain"
+
+          {/* Right Image: Occupies the other half */}
+          <div className="relative z-10 w-full md:w-1/2 flex justify-end">
+            <div className="relative w-full max-w-md">
+              <Image
+                src="/Illustrations/HelpingPartner2.svg"
+                alt="Career support illustration"
+                width={500}
+                height={500}
+                priority
               />
             </div>
           </div>
+          
         </div>
       </section>
 
       {/* --- WHAT SETS US APART SECTION --- */}
-      <section className="snap-start relative z-20 min-h-screen bg-white py-24 px-8 flex flex-col items-center">
+      {/* <section className="snap-start relative z-20 min-h-screen bg-white py-24 px-8 flex flex-col items-center">
         <div className="max-w-6xl w-full">
-          <h2 className={`${headingStyle} mb-16 text-center`}>
+          <h2 className={`${cooper.className} text-7xl text-black mb-12 leading-tight`}>
             What sets us apart
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 bg-[#c28f9c] p-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             {/* Box 1 */}
-            <div className="flex flex-col items-center text-center text-white gap-4">
+            {/* <div className="flex flex-col items-center text-center text-white gap-4">
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-stairs.svg" alt="Market Leading" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>Market Leading<br/>Candidates</h3>
-            </div>
+              <h3 className={`text-2xl ${cooper.className}`}>Market leading<br/>Candidates</h3>
+            </div> */}
 
             {/* Box 2 */}
-            <div className="flex flex-col items-center text-center text-white gap-4">
+            {/* <div className="flex flex-col items-center text-center text-white gap-4">
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-selection.svg" alt="Wide Selection" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>Wide Selection of<br/>Industries</h3>
-            </div>
+              <h3 className={`text-2xl ${cooper.className}`}>Wide selection of<br/>industries</h3>
+            </div> */}
 
             {/* Box 3 */}
-            <div className="flex flex-col items-center text-center text-white gap-4">
+            {/* <div className="flex flex-col items-center text-center text-white gap-4">
               <div className="w-20 h-20 mb-2">
                  <Image src="/icon-clock.svg" alt="15 Years Experience" width={80} height={80} className="object-contain filter invert"/>
               </div>
-              <h3 className={`text-2xl ${cooper.className}`}>15 years of Recruitment<br/>Experience</h3>
+              <h3 className={`text-2xl ${cooper.className}`}>15 years of recruitment<br/>experience</h3>
             </div>
+          </div>
+        </div> */}
+      {/* </section>  */}
+
+      {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
+      <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
+        <div className="absolute top-10 left-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
+          <DoodleFloat name={"lightbulb"} size={84} delay={0.1} />
+        </div>
+        <div className="absolute bottom-8 right-10 hidden md:block z-40 pointer-events-none">
+          <DoodleFloat name={"proctator"} size={140} delay={0.5} />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col gap-10">
+          <div className="max-w-3xl">
+            <h2 className={`${cooper.className} text-5xl md:text-6xl text-black mb-5 leading-tight`}>
+              Ready for your next big move?
+            </h2>
+            <p className="text-lg md:text-xl text-primary-dark/80 leading-relaxed">
+              We work with ambitious education recruiters who want the right next move, not just the next job.
+            </p>
+          </div>
+
+          <FitSplitCard cooperClassName={cooper.className} />
+
+          <div className="mx-auto w-full max-w-3xl rounded-2xl border-2 border-black/20 bg-white/90 px-6 py-7 md:px-10 md:py-9 text-center shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <p className={`${cooper.className} text-3xl md:text-4xl text-black mb-3`}>
+              Our candidate promise
+            </p>
+            <p className="text-lg md:text-xl text-primary-dark leading-relaxed font-semibold">
+              You will never be charged as a candidate. Ever.
+            </p>
+            <p className="mt-3 text-base md:text-lg text-primary-dark/80 leading-relaxed">
+              We are retained by hiring agencies, so your conversations with us stay confidential, advisory,
+              and focused on your best next move.
+            </p>
           </div>
         </div>
       </section>
 
       {/* --- PREVIOUS CANDIDATES SECTION --- */}
-      <section className="snap-start relative z-20 min-h-[80vh] bg-pink-300 py-24 px-8 flex flex-col items-center border-t-4 border-black">
-        <div className="max-w-6xl w-full">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className={headingStyle}>
-              Our previous candidates
-            </h2>
-            <span className="hidden md:block text-black font-bold text-lg italic [-webkit-text-stroke:0.5px_black]">
-              LinkedIn recommendations &rarr;
-            </span>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-12">
-            {candidates.map((cand, i) => (
-              <div key={i} className="relative group/cand w-72 h-40 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white p-6 flex flex-col justify-center items-center cursor-pointer transition-all">
-                
-                {/* Default State (Collapsed) */}
-                <div className="flex items-center gap-4 w-full group-hover/cand:opacity-0 transition-opacity duration-200">
-                  <div className="w-16 h-16 rounded-full border-2 border-black overflow-hidden bg-gray-100 flex-shrink-0">
-                    <Image src={placeHolderProfile} alt={cand.name} width={64} height={64} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h3 className={`text-xl text-black ${cooper.className}`}>{cand.name}</h3>
-                    <div className="w-full h-2 bg-gray-300 mt-2 rounded-full"></div>
-                    <div className="w-2/3 h-2 bg-gray-300 mt-1 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Hover Pop-out State (Full text + Title) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-6 opacity-0 pointer-events-none group-hover/cand:opacity-100 group-hover/cand:pointer-events-auto transition-all duration-300 z-30 flex flex-col items-center text-center gap-3">
-                  <div className="w-16 h-16 rounded-full border-2 border-black overflow-hidden bg-gray-100">
-                    <Image src={placeHolderProfile} alt={cand.name} width={64} height={64} />
-                  </div>
-                  <h3 className={`text-xl text-black ${cooper.className}`}>{cand.name}</h3>
-                  <span className="bg-[var(--primary-logo)] text-black px-3 py-1 text-sm font-bold border-2 border-black -mt-2">
-                    {cand.role}
-                  </span>
-                  <p className="text-sm font-medium italic mt-2 text-black leading-relaxed">
-                    {cand.text}
-                  </p>
-                </div>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection cooperClassName={cooper.className} />
 
       {/* --- CONTACT US SECTION --- */}
-      <section className="relative z-20 min-h-[60vh] bg-white py-24 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
-        <div className="max-w-4xl w-full flex flex-col items-center text-center">
+      <section className="relative z-20 bg-white py-14 md:py-16 px-8 flex flex-col items-center snap-start border-t-4 border-black shadow-[0_-16px_40px_0_rgba(0,0,0,0.1)]">
+        <div className="max-w-6xl w-full flex flex-col items-center text-center">
           <h2 className={`${headingStyle} mb-8`}>
             Ready to find your perfect role?
           </h2>
-          <p className="text-xl text-black font-medium mb-12 max-w-2xl leading-relaxed">
-            Reach out to our team today. We'll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
-          </p>
-          {/* Split Button Container */}
+
+          <div className="w-full max-w-5xl">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 text-left">
+              <p className="text-lg md:text-xl text-black font-medium leading-relaxed max-w-3xl">
+                Reach out to our team today. We&apos;ll confidentially discuss your experience, your ambitions, and match you with agencies that value your expertise.
+              </p>
+
+              <div className="shrink-0">
+                <Link href="/contact" className="inline-block w-full md:w-auto">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className={`${cooper.className} w-full md:w-auto whitespace-nowrap`}
+                  >
+                    Start a confidential chat
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Split Button Container
             <Link href="/contact">
               <Button variant="primary" size="xl" className={cooper.className}>
-                Get In Touch!
+                Get in touch!
               </Button>
-            </Link>
+            </Link> */}
         </div>
       </section>
-      
     </main>
   );
 }

@@ -1,10 +1,5 @@
-import localFont from 'next/font/local';
+import { cooper } from '@/lib/fonts';
 import Image from 'next/image';
-
-const cooper = localFont({
-  src: '../../app/fonts/cooper-black-cdnfonts/coopbl.ttf',
-  display: 'swap',
-});
 
 // Duplicate the array so the ticker loops seamlessly
 const logos = Array.from({ length: 8 }, (_, i) => ({ id: i, src: '/file.svg' }));
@@ -17,7 +12,7 @@ export function ClientsSection() {
           Trusted by the industry
         </p>
         <h2 className={`${cooper.className} text-6xl md:text-7xl text-black mb-6`}>
-          Companies We&apos;ve Placed In
+          Companies we've placed in
         </h2>
         <p className="text-lg text-black/70 max-w-xl leading-relaxed">
           From ambitious start-ups to established recruitment powerhouses — we&apos;ve connected

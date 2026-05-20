@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 import { TEMPLATE_STATUS_QUERY } from "@/sanity/queries";
 import { HeroSection } from "@/components/Hero/HeroSection";
-import localFont from 'next/font/local';
+import { cooper } from "@/lib/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -10,58 +10,56 @@ import { WhoWeWorkWithCard } from "@/components/Home/WhoWeWorkWithCard";
 import { HowItWorksTimeline } from "@/components/Home/HowItWorksTimeline";
 import { TestimonialsSection } from "@/components/Home/TestimonialsSection";
 
-const cooper = localFont({
-  src: './fonts/cooper-black-cdnfonts/coopbl.ttf',
-  display: 'swap',
-})
-
-export { cooper };
-
-const iconBase = "h-7 w-7 text-primary-dark";
+const iconBase = "h-9 w-9 text-primary-dark";
 
 const TopFiveIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M6 5h12v3l-2 2-4-2-4 2-2-2V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M12 10v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M8.5 21h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="12" cy="4" r="1.5" fill="currentColor" />
-  </svg>
+  <Image 
+    src="/Illustrations/top5icon.svg" 
+    alt="Top 5% Icon" 
+    width={32} 
+    height={32} 
+    className={iconBase} 
+  />
 );
 
 const EducationIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M4 7.5 12 4l8 3.5L12 11 4 7.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M6 10v6.5c2 1.7 10 1.7 12 0V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M12 11v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/gradcapIcon.svg" 
+    alt="Education Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 const RelationshipIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <path d="M7 10c1.4-1.8 3.2-2.7 5-2.7s3.6.9 5 2.7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M4.5 11.5 9 16l3-2.5 3 2.5 4.5-4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M7 19h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/dealIcon.svg" 
+    alt="Relationship Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 const NetworkIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className={iconBase} aria-hidden="true">
-    <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" />
-    <path d="M4 12h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M12 4c2.5 2.2 2.5 13.8 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M12 4c-2.5 2.2-2.5 13.8 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
+  <Image 
+    src="/Illustrations/networkIcon.svg" 
+    alt="Network Icon" 
+    width={28} 
+    height={28} 
+    className={iconBase} 
+  />
 );
 
 export default async function HomePage() {
-
   return (
-    <main className="relative w-full bg-white">
-      {/* --- HERO SECTION (two-stage scroll-hijacked hero) --- */}
-      <div className="min-h-screen">
+    <main className="relative -mt-16 md:-mt-16 w-full bg-white">
+      {/* --- HERO SECTION --- */}
+      <div className="relative h-[112dvh] md:h-[120vh]">
         <HeroSection />
       </div>
-
+      
       {/* --- Who We Work With --- */}
       <section className="relative z-20 bg-gray-100 pt-4 pb-10 lg:pt-6 lg:pb-14 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
         {/* Soft background blob accents (matched to employers page language) */}
@@ -70,15 +68,9 @@ export default async function HomePage() {
           name="paper-plane"
           size={140}
           delay={0.1}
-          className="absolute -top-4 right-2 lg:top-2 lg:right-8 hidden md:block pointer-events-none"
+          className="absolute z-40 top-3 right-1 md:-top-4 md:right-2 lg:top-2 lg:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
-        <DoodleFloat
-          name="pencil-1"
-          size={150}
-          delay={0.4}
-          className="absolute bottom-10 left-2 lg:bottom-14 lg:left-8 hidden md:block pointer-events-none"
-        />
-
+        
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>
@@ -91,16 +83,6 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch gap-8 lg:gap-10 justify-items-center">
             <WhoWeWorkWithCard
-              title="Education recruitment agencies"
-              description="We help agency leaders hire proven consultants and team builders who can scale high-performing desks, launch new offices, and accelerate revenue with less hiring risk."
-              ctaLabel="Find Your Next Top Recruiter"
-              href="/employers"
-              cooperClassName={cooper.className}
-              illustrationSrc="/Illustrations/office.svg"
-              cardBgClassName="bg-tertiary"
-            />
-
-            <WhoWeWorkWithCard
               title="Education recruiters"
               description="We support top billers with confidential, strategic career moves across the UK and Australia, focused on stronger earnings, better progression, and the right cultural fit."
               ctaLabel="Elevate Your Career"
@@ -109,16 +91,31 @@ export default async function HomePage() {
               illustrationSrc="/Illustrations/communicator2.svg"
               cardBgClassName="bg-tertiary"
             />
+            <WhoWeWorkWithCard
+              title="Education recruitment agencies"
+              description="We help agency leaders hire proven consultants and team builders who can scale high-performing desks, launch new offices, and accelerate revenue with less hiring risk."
+              ctaLabel="Find your next top recruiter"
+              href="/employers"
+              cooperClassName={cooper.className}
+              illustrationSrc="/Illustrations/office.svg"
+              cardBgClassName="bg-tertiary"
+            />
           </div>
         </div>
       </section>
 
-      {/* --- Why RecSeekers (Top 5% Positioning) --- */}
-      <section className="relative z-20 bg-white py-18 md:py-22 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+      {/* --- Why RECSEEKERS (Top 5% Positioning) --- */}
+      <section className="relative z-20 bg-primary py-18 md:py-22 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+        <DoodleFloat
+          name="speech-bubble"
+          size={90}
+          delay={0.22}
+          className="absolute z-40 top-6 right-1 md:top-12 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="relative z-10 max-w-7xl w-full">
           <div className="flex flex-col gap-4 mb-8 lg:mb-10">
             <h2 className={`text-5xl lg:text-6xl leading-tight text-primary-dark ${cooper.className}`}>
-              Why RecSeekers
+              Why RECSEEKERS?
             </h2>
             <p className="text-base md:text-lg text-primary-dark/80 max-w-3xl leading-relaxed">
               Built for quality over volume, with a specialist model designed around elite education recruitment operators.
@@ -179,13 +176,80 @@ export default async function HomePage() {
 
       <HowItWorksTimeline cooperClassName={cooper.className} />
 
+      
+      <section className="relative z-20 bg-tertiary py-20 md:py-24 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+        <div className="absolute top-6 right-6 w-40 h-40 rounded-full bg-white/20 blur-2xl pointer-events-none" />
+        <DoodleFloat
+          name="gradcap-2"
+          size={96}
+          delay={0.38}
+          className="absolute z-40 top-8 right-1 md:top-16 md:right-2 lg:right-10 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
+        <DoodleFloat
+          name="open-book"
+          size={120}
+          delay={0.45}
+          className="absolute bottom-8 left-2 lg:left-12 hidden md:block pointer-events-none"
+        />
+
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Left: Copy */}
+          <div className="w-full order-2 lg:order-1">
+            <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
+              For candidates planning their next move
+            </h2>
+
+            <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
+              Many top recruiters are underpaid for their output, boxed into the wrong market or leadership setup, and lack a clear view of genuinely better opportunities.
+            </p>
+
+            <ul className="space-y-3 text-primary-dark/90 text-base md:text-lg mb-8">
+              <li className="flex items-start gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
+                <span>Confidential career conversations</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
+                <span>Better commission and progression</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
+                <span>Leadership and equity routes</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
+                <span>UK and Australia roles</span>
+              </li>
+            </ul>
+
+            <Link href="/candidates">
+              <Button variant="secondary" size="lg" className={`${cooper.className} bg-primary-dark! focus:ring-primary-dark!`}>
+                Start a confidential chat
+              </Button>
+            </Link>
+          </div>
+
+          {/* Right: Illustration */}
+          <div className="w-full order-1 lg:order-2">
+            <div className="relative w-full aspect-4/3 rounded-4xl border-4 border-primary-dark shadow-[8px_8px_0px_0px_rgba(37,8,33,1)] overflow-hidden bg-white">
+              <Image
+                src="/Illustrations/JobHunt1.svg"
+                alt="Recruiter evaluating career paths"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* --- Deeper Split: For Agencies / For Recruiters --- */}
-      <section className="relative z-20 bg-[#fff8f1] py-20 md:py-24 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
+      <section className="relative z-40 bg-[#fff8f1] py-20 md:py-24 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
         <DoodleFloat
           name="pie-chart"
           size={95}
           delay={0.35}
-          className="absolute top-18 right-2 lg:right-12 hidden md:block pointer-events-none"
+          className="absolute z-40 top-6 right-1 md:top-18 md:right-2 lg:right-12 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
         />
 
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -235,83 +299,24 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="relative z-20 bg-tertiary py-20 md:py-24 px-6 md:px-10 flex flex-col items-center border-t-4 border-black overflow-hidden">
-        <div className="absolute top-6 right-6 w-40 h-40 rounded-full bg-white/20 blur-2xl pointer-events-none" />
-        <DoodleFloat
-          name="gradcap-2"
-          size={96}
-          delay={0.38}
-          className="absolute top-16 right-2 lg:right-10 hidden md:block pointer-events-none"
-        />
-        <DoodleFloat
-          name="open-book"
-          size={120}
-          delay={0.45}
-          className="absolute bottom-8 left-2 lg:left-12 hidden md:block pointer-events-none"
-        />
-
-        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left: Copy */}
-          <div className="w-full order-2 lg:order-1">
-            <h2 className={`text-4xl md:text-5xl text-primary-dark leading-tight mb-5 ${cooper.className}`}>
-              For recruiters planning their next move
-            </h2>
-
-            <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mb-6">
-              Many top recruiters are underpaid for their output, boxed into the wrong market or leadership setup, and lack a clear view of genuinely better opportunities.
-            </p>
-
-            <ul className="space-y-3 text-primary-dark/90 text-base md:text-lg mb-8">
-              <li className="flex items-start gap-3">
-                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
-                <span>Confidential career conversations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
-                <span>Better commission and progression</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
-                <span>Leadership and equity routes</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary-dark shrink-0" />
-                <span>UK and Australia roles</span>
-              </li>
-            </ul>
-
-            <Link href="/candidates">
-              <Button variant="secondary" size="lg" className={`${cooper.className} bg-primary-dark! focus:ring-primary-dark!`}>
-                Start a confidential chat
-              </Button>
-            </Link>
-          </div>
-
-          {/* Right: Illustration */}
-          <div className="w-full order-1 lg:order-2">
-            <div className="relative w-full aspect-4/3 rounded-4xl border-4 border-primary-dark shadow-[8px_8px_0px_0px_rgba(37,8,33,1)] overflow-hidden bg-white">
-              <Image
-                src="/Illustrations/JobHunt1.svg"
-                alt="Recruiter evaluating career paths"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       <TestimonialsSection cooperClassName={cooper.className} />
 
       
       {/* --- Contact Section ---*/}
-      <section className="relative z-20 min-h-screen bg-white py-24 md:py-28 px-6 md:px-10 flex flex-col items-center">
+      <section className="relative z-20 bg-white border-t-4 border-black py-16 md:py-28 px-6 md:px-10 flex flex-col items-center">
+        <DoodleFloat
+          name="paper-plane"
+          size={94}
+          delay={0.18}
+          className="absolute z-40 top-7 right-1 md:top-10 md:right-8 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100 origin-top-right"
+        />
         <div className="max-w-7xl w-full">
-          <h2 className={`text-5xl mb-16 text-black ${cooper.className}`}>
-            Contact Us
+          <h2 className={`text-4xl md:text-5xl mb-10 md:mb-16 text-black ${cooper.className}`}>
+            Contact us
           </h2>
         </div>
-        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-16 lg:gap-20">  
+        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-start gap-10 md:gap-16 lg:gap-20">  
           {/* Left Side: Image */}
           <div className="w-full lg:w-1/2">
             <div className="relative h-full w-full max-w-130 group">
@@ -331,25 +336,36 @@ export default async function HomePage() {
 
           {/* Right Side: Text & Button */}
           <div className="w-full lg:w-1/2 flex flex-col items-start">
-            <h2 className={`text-4xl md:text-5xl text-black mb-8 leading-tight ${cooper.className}`}>
-              Bold strategies to unlock elite recruiter discovery for your growing business.
+            <h2 className={`text-3xl md:text-5xl text-black mb-5 md:mb-8 leading-tight ${cooper.className}`}>
+              Let&apos;s map your next hire or your next move.
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-12 text-black leading-relaxed font-medium">
-              <p className="flex-1">
-                We are advancing a pipeline of novel talent acquisition strategies by unraveling complex hiring needs. Built on pioneering recruitment science and powered by a world-class team of innovators.
-              </p>
-              <p className="flex-1">
-                Today, our mission targets the best recruiters in the industry, while our ultimate ambition is far bolder: to fundamentally rewrite the standard of hiring.
-              </p>
-            </div>
+            <p className="text-black/85 text-base md:text-lg leading-relaxed font-medium max-w-xl">
+              Whether you are scaling a team or planning a confidential career step, we&apos;ll help you make the right move with clarity and speed.
+            </p>
+
+            <ul className="mt-5 hidden space-y-2 text-black/80 text-sm md:block md:text-base leading-relaxed font-medium">
+              <li>Confidential conversations</li>
+              <li>Specialist education Rec2Rec insight</li>
+              <li>UK and Australia market coverage</li>
+            </ul>
             
-            {/* Split Button Container */}
-            <Link href="/contact">
-              <Button variant="primary" size="xl" className={cooper.className}>
-                Get In Touch!
-              </Button>
-            </Link>
+            <div className="mt-7 grid w-full max-w-xl grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <Link href="/employers" className="w-full">
+                <Button variant="primary" size="lg" className={`w-full ${cooper.className}`}>
+                  I&apos;m Hiring Recruiters
+                </Button>
+              </Link>
+              <Link href="/candidates" className="w-full">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className={`w-full ${cooper.className} bg-white! text-primary-dark! border-2 border-primary-dark! hover:bg-primary-dark! hover:text-white! focus:ring-primary-dark!`}
+                >
+                  I&apos;m exploring roles
+                </Button>
+              </Link>
+            </div>
           </div>          
         </div>
       </section>

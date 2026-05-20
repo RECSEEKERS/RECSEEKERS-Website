@@ -172,7 +172,7 @@ Edit `app/globals.css`:
   --background: #ffffff;
   --foreground: #171717;
   --primary: #0ea5e9;
-  --primary-dark: #0284c7;
+  --primary-dark: #000000; /*chnage "brown" to black*/
   --neutral-50: #f9fafb;
   --neutral-900: #111827;
 }
@@ -490,6 +490,8 @@ You might need to install packages:
 
 ```bash
 npm install @sanity/client @sanity/image-url next-sanity
+npm install canvas-confetti
+npm install -D @types/canvas-confetti
 ```
 
 ### "NEXT_PUBLIC_SANITY_PROJECT_ID is empty"

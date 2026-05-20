@@ -34,7 +34,7 @@
 }
 
 .blob1 svg {
-  fill: #da8da0; /* primary */
+  fill: var(--primary); /* primary */
 }
 
 .blob2 {
@@ -46,7 +46,7 @@
 }
 
 .blob2 svg {
-  fill: #d940c0; /* secondary */
+fill: var(--secondary);
 }
 
 .blob3 {
@@ -59,7 +59,7 @@
 
 .blob3 svg {
   /* primary */
-  fill: #da8da0;
+  fill: var(--primary);
 }
 
 .blob4 {
@@ -72,7 +72,7 @@
 
 .blob4 svg {
   /* secondary */
-  fill: #d940c0;
+  fill: var(--secondary);
 }
 
 .blob5 {
@@ -85,7 +85,7 @@
 
 .blob5 svg {
   /* primary */
-  fill: #da8da0;
+  fill: var(--primary);
 }
 
 /* Blob animations - dynamic movements with large ranges */

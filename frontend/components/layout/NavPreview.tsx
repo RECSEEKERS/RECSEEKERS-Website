@@ -1,14 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-
-interface NavPreviewItem {
-  label: string;
-  href: string;
-  previewTitle: string;
-  previewText: string;
-  previewImage: string;
-}
+import type { NavPreviewItem } from "./navItems";
 
 interface NavPreviewProps {
   items: NavPreviewItem[];
