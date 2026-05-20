@@ -35,13 +35,13 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewText: "Hire proven talent who understand your market, your pipeline, and your growth targets",
     previewImage: "/Illustrations/PeopleSearch2.svg",
   },
-  {
-    label: "EdTech",
-    href: "/edtech",
-    previewTitle: "Education Technology",
-    previewText: "We're working with the best emerging startups in UK EdTech space",
-    previewImage: "/Illustrations/brainstorming.svg",
-  }
+  // { HIDE FOR NOW UNTIL ITS ADDED IN OTHER PAGE
+  //   label: "EdTech",
+  //   href: "/edtech",
+  //   previewTitle: "Education Technology",
+  //   previewText: "We're working with the best emerging startups in UK EdTech space",
+  //   previewImage: "/Illustrations/brainstorming.svg",
+  // }
 ];
 
 export const CONTACT_ITEM = {
