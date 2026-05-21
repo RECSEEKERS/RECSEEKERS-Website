@@ -35,6 +35,13 @@ export const PILL_ITEMS: NavPreviewItem[] = [
     previewText: "Hire proven talent who understand your market, your pipeline, and your growth targets",
     previewImage: "/Illustrations/PeopleSearch2.svg",
   },
+  {
+    label: "Recruitment",
+    href: "/recruitment",
+    previewTitle: "Who we recruit",
+    previewText: "Replace this placeholder text",
+    previewImage: "/Illustrations/education-2.svg",
+  }
   // { HIDE FOR NOW UNTIL ITS ADDED IN OTHER PAGE
   //   label: "EdTech",
   //   href: "/edtech",
