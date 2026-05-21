@@ -158,7 +158,7 @@ export default function EmployersPage() {
             Types of Recruitment
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
             <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
                 Contingent Search
@@ -186,6 +186,21 @@ export default function EmployersPage() {
               </p>
               <p className="text-sm md:text-base text-black/70 font-medium leading-relaxed">
                 Best suited for senior or business-critical hires where a focused, high-quality process is key.
+              </p>
+            </article>
+
+            <article className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className={`${cooper.className} text-3xl md:text-4xl text-black mb-4`}>
+                Subscription
+              </h3>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                A dedicated, proactive model for businesses that want consistent access to high-quality talent and a clear advantage in the market.
+              </p>
+              <p className="text-base md:text-lg text-black/85 leading-relaxed mb-4">
+                We cap this at three clients at a time and deliver a steady, agreed flow of targeted profiles each week. This creates a structured, lower-risk way to secure multiple hires while reducing overall cost per hire.
+              </p>
+              <p className="text-sm md:text-base text-black/70 font-medium leading-relaxed">
+                Best suited for teams planning multiple hires who want momentum, priority access, and weekly visibility.
               </p>
             </article>
           </div>
