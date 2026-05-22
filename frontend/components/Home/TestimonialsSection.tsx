@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 import { cooper } from "@/lib/fonts";
 
@@ -44,22 +45,22 @@ const googleReviews: GoogleReviewItem[] = [
   {
     rating: "5.0",
     text:
-      "Sam quickly understood the brief and brought us candidates who were genuinely aligned with what we needed.",
+      "Sam is one of the most experienced, down-to-earth and transparent recruiters you'll ever meet. Outstanding service!",
   },
   {
     rating: "5.0",
     text:
-      "Clear communication, strong market knowledge, and a shortlist that saved us a lot of time.",
+      "Sam listened to everything I was looking for in a new role. Couldn’t recommend Sam and the team more!",
   },
   {
     rating: "5.0",
     text:
-      "Reliable, responsive, and excellent at finding the right fit for our team.",
+      "Sam’s great, very knowledgeable & educated in the education recruitment market. Recommend!",
   },
   {
     rating: "5.0",
     text:
-      "A proper partner rather than just another recruiter. The process was smooth from start to finish.",
+      "Easy and smooth communication from the off. Would highly recommend!",
   },
 ];
 
@@ -80,41 +81,6 @@ function QuoteBubbleIcon() {
         fill="#e26d9f"
       />
     </svg>
-  );
-}
-
-// Google Rating
-function GoogleRating() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.55, delay: 0.1, ease: "easeOut" }}
-      className="flex justify-center md:mb-1"
-    >
-
-
-      <div className="">
-        {/* Google Logo & "Rating" */}
-        <div className="flex items-center gap-2">
-          <span className="text-gray-600 text-xl font-medium font-sans"><a href="">Google Rating</a></span> {/* add google reviews profile here */}
-        </div>
-
-        {/* Stars & Reviews */}
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-gray-800 text-xl">5.0</span>
-          <div className="flex items-center gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} viewBox="0 0 24 24" fill="#FBBC05" className="w-5 h-5">
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              </svg>
-            ))}
-          </div>
-          {/* NUMBER OF REVIEWS <span className="text-gray-400 text-sm font-medium ml-1">202 reviews</span> */}
-        </div>
-      </div>
-    </motion.div>
   );
 }
 
@@ -164,17 +130,28 @@ function GoogleReviewsCarousel() {
 
                 <div className="mt-auto flex items-center gap-3 pt-2">
                   <div className="h-10 w-10 rounded-full bg-[#e26d9f] text-white text-sm font-bold grid place-items-center shrink-0">
-                    G
+                    GR
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-semibold text-black leading-tight">Google Review</p>
-                    <p className="text-xs text-[#e26d9f] leading-tight">Business profile</p>
+                    <p className="text-xs text-[#e26d9f] leading-tight">Anonymous profile</p>
                   </div>
                 </div>
               </div>
             </article>
           ))}
         </div>
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <Link
+          href="https://www.google.co.uk/maps/place/RECSEEKERS/@45.7843307,-8.4357858,8014811m/data=!3m1!1e3!4m16!1m9!3m8!1s0xe807dd0f8e534c7:0xf4bf396f11dd0b67!2sRECSEEKERS!8m2!3d47.73855!4d12.5088275!9m1!1b1!16s%2Fg%2F11w_hhbl2b!3m5!1s0xe807dd0f8e534c7:0xf4bf396f11dd0b67!8m2!3d47.73855!4d12.5088275!16s%2Fg%2F11w_hhbl2b?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center rounded-2xl border-4 border-black bg-primary px-6 py-3 text-lg font-medium text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-none focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 font-cooper"
+        >
+          Give us a review!
+        </Link>
       </div>
     </motion.div>
   );
