@@ -2,12 +2,18 @@
 
 import { motion } from "framer-motion";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
+import { cooper } from "@/lib/fonts";
 
 type TestimonialItem = {
   quote: string;
   role: string;
   agencyType: string;
   initials: string;
+};
+
+type GoogleReviewItem = {
+  rating: string;
+  text: string;
 };
 
 const testimonials: TestimonialItem[] = [
@@ -31,6 +37,29 @@ const testimonials: TestimonialItem[] = [
     role: "Director",
     agencyType: "Large Multi-Office Agency",
     initials: "DR",
+  },
+];
+
+const googleReviews: GoogleReviewItem[] = [
+  {
+    rating: "5.0",
+    text:
+      "Sam quickly understood the brief and brought us candidates who were genuinely aligned with what we needed.",
+  },
+  {
+    rating: "5.0",
+    text:
+      "Clear communication, strong market knowledge, and a shortlist that saved us a lot of time.",
+  },
+  {
+    rating: "5.0",
+    text:
+      "Reliable, responsive, and excellent at finding the right fit for our team.",
+  },
+  {
+    rating: "5.0",
+    text:
+      "A proper partner rather than just another recruiter. The process was smooth from start to finish.",
   },
 ];
 
@@ -83,6 +112,68 @@ function GoogleRating() {
             ))}
           </div>
           {/* NUMBER OF REVIEWS <span className="text-gray-400 text-sm font-medium ml-1">202 reviews</span> */}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function StarRow({ rating }: { rating: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-lg font-bold text-black">{rating}</span>
+      <div className="flex items-center gap-0.5" aria-hidden="true">
+        {[...Array(5)].map((_, index) => (
+          <svg key={index} viewBox="0 0 24 24" fill="#FBBC05" className="h-4 w-4">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function GoogleReviewsCarousel() {
+  const repeatedReviews = [...googleReviews, ...googleReviews];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
+      className="mt-8 md:mt-10"
+    >
+      <div className="mb-4 text-center">
+        <h3 className={`text-2xl md:text-3xl text-primary-dark ${cooper.className}`}>Google Reviews</h3>
+      </div>
+
+      <div className="relative block w-full overflow-hidden group/ticker">
+        <div className="flex w-max animate-ticker group-hover/ticker:[animation-play-state:paused] gap-6 py-2">
+          {repeatedReviews.map((review, index) => (
+            <article
+              key={`${review.text}-${index}`}
+              className="shrink-0 w-[18rem] sm:w-[20rem] md:w-84 h-64 rounded-3xl border-4 border-black bg-[#fdf7f8] p-6 shadow-[6px_6px_0px_0px_#000] flex flex-col"
+            >
+              <StarRow rating={review.rating} />
+
+              <div className="mt-4 flex flex-1 flex-col">
+                <blockquote className="flex-1 text-black/80 italic leading-relaxed text-base md:text-[1.05rem]">
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+
+                <div className="mt-auto flex items-center gap-3 pt-2">
+                  <div className="h-10 w-10 rounded-full bg-[#e26d9f] text-white text-sm font-bold grid place-items-center shrink-0">
+                    G
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-black leading-tight">Google Review</p>
+                    <p className="text-xs text-[#e26d9f] leading-tight">Business profile</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </motion.div>
@@ -148,7 +239,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
                   </motion.div>
 
                   <blockquote className="text-lg text-black/80 leading-relaxed italic max-w-[32ch]">
-                    "{item.quote}"
+                    &ldquo;{item.quote}&rdquo;
                   </blockquote>
                 </div>
 
@@ -165,7 +256,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
                     </div>
 
                     <div>
-                      <h3 className={`text-xl text-black leading-tight ${cooperClassName}`}>
+                      <h3 className={`text-xl text-black leading-tight ${cooper}`}>
                         {item.role}
                       </h3>
                       <p className="text-sm text-[#e26d9f] italic mt-1">{item.agencyType}</p>
@@ -177,7 +268,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
             );
           })}
         </div>
-        <GoogleRating />
+        <GoogleReviewsCarousel />
       </div>
     </section>
   );
