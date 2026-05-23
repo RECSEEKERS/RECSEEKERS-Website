@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import localFont from 'next/font/local';
+import Link from 'next/link';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 // Import the exact same font setup used in Candidates
@@ -140,7 +141,7 @@ export default function ContactPage() {
                 </p>
               </div>
               
-              <div className="space-y-4 md:space-y-6 text-base md:text-lg font-medium text-black">
+              <div className="space-y-2 md:space-y-3 text-base md:text-lg font-medium text-black">
                 <span className={`${cooper.className} text-lg md:text-xl md:w-24`}>Contact us by Phone:</span>
                 <div className="flex flex-col">
                     <span className="whitespace-nowrap">+44 (0) 7552 188 056</span>
@@ -148,7 +149,18 @@ export default function ContactPage() {
                   </div>
               </div>
 
-              <div className="pt-2 md:pt-6 mt-auto">
+              <div className="flex justify-start pt-1 md:pt-1">
+                <Link
+                  href="https://www.google.co.uk/maps/place/RECSEEKERS/@45.7843307,-8.4357858,8014811m/data=!3m1!1e3!4m16!1m9!3m8!1s0xe807dd0f8e534c7:0xf4bf396f11dd0b67!2sRECSEEKERS!8m2!3d47.73855!4d12.5088275!9m1!1b1!16s%2Fg%2F11w_hhbl2b!3m5!1s0xe807dd0f8e534c7:0xf4bf396f11dd0b67!8m2!3d47.73855!4d12.5088275!16s%2Fg%2F11w_hhbl2b?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl border-4 border-black bg-primary px-6 py-3 text-lg font-medium text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-none focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 font-cooper"
+                >
+                  Give us a review!
+                </Link>
+              </div>
+
+              <div className="pt-1 md:pt-2 mt-auto">
                 <p className="text-xs md:text-sm text-black/60 font-medium leading-relaxed max-w-sm">
                 <strong>Privacy Note:</strong> We use HubSpot to securely manage our lists . Read our{' '}
                   <a href="/terms" className="underline hover:text-[#ffa4bb] transition-colors">

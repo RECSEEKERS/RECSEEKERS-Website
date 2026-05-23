@@ -67,7 +67,7 @@ export function BottomCTA({
 
   return (
     <>
-      <section className={`${cfg.sectionBg} px-8 pb-24  border-t-4 border-black pt-20`}>
+      <section className={`${cfg.sectionBg} px-8 pb-24 pt-20`}>
         <div className="max-w-6xl mx-auto w-full">
           <h2 className={`${cooper.className} block md:hidden text-4xl md:text-7xl text-black mb-6`}>
             Like what you see?
