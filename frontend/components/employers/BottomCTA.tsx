@@ -32,11 +32,11 @@ const variantConfig: Record<CTAVariant, {
     bannerBg: "bg-tertiary",
     eyebrow: "text-white/60",
     heading: "text-white",
-    buttonVariant: "secondary",
+    buttonVariant: "primary",
   },
   dark: {
     sectionBg: "bg-white",
-    bannerBg: "bg-primary-dark",
+    bannerBg: "bg-primary",
     eyebrow: "text-white/50",
     heading: "text-white",
     buttonVariant: "primary",
@@ -51,9 +51,9 @@ const variantConfig: Record<CTAVariant, {
 };
 
 export function BottomCTA({
-  variant = "tertiary",
+  variant = "dark",
   eyebrowText = "Ready to build your team?",
-  headingText = "Let's find your next great recruiter.",
+  headingText = "Let's find your next great recruiter!",
   primaryButtonText = "Get in Touch",
   primaryHref = "/contact",
   primaryOpensBookCallModal = false,
@@ -78,7 +78,7 @@ export function BottomCTA({
           >
             {/* Left: Text */}
             <div className="flex flex-col gap-2">
-              <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
+              <p className={`text-xs text-white ${cfg.eyebrow}`}>
                 {eyebrowText}
               </p>
               <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
@@ -91,13 +91,14 @@ export function BottomCTA({
                 <Button
                   variant={cfg.buttonVariant}
                   size="lg"
+                  className={cooper.className}
                   onClick={() => setIsBookCallOpen(true)}
                 >
                   {primaryButtonText}
                 </Button>
               ) : (
                 <Link href={primaryHref}>
-                  <Button variant={cfg.buttonVariant} size="lg">
+                  <Button variant={cfg.buttonVariant} size="lg" className={cooper.className}>
                     {primaryButtonText}
                   </Button>
                 </Link>
@@ -107,6 +108,7 @@ export function BottomCTA({
                   <Button
                     variant={cfg.buttonVariant === "secondary" ? "primary" : "secondary"}
                     size="lg"
+                    className={cooper.className}
                   >
                     {secondaryButtonText}
                   </Button>

@@ -69,7 +69,7 @@ export function BottomCTA({
         >
           {/* Left: Text */}
           <div className="flex flex-col gap-2">
-            <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
+            <p className={`text-xs text-white ${cfg.eyebrow}`}>
               {eyebrowText}
             </p>
             <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>

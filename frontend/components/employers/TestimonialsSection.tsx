@@ -67,41 +67,6 @@ function QuoteBubbleIcon() {
   );
 }
 
-// Google Rating
-function GoogleRating() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.55, delay: 0.1, ease: "easeOut" }}
-      className="flex justify-center md:mb-1"
-    >
-
-
-      <div className="">
-        {/* Google Logo & "Rating" */}
-        <div className="flex items-center gap-2">
-          <span className="text-gray-600 text-xl font-medium font-sans"><a href="">Google Rating</a></span> {/* add google reviews profile here */}
-        </div>
-
-        {/* Stars & Reviews */}
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-gray-800 text-xl">5.0</span>
-          <div className="flex items-center gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} viewBox="0 0 24 24" fill="#FBBC05" className="w-5 h-5">
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              </svg>
-            ))}
-          </div>
-          {/* NUMBER OF REVIEWS <span className="text-gray-400 text-sm font-medium ml-1">202 reviews</span> */}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 interface TestimonialsSectionProps {
   cooperClassName: string;
 }
@@ -190,7 +155,7 @@ export function TestimonialsSection({ cooperClassName }: TestimonialsSectionProp
             );
           })}
         </div>
-        {/* <GoogleRating /> */}
+    
       </div>
 
         <span className="hidden md:flex items-center justify-center gap-2 text-black font-bold text-lg [-webkit-text-stroke:0.5px_black]">
