@@ -175,7 +175,7 @@ export default function Candidates() {
                     size="lg"
                     className={`${cooper.className} w-full md:w-auto whitespace-nowrap`}
                   >
-                    Start a Confidential Chat
+                    Start a confidential chat
                   </Button>
                 </Link>
               </div>

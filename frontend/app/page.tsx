@@ -223,7 +223,7 @@ export default async function HomePage() {
             </ul>
 
             <Link href="/candidates">
-              <Button variant="secondary" size="lg" className={`${cooper.className} bg-primary-dark! focus:ring-primary-dark!`}>
+              <Button variant="secondary" size="lg" className={`${cooper.className} bg-white! text-black! hover:border-black! focus:ring-primary-dark!`}>
                 Start a confidential chat
               </Button>
             </Link>

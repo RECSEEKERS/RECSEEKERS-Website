@@ -110,7 +110,7 @@ export default function AboutPage() {
 
             <div className="relative mt-6 md:mt-8 self-stretch sm:self-start">
               <Link href="/contact" className="group inline-block w-full sm:w-auto">
-                <Button className={`${cooper.className} w-full sm:w-auto text-black! px-8 md:px-10 py-3.5 md:py-4 bg-[#1e293b] text-base md:text-lg tracking-wide rounded-2xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-white! group-hover:shadow-none transition-all`}>
+                <Button className={`${cooper.className} w-full sm:w-auto text-white! px-8 md:px-10 py-3.5 md:py-4 bg-[#1e293b] text-base md:text-lg tracking-wide rounded-2xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-white! group-hover:shadow-none transition-all`}>
                   Get in touch!
                 </Button>
               </Link>
@@ -144,7 +144,7 @@ export default function AboutPage() {
             Join the team
           </p> */}
           <h2 className={`${cooper.className} text-center text-6xl md:text-7xl text-black mb-6`}>
-            Check us out in linkedin
+            Check us out in LinkedIn
           </h2>
           
 
@@ -171,9 +171,8 @@ export default function AboutPage() {
         variant="dark"
         eyebrowText="Ready to work with RECSEEKERS?"
         headingText="Let&apos;s map your next career move or your next strategic hire."
-        primaryButtonText="Book a call"
+        primaryButtonText="Get in touch"
         primaryOpensBookCallModal
-        secondaryButtonText="Get in touch"
         secondaryHref="/contact"
       />
     </main>

@@ -50,7 +50,7 @@ export function WhoWeWorkWithCard({
             <Button
               variant="secondary"
               size="lg"
-              className={`${cooperClassName} bg-primary-dark! focus:ring-primary-dark!`}
+              className={`${cooperClassName} bg-white! text-black! border-primary-dark! focus:ring-primary-dark!`}
             >
               {ctaLabel}
             </Button>

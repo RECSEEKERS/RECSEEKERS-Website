@@ -62,7 +62,7 @@ export default function EmployersPage() {
 
             <div className="mt-2 flex justify-start">
               <Link href="/contact">
-                <Button variant="primary" size="lg">
+                <Button variant="primary" className={`${cooper.className}`} size="lg">
                   Let&apos;s Talk Hiring
                 </Button>
               </Link>

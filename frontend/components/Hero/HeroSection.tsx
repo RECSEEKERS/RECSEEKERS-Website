@@ -276,12 +276,12 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-4">
               <Link href="/candidates">
-                <Button variant="secondary" size="xl" className={`${cooper.className} bg-white! text-black! border-2 border-black! hover:bg-black! hover:text-white! focus:ring-black!`}>
+                <Button variant="secondary" size="xl" className={`${cooper.className} bg-white! text-black! border-2 border-black! hover:bg-primary! hover:border-black! hover:text-white! focus:ring-black!`}>
                   For Candidates
                 </Button>
               </Link>
               <Link href="/employers">
-                <Button variant="secondary" size="xl" className={`${cooper.className} bg-black! hover:bg-white! hover:text-black! hover:border-black! focus:ring-black!`}>
+                <Button variant="secondary" size="xl" className={`${cooper.className} border-black! bg-primary! hover:bg-white! hover:text-black! hover:border-black! focus:ring-black!`}>
                   For Agencies
                 </Button>
               </Link>

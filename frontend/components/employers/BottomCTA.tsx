@@ -32,11 +32,11 @@ const variantConfig: Record<CTAVariant, {
     bannerBg: "bg-tertiary",
     eyebrow: "text-white/60",
     heading: "text-white",
-    buttonVariant: "secondary",
+    buttonVariant: "primary",
   },
   dark: {
     sectionBg: "bg-white",
-    bannerBg: "bg-primary-dark",
+    bannerBg: "bg-primary",
     eyebrow: "text-white/50",
     heading: "text-white",
     buttonVariant: "primary",
@@ -51,9 +51,9 @@ const variantConfig: Record<CTAVariant, {
 };
 
 export function BottomCTA({
-  variant = "tertiary",
+  variant = "dark",
   eyebrowText = "Ready to build your team?",
-  headingText = "Let's find your next great recruiter.",
+  headingText = "Let's find your next great recruiter!",
   primaryButtonText = "Get in Touch",
   primaryHref = "/contact",
   primaryOpensBookCallModal = false,
