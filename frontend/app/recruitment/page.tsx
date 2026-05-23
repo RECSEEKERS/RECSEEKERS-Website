@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { cooper } from "@/lib/fonts";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
+import { BottomCTA } from "@/components/employers/BottomCTA";
 
 export default function RecruitmentPage() {
 	return (
@@ -153,16 +154,17 @@ export default function RecruitmentPage() {
 					<h2 className={`text-4xl md:text-5xl text-neutral-900 ${cooper.className}`}>
 						EdTech
 					</h2>
+
+					<div className="block md:hidden mt-8">
+						<BottomCTA />
+					</div>
+
+					<div className="hidden md:block mt-12">
+						<BottomCTA />
+					</div>
 				</div>
 			</section>
 
-			<section className="relative border-t-4 border-black bg-[#fff8f1] px-8 py-14 md:py-18 overflow-hidden">
-				<div className="max-w-6xl mx-auto w-full">
-					<h2 className={`text-4xl md:text-5xl text-neutral-900 ${cooper.className}`}>
-						CTA section
-					</h2>
-				</div>
-			</section>
 		</main>
 	);
 }
