@@ -10,6 +10,7 @@ const sitemapGroups = [
             { label: 'Candidates', href: '/candidates' },
             { label: 'Employers', href: '/employers' },
             { label: 'Contact', href: '/contact' },
+            { label: 'Recruitment', href: '/recruitment' },
         ],
     },
     {

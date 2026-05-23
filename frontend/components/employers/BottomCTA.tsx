@@ -67,14 +67,8 @@ export function BottomCTA({
 
   return (
     <>
-      <section className={`${cfg.sectionBg} px-8 pb-24 pt-20`}>
+      <section className={`${cfg.sectionBg} px-8 pb-24`}>
         <div className="max-w-6xl mx-auto w-full">
-          <h2 className={`${cooper.className} block md:hidden text-4xl md:text-7xl text-black mb-6`}>
-            Like what you see?
-          </h2>
-          <h2 className={`${cooper.className} hidden md:block text-6xl md:text-7xl text-black mb-6`}>
-            Like what you see?
-          </h2>
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 48 }}
