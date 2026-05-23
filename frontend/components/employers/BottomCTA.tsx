@@ -84,7 +84,7 @@ export function BottomCTA({
           >
             {/* Left: Text */}
             <div className="flex flex-col gap-2">
-              <p className={`text-xs font-semibold tracking-widest uppercase ${cfg.eyebrow}`}>
+              <p className={`text-xs text-white ${cfg.eyebrow}`}>
                 {eyebrowText}
               </p>
               <h3 className={`text-2xl lg:text-3xl leading-tight ${cfg.heading} ${cooper.className}`}>
@@ -97,13 +97,14 @@ export function BottomCTA({
                 <Button
                   variant={cfg.buttonVariant}
                   size="lg"
+                  className={cooper.className}
                   onClick={() => setIsBookCallOpen(true)}
                 >
                   {primaryButtonText}
                 </Button>
               ) : (
                 <Link href={primaryHref}>
-                  <Button variant={cfg.buttonVariant} size="lg">
+                  <Button variant={cfg.buttonVariant} size="lg" className={cooper.className}>
                     {primaryButtonText}
                   </Button>
                 </Link>
@@ -113,6 +114,7 @@ export function BottomCTA({
                   <Button
                     variant={cfg.buttonVariant === "secondary" ? "primary" : "secondary"}
                     size="lg"
+                    className={cooper.className}
                   >
                     {secondaryButtonText}
                   </Button>
