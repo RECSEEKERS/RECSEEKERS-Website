@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { cooper } from "@/lib/fonts";
 import { DoodleFloat } from "@/components/ui/DoodleFloat";
 
@@ -42,11 +45,106 @@ export default function RecruitmentPage() {
 				</div>
 			</section>
 
-			<section className="relative border-t-4 bg-white px-8 py-14 md:py-18 overflow-hidden">
+			<section className="relative border-t-4 border-black bg-white px-8 py-14 md:py-18 overflow-hidden">
 				<div className="max-w-6xl mx-auto w-full">
 					<h2 className={`text-4xl md:text-5xl text-neutral-900 ${cooper.className}`}>
-						Markets We Cover
+						Desks We Cover
 					</h2>
+					<p className="mt-5 text-lg text-neutral-700 max-w-3xl leading-relaxed">
+						Education recruitment is not one market. We work across the desks and specialisms that shape the sector, helping agencies hire recruiters who already understand the pace, candidate base and commercial demands of their niche.
+					</p>
+
+					<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 items-stretch">
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								Primary
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Recruiters working across long-term, permanent and supply desks.
+							</p>
+							</motion.article>
+
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								Secondary
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Consultants covering subject-led and mainstream secondary markets.
+							</p>
+							</motion.article>
+
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								SEND
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Recruiters specialising in specialist education and inclusion-focused hiring.
+							</p>
+							</motion.article>
+
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								Early Years
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Desk specialists working with nurseries and early years settings.
+							</p>
+							</motion.article>
+
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								Tuition / Alternative Provision
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Recruiters operating in high-demand, fast-moving support markets.
+							</p>
+							</motion.article>
+
+						<motion.article
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+							className="rounded-3xl border-4 border-black bg-white p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+						>
+							<h3 className={`${cooper.className} text-3xl text-black mb-3`}>
+								EdTech
+							</h3>
+							<p className="text-base md:text-lg text-black/85 leading-relaxed">
+								Talent aligned to education-focused technology and service providers.
+							</p>
+							</motion.article>
+					</div>
 				</div>
 			</section>
 
