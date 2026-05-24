@@ -42,20 +42,10 @@ export default function AboutPage() {
       {/* --- Hero / Heading Section --- */}
       <section className="relative min-h-[48vh] flex flex-col bg-primary items-center border-black border-b-4 justify-center px-5 md:px-8 pt-20 md:pt-24 pb-10 md:pb-12 overflow-hidden">
         <div className="relative max-w-6xl w-full z-20">
-          {/* Primary mobile accent */}
-          <DoodleFloat
-            name="pencil-2"
-            size={92}
-            delay={0.12}
-            className="absolute -top-2 right-0 md:hidden z-40 pointer-events-none opacity-55"
-          />
 
           {/* Secondary desktop accents */}
           <div className="absolute top-0 -left-14 lg:-left-24 xl:-left-30 hidden md:block z-40 pointer-events-none">
-            <DoodleFloat name={"gradcap-2"} size={96} delay={0.1} />
-          </div>
-          <div className="absolute bottom-0 -right-12 lg:-right-24 xl:-right-30 hidden md:block z-40 pointer-events-none">
-            <DoodleFloat name={"globe"} size={124} delay={1.2} />
+            <DoodleFloat name={"globe"} size={96} delay={0.1} />
           </div>
 
           <div className="relative z-10">
@@ -67,7 +57,7 @@ export default function AboutPage() {
               <div className="w-full lg:col-span-2 flex flex-col gap-6 md:gap-8">
                 <div className="relative md:pl-7">
                   <div
-                    className="accent-bar absolute left-0 top-0 w-[7px] rounded-full bg-white hidden md:block"
+                    className="accent-bar absolute left-0 top-0 w-[7px] bg-white hidden md:block"
                     style={{ height: 0 }}
                   />
 
