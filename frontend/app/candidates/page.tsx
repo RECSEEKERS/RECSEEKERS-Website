@@ -118,7 +118,7 @@ export default function Candidates() {
 
       {/* --- IS THIS RIGHT FOR YOU SECTION --- */}
       <section className="relative z-20 bg-[#fff8f1] border-t-4 border-black px-8 py-24 overflow-hidden">
-        <div className="absolute top-10 left-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
+        <div className="absolute top-10 right-4 md:left-12 z-40 pointer-events-none opacity-55 sm:opacity-70 md:opacity-100 scale-75 md:scale-100">
           <DoodleFloat name={"lightbulb"} size={84} delay={0.1} />
         </div>
         <div className="absolute bottom-8 right-10 hidden md:block z-40 pointer-events-none">
