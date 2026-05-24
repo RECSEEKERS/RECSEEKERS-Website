@@ -91,13 +91,13 @@ export default function AboutPage() {
                 {statCards.map((card, i) => (
                   <div
                     key={card.title}
-                    className="flex items-center gap-4 md:gap-5 p-4 md:p-6 border-4 rounded-3xl md:rounded-4xl bg-white relative z-10"
+                    className="flex items-center gap-4 md:gap-5 p-4 md:p-5 border border-black/15 rounded-3xl bg-white shadow-[0_16px_36px_rgba(0,0,0,0.08)] relative z-10"
                     style={{
                       animation: `slideInRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) both`,
                       animationDelay: `${i * 0.15}s`,
                     }}
                   >
-                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl border-4 border-black bg-primary flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-black">
+                    <div className="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl border border-black/15 bg-tertiary flex items-center justify-center shadow-[0_6px_14px_rgba(0,0,0,0.08)] text-black">
                       {card.icon}
                     </div>
                     <p className={`${cooper.className} text-base md:text-lg leading-snug text-black`}>
