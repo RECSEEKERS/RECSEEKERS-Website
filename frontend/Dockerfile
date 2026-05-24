@@ -6,6 +6,8 @@ RUN npm ci
 FROM node:22.13.1-bookworm-slim AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
+ARG NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Test-only config override for image optimization behavior during Docker builds.
