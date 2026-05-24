@@ -125,9 +125,6 @@ export default function Footer() {
                                     </li>
                                 ))}
                             </ul>
-                            <Link href="/contact" className="font-cooper inline-block rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-primary-dark">
-                                Contact us
-                            </Link>
                         </div>
                     </section>
                 </div>
