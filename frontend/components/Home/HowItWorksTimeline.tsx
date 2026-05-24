@@ -71,8 +71,8 @@ const steps = [
   },
   {
     number: "4",
-    title: "Success-based model",
-    body: "No placement, no fee. For key hires, we work on a retained basis.",
+    title: "Choose the right fit",
+    body: "We align the engagement model to your hiring goals, urgency, and volume so you get the best outcome with minimal risk.",
     icon: StepCheckIcon,
   },
 ] as const;
