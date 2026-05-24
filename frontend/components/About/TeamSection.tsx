@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { cooper } from '@/lib/fonts';
 import { BlobPortrait } from './BlobPortrait';
 import type { TeamMember } from './BlobPortrait';
-import DoodleFloat from '@/components/ui/DoodleFloat'; // Imported DoodleFloat
 
 const teamMembers: TeamMember[] = [
   {
@@ -71,7 +70,7 @@ export function TeamSection() {
 
   return (
     // Added overflow-hidden to prevent horizontal scrolling when doodles push past the edge
-    <section className="relative w-full overflow-hidden bg-[#da8da0] border-t-4 border-black pt-14 md:pt-16 pb-20 md:pb-28 px-5 md:px-8 z-10">
+    <section className="relative w-full overflow-hidden bg-[#fff8f1] border-t-4 border-black pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 z-10">
       
       {/* Centered container for both doodles and content. Added w-full so absolute positioning works correctly */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -124,12 +123,12 @@ export function TeamSection() {
               Meet the Team
             </h2>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10 md:gap-12">
             {teamMembers.map((member, i) => (
               <div
                 key={member.name}
                 ref={(el) => { cardRefs.current[i] = el; }}
-                className="team-card border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl overflow-hidden bg-black!"
+                className="team-card rounded-3xl overflow-hidden border border-black/15 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
                 <BlobPortrait
