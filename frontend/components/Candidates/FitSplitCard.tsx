@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type FitPanel = {
   title: string;
@@ -82,47 +82,78 @@ interface FitSplitCardProps {
 export function FitSplitCard({ cooperClassName }: FitSplitCardProps) {
   const [activePanel, setActivePanel] = useState<number>(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const panelRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const mobileQuery = window.matchMedia("(max-width: 767px)");
-    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
     const syncViewportState = () => {
       const mobile = mobileQuery.matches;
       setIsMobile(mobile);
-      setPrefersReducedMotion(reduceMotionQuery.matches);
-      if (!mobile) {
-        setActivePanel(0);
-      }
+      setActivePanel(mobile ? 1 : -1);
     };
 
     syncViewportState();
     mobileQuery.addEventListener("change", syncViewportState);
-    reduceMotionQuery.addEventListener("change", syncViewportState);
 
     return () => {
       mobileQuery.removeEventListener("change", syncViewportState);
-      reduceMotionQuery.removeEventListener("change", syncViewportState);
     };
   }, []);
 
   useEffect(() => {
-    if (!isMobile || prefersReducedMotion) return;
+    if (typeof window === "undefined" || !isMobile) return;
 
-    const intervalId = window.setInterval(() => {
-      setActivePanel((prev) => (prev + 1) % fitPanels.length);
-    }, 2000);
+    let frameId = 0;
+
+    const updateActivePanel = () => {
+      if (!containerRef.current) return;
+      const viewportCenter = window.innerHeight / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      panelRefs.current.forEach((panel, index) => {
+        if (!panel) return;
+        const rect = panel.getBoundingClientRect();
+        const panelCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(panelCenter - viewportCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActivePanel(closestIndex);
+    };
+
+    const onScroll = () => {
+      if (frameId) return;
+      frameId = window.requestAnimationFrame(() => {
+        updateActivePanel();
+        frameId = 0;
+      });
+    };
+
+    updateActivePanel();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
 
     return () => {
-      window.clearInterval(intervalId);
+      if (frameId) window.cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
-  }, [isMobile, prefersReducedMotion]);
+  }, [isMobile]);
 
   return (
-    <div className="bg-white border-4 border-black rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+    <div
+      ref={containerRef}
+      className="bg-white border-4 border-black rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden"
+    >
       <div className="grid grid-cols-1 md:grid-cols-3">
         {fitPanels.map((panel, index) => {
           const isActive = activePanel === index;
@@ -131,13 +162,25 @@ export function FitSplitCard({ cooperClassName }: FitSplitCardProps) {
             <button
               key={panel.title}
               type="button"
+              ref={(el) => {
+                panelRefs.current[index] = el;
+              }}
+              data-index={index}
               onMouseEnter={() => {
                 if (!isMobile) setActivePanel(index);
+              }}
+              onMouseLeave={() => {
+                if (!isMobile) setActivePanel(-1);
               }}
               onFocus={() => {
                 if (!isMobile) setActivePanel(index);
               }}
-              onClick={() => setActivePanel(index)}
+              onBlur={() => {
+                if (!isMobile) setActivePanel(-1);
+              }}
+              onClick={() => {
+                if (isMobile) setActivePanel(index);
+              }}
               className={`text-left h-full p-7 md:p-8 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black/35 ${
                 index < fitPanels.length - 1
                   ? "border-b-4 md:border-b-0 md:border-r-4 border-black"

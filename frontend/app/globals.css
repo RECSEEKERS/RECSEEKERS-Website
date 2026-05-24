@@ -120,13 +120,13 @@
 
 /* ── About page: blob portrait morphing ── */
 .blob-portrait {
-  width: 16rem;
-  height: 16rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: morphBlob 14s ease-in-out infinite alternate;
   overflow: hidden;
-  border: 5px solid #111;
-  box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.28);
+  border: 3px solid #111;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
   flex-shrink: 0;
 }
 
@@ -139,7 +139,7 @@
 }
 
 @media (max-width: 1024px) {
-  .blob-portrait { width: 12rem; height: 12rem; }
+  .blob-portrait { width: 10rem; height: 10rem; }
 }
 
 /* ── Clients ticker ── */

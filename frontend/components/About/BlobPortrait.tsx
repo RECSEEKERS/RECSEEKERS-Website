@@ -19,7 +19,6 @@ interface BlobPortraitProps {
 
 export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPortraitProps) {
   const [expanded, setExpanded] = useState(false);
-  const num = String(index + 1).padStart(2, '0');
   const mobileBioLimit = 220;
   const mobileTruncatedBio =
     member.bio.length > mobileBioLimit
@@ -27,13 +26,7 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
       : member.bio;
 
   const imageCol = (
-    <div className="relative flex flex-col items-center justify-center gap-5 py-8 md:py-12 px-5 md:px-8 bg-primary-dark min-h-[280px] md:min-h-[340px] h-full">
-      {/* Large decorative number
-      <span
-        className={`${cooper.className} absolute top-4 left-6 text-7xl leading-none text-white/10 select-none`}
-      >
-        {num}
-      </span> */}
+    <div className="relative flex items-center justify-center py-8 md:py-9 px-4 md:px-6 bg-tertiary min-h-[220px] md:min-h-[260px] h-full">
       <div className="blob-portrait relative z-10">
         <Image
           src={member.image}
@@ -43,30 +36,25 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
           sizes="352px"
         />
       </div>
-      {/* Name + role badge */}
-      <div className="z-10 text-center">
-        <h3 className={`${cooper.className} text-2xl md:text-3xl text-white leading-tight`}>
-          {member.name}
-        </h3>
-        <span
-          className={`${cooper.className} inline-block mt-2 px-4 py-1 bg-[#da8da0] border-2 border-white text-black text-sm`}
-        >
-          {member.role}
-        </span>
-      </div>
     </div>
   );
 
   const bioCol = (
-    <div className="flex flex-col justify-center gap-4 bg-white px-6 md:px-10 py-8 md:py-12 h-full">
-      {/* Decorative quote mark */}
-      <span className={`${cooper.className} text-6xl md:text-7xl leading-none text-[#da8da0] select-none -mb-4`}>&ldquo;</span>
+    <div className="flex flex-col justify-center gap-3 bg-white px-5 md:px-8 py-6 md:py-8 h-full">
+      <div>
+        <h3 className={`${cooper.className} text-xl md:text-2xl text-black leading-tight`}>
+          {member.name}
+        </h3>
+        <p className="mt-1 text-xs md:text-sm text-black/60 uppercase tracking-wide">
+          {member.role}
+        </p>
+      </div>
 
-      <p className="hidden md:block text-lg text-black leading-relaxed whitespace-pre-wrap">
+      <p className="hidden md:block text-base text-black leading-relaxed whitespace-pre-wrap">
         {member.bio}
       </p>
 
-      <p className="md:hidden text-base text-black/85 leading-relaxed">
+      <p className="md:hidden text-sm text-black/85 leading-relaxed">
         {expanded ? member.bio : mobileTruncatedBio}
       </p>
 
@@ -81,15 +69,14 @@ export function BlobPortrait({ member, index = 0, imageSide = 'left' }: BlobPort
         </button>
       )}
 
-      {/* Bottom accent */}
-      <div className="mt-4 w-16 h-1.5 bg-[#da8da0]" />
+      <div className="mt-3 w-10 h-1 bg-[#da8da0]" />
     </div>
   );
 
   return (
     <div
       className={`grid grid-cols-1 gap-0 items-stretch h-full ${
-        imageSide === 'left' ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'
+        imageSide === 'left' ? 'lg:grid-cols-[5fr_7fr]' : 'lg:grid-cols-[7fr_5fr]'
       }`}
     >
       {imageSide === 'left' ? (
