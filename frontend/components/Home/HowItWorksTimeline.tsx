@@ -54,25 +54,29 @@ const steps = [
   {
     number: "1",
     title: "We get to know you",
-    body: "We build long-term relationships with top education recruiters and agencies.",
+    desktopBody: "We build long-term relationships with top education recruiters and agencies.",
+    mobileBody: "We build strong relationships with top recruiters and agencies.",
     icon: StepChatIcon,
   },
   {
     number: "2",
     title: "We understand the detail",
-    body: "Performance, motivations, career goals, and ideal environment.",
+    desktopBody: "Performance, motivations, career goals, and ideal environment.",
+    mobileBody: "We map performance, motivations, and ideal environment.",
     icon: StepGraphIcon,
   },
   {
     number: "3",
     title: "We introduce only genuine upgrades",
-    body: "Selective, confidential introductions where there is a real step up for both sides.",
+    desktopBody: "Selective, confidential introductions where there is a real step up for both sides.",
+    mobileBody: "We make selective introductions where there is real mutual upside.",
     icon: StepHandshakeIcon,
   },
   {
     number: "4",
     title: "Choose the right fit",
-    body: "We align the engagement model to your hiring goals, urgency, and volume so you get the best outcome with minimal risk.",
+    desktopBody: "We align the engagement model to your hiring goals, urgency, and volume so you get the best outcome with minimal risk.",
+    mobileBody: "We align the engagement model to your goals, so you get the best outcome.",
     icon: StepCheckIcon,
   },
 ] as const;
@@ -131,11 +135,11 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
             return (
               <motion.article
                 key={step.number}
-                initial={{ opacity: 0, y: 48, x: isRight ? 36 : -36 }}
+                initial={{ opacity: 0, y: 48 }}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
-                className={`relative w-full max-w-lg md:w-[90%] self-center ${isRight ? "md:self-end md:mr-[2%]" : "md:self-start md:ml-[2%]"}`}
+                className={`relative w-full max-w-lg self-center md:w-[90%] ${isRight ? "md:self-end md:mr-[2%]" : "md:self-start md:ml-[2%]"}`}
               >
                 <div className="relative rounded-3xl border-4 border-black bg-white p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <motion.div
@@ -155,15 +159,14 @@ export function HowItWorksTimeline({ cooperClassName }: HowItWorksTimelineProps)
                     {step.title}
                   </h3>
                   <p
-                    className="text-base text-black/80 leading-relaxed"
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
+                    className="timeline-step-body text-sm md:text-base text-black/80 leading-relaxed md:hidden"
                   >
-                    {step.body}
+                    {step.mobileBody}
+                  </p>
+                  <p
+                    className="timeline-step-body hidden md:block text-sm md:text-base text-black/80 leading-relaxed"
+                  >
+                    {step.desktopBody}
                   </p>
                 </div>
               </motion.article>

@@ -156,7 +156,7 @@ export default function ContactPage() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-2xl border-4 border-black bg-primary px-6 py-3 text-lg font-medium text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-none focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 font-cooper"
                 >
-                  Give us a review!
+                  Leave us a Google Review!
                 </Link>
               </div>
 
